@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mapasolucoesdigitais.com.br/sitemap.xml
