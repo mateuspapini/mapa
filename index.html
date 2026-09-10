@@ -554,6 +554,28 @@
        PORTFÓLIO
     ════════════════════════════════════ */
     #portfolio{padding:6rem 1.5rem;background:var(--bg)}
+
+    /* ── Calculadoras gratuitas ── */
+    #calculadoras{padding:6rem 1.5rem;background:var(--bg2)}
+    .calc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:2rem}
+    .calc-card{
+      display:flex;flex-direction:column;gap:.55rem;padding:1.5rem 1.4rem;
+      background:var(--card);border:1px solid var(--bdr);border-radius:16px;
+      text-decoration:none;color:inherit;position:relative;overflow:hidden;
+      transition:transform .25s,border-color .25s,box-shadow .25s;
+    }
+    .calc-card::before{content:"";position:absolute;inset:0 0 auto;height:3px;background:var(--grad);
+      opacity:0;transition:opacity .25s}
+    .calc-card:hover{transform:translateY(-4px);border-color:rgba(0,200,245,.35);
+      box-shadow:0 18px 44px -26px rgba(0,200,245,.5)}
+    .calc-card:hover::before{opacity:1}
+    .calc-ico{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;
+      font-size:1.35rem;background:var(--grad);margin-bottom:.35rem}
+    .calc-card h3{font-size:1rem;font-weight:700;line-height:1.35}
+    .calc-card p{font-size:.83rem;color:var(--t2);line-height:1.6;flex:1}
+    .calc-go{font-size:.8rem;font-weight:700;color:var(--accent);margin-top:.4rem}
+    .calc-note{margin-top:1.6rem;font-size:.8rem;color:var(--t3);text-align:center}
+    @media(max-width:900px){.calc-grid{grid-template-columns:1fr}}
     /* Portfólio – filtros */
     .pf-filters{display:flex;gap:.65rem;flex-wrap:wrap;margin:1.75rem 0 2rem}
     .pf-btn{
@@ -918,6 +940,7 @@
       <li role="none"><a href="#sobre" role="menuitem">Sobre</a></li>
       <li role="none"><a href="#servicos" role="menuitem">Serviços</a></li>
       <li role="none"><a href="#portfolio" role="menuitem">Portfólio</a></li>
+      <li role="none"><a href="#calculadoras" role="menuitem">Calculadoras</a></li>
       <li role="none">
         <a href="https://wa.me/5531989190373?text=Ol%C3%A1%2C+vim+pelo+site+e+gostaria+de+um+or%C3%A7amento!"
            class="nav-cta" target="_blank" rel="noopener noreferrer" role="menuitem">
@@ -1288,7 +1311,99 @@
           </div>
         </article>
 
+        <article class="pf-card" data-t="saas" data-id="calc-trabalhista"
+          role="button" tabindex="0"
+          aria-label="Ver projeto: Plataforma de Cálculo Trabalhista">
+          <div class="pf-thumb" style="--thumb-grad:linear-gradient(135deg,#0284c7,#4f46e5)">
+            <img src="assets/img/portfolio/calculadora-trabalhista.webp" alt="" loading="lazy">
+            <div class="pf-thumb-cta" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+              Ver projeto
+            </div>
+            <span class="pf-badge">SaaS</span>
+          </div>
+          <div class="pf-info">
+            <h3>Plataforma de Cálculo Trabalhista</h3>
+            <p>Calculadora de rescisão com aviso proporcional, INSS, IRRF e multa do FGTS.</p>
+          </div>
+        </article>
+
+        <article class="pf-card" data-t="saas" data-id="calc-climatizacao"
+          role="button" tabindex="0"
+          aria-label="Ver projeto: Plataforma de Dimensionamento de Climatização">
+          <div class="pf-thumb" style="--thumb-grad:linear-gradient(135deg,#0891b2,#2563eb)">
+            <img src="assets/img/portfolio/calculadora-climatizacao.webp" alt="" loading="lazy">
+            <div class="pf-thumb-cta" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+              Ver projeto
+            </div>
+            <span class="pf-badge">SaaS</span>
+          </div>
+          <div class="pf-info">
+            <h3>Plataforma de Dimensionamento de Climatização</h3>
+            <p>Calculadora de BTUs que dimensiona o aparelho e estima o consumo mensal.</p>
+          </div>
+        </article>
+
+        <article class="pf-card" data-t="saas" data-id="calc-reformas"
+          role="button" tabindex="0"
+          aria-label="Ver projeto: Plataforma de Estimativa de Valores de Reformas">
+          <div class="pf-thumb" style="--thumb-grad:linear-gradient(135deg,#7c3aed,#2563eb)">
+            <img src="assets/img/portfolio/calculadora-reformas.webp" alt="" loading="lazy">
+            <div class="pf-thumb-cta" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+              Ver projeto
+            </div>
+            <span class="pf-badge">SaaS</span>
+          </div>
+          <div class="pf-info">
+            <h3>Plataforma de Estimativa de Valores de Reformas</h3>
+            <p>Calculadora de custo de obra por m², com reserva para imprevisto e prazo.</p>
+          </div>
+        </article>
+
       </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════
+       CALCULADORAS GRATUITAS
+  ══════════════════════════════════ -->
+  <section id="calculadoras" aria-label="Calculadoras gratuitas da MAPA Soluções Digitais">
+    <div class="inner">
+      <span class="tag">Ferramentas gratuitas</span>
+      <h2>Calculadoras que você<br>pode usar agora</h2>
+      <p class="sub">
+        Três ferramentas que construímos e deixamos abertas para qualquer pessoa usar.
+        São o mesmo tipo de calculadora que colocamos dentro do site dos nossos clientes
+        para transformar visita em conversa no WhatsApp.
+      </p>
+
+      <div class="calc-grid">
+        <a class="calc-card" href="/calculadora-rescisao-trabalhista/">
+          <span class="calc-ico" aria-hidden="true">⚖️</span>
+          <h3>Rescisão trabalhista</h3>
+          <p>Descubra quanto você tem a receber ao sair do emprego, com aviso prévio proporcional, FGTS e as tabelas de INSS e Imposto de Renda de 2026.</p>
+          <span class="calc-go">Abrir calculadora →</span>
+        </a>
+
+        <a class="calc-card" href="/calculadora-btu-ar-condicionado/">
+          <span class="calc-ico" aria-hidden="true">❄️</span>
+          <h3>BTU para ar-condicionado</h3>
+          <p>Dimensione a capacidade certa para o ambiente considerando metragem, sol, pessoas e aparelhos — e veja o custo mensal na conta de luz.</p>
+          <span class="calc-go">Abrir calculadora →</span>
+        </a>
+
+        <a class="calc-card" href="/calculadora-custo-de-reforma/">
+          <span class="calc-ico" aria-hidden="true">🧱</span>
+          <h3>Custo de reforma por m²</h3>
+          <p>Uma faixa realista de investimento antes do primeiro orçamento, com divisão entre material e mão de obra e reserva para imprevisto.</p>
+          <span class="calc-go">Abrir calculadora →</span>
+        </a>
+      </div>
+
+      <p class="calc-note">Uso livre e sem cadastro. Os resultados são estimativas e não substituem orientação profissional.</p>
     </div>
   </section>
 
@@ -1489,6 +1604,7 @@
         <li><a href="#sobre">Sobre</a></li>
         <li><a href="#servicos">Serviços</a></li>
         <li><a href="#portfolio">Portfólio</a></li>
+        <li><a href="#calculadoras">Calculadoras</a></li>
       </ul>
     </div>
 

@@ -263,6 +263,48 @@
         {v:'100%',l:'Pensando em SEO e GEO'}
       ],
       videos:[]
+    },
+    'calc-trabalhista':{
+      badge:'SaaS',
+      title:'Plataforma de Cálculo Trabalhista',
+      url:'/calculadora-rescisao-trabalhista/',
+      ctaKey:'openCalc',
+      desc:'Calculadora pública de rescisão trabalhista construída do zero, com o motor de cálculo separado da interface e coberto por testes automatizados. Trata os quatro tipos de desligamento, aplica o aviso prévio proporcional da Lei 12.506/2011 com a projeção que empurra a data de saída na carteira, calcula 13º e férias pela regra dos avos e aplica INSS e IRRF em bases separadas — incluindo o redutor da Lei 15.270/2025, que zera o imposto de quem recebe até R$ 5.000. Verbas indenizatórias aparecem marcadas como isentas, que é o erro mais comum das calculadoras concorrentes.',
+      tags:['CLT','INSS 2026','IRRF + Lei 15.270','FGTS','Aviso proporcional','SEO & GEO','Sem backend'],
+      results:[
+        {v:'73',l:'Testes automatizados'},
+        {v:'4',l:'Tipos de desligamento'},
+        {v:'2026',l:'Tabelas INSS e IRRF'}
+      ],
+      videos:[]
+    },
+    'calc-climatizacao':{
+      badge:'SaaS',
+      title:'Plataforma de Dimensionamento de Climatização',
+      url:'/calculadora-btu-ar-condicionado/',
+      ctaKey:'openCalc',
+      desc:'Calculadora de carga térmica que dimensiona o aparelho de ar-condicionado a partir da metragem, do pé-direito, da insolação, do número de pessoas e dos aparelhos que esquentam o ambiente. O resultado é sempre arredondado para cima até uma capacidade que realmente existe no mercado brasileiro, e a mesma tela estima o consumo mensal em kWh e em reais, comparando inverter e convencional.',
+      tags:['Carga térmica','Capacidades comerciais','Consumo em kWh','Inverter x convencional','SEO & GEO','Sem backend'],
+      results:[
+        {v:'11',l:'Capacidades comerciais'},
+        {v:'6',l:'Variáveis no cálculo'},
+        {v:'2',l:'Saídas: BTU e consumo'}
+      ],
+      videos:[]
+    },
+    'calc-reformas':{
+      badge:'SaaS',
+      title:'Plataforma de Estimativa de Valores de Reformas',
+      url:'/calculadora-custo-de-reforma/',
+      ctaKey:'openCalc',
+      desc:'Estimador de custo de obra por metro quadrado ancorado no SINAPI do IBGE, com multiplicadores por profundidade da reforma, padrão de acabamento e região. Trata banheiro e cozinha como adicionais, porque não seguem a média da casa, e devolve uma faixa em vez de um número único — junto da divisão entre material e mão de obra, do prazo e da reserva para imprevisto que quase nenhum orçamento inclui.',
+      tags:['SINAPI','CUB','Custo por m²','Material x mão de obra','Contingência','SEO & GEO'],
+      results:[
+        {v:'4',l:'Níveis de reforma'},
+        {v:'3',l:'Padrões de acabamento'},
+        {v:'SINAPI',l:'Base oficial de custo'}
+      ],
+      videos:[]
     }
   };
 
@@ -350,7 +392,7 @@
       <div class="pf-modal-tags">${tags}</div>
       ${vidSec}
       ${d.url ? `<a href="${d.url}" class="pf-modal-cta-sec" target="_blank" rel="noopener noreferrer">
-        ${(I18N[window._mapLang||'pt']||I18N.pt).pf.viewSite}
+        ${(I18N[window._mapLang||'pt']||I18N.pt).pf[d.ctaKey||'viewSite']}
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
       </a>` : ''}
       <a href="https://wa.me/5531989190373?text=${waTxt}"
@@ -463,6 +505,7 @@
   const I18N = {
     pt: {
       nav:{ home:'Home', sobre:'Sobre', servicos:'Serviços', portfolio:'Portfólio',
+            calculadoras:'Calculadoras',
             cta:'Orçamento grátis →', menuLabel:'Abrir menu' },
       hero:{
         badge:'✦ Soluções Digitais Completas',
@@ -513,6 +556,7 @@
         viewBtn:'Ver projeto', viewProjectPrefix:'Ver projeto: ',
         videosLabel:'Vídeos entregues neste projeto',
         viewSite:'Ver site →',
+        openCalc:'Abrir calculadora →',
         modalCta:'Quero um projeto similar',
         waMsg:'Olá! Vi o portfólio da MAPA e quero um projeto parecido com: ',
         cards:[
@@ -522,7 +566,22 @@
           {title:'SaaS para Confeiteiras',               p:'Sistema 100% personalizado que resolve as dores específicas do cliente.',                             badge:'SaaS'},
           {title:'Site Institucional para Escritório de Advocacia', p:'Landing page com SEO local, blog jurídico e formulário de captação de leads.',           badge:'Site'},
           {title:'Canal de Drone no YouTube',p:'Edição completa de vídeos aéreos em 4K com color grading, animações e thumbnails para YouTube.',               badge:'Edição de Vídeo'},
-          {title:'Floricultura na Nuvemshop',             p:'Loja virtual do zero: pagamento, envio, plugins, produtos, banners, SEO e GEO.',                      badge:'E-commerce'}
+          {title:'Floricultura na Nuvemshop',             p:'Loja virtual do zero: pagamento, envio, plugins, produtos, banners, SEO e GEO.',                      badge:'E-commerce'},
+          {title:'Plataforma de Cálculo Trabalhista',              p:'Calculadora de rescisão com aviso proporcional, INSS, IRRF e multa do FGTS.',                       badge:'SaaS'},
+          {title:'Plataforma de Dimensionamento de Climatização',  p:'Calculadora de BTUs que dimensiona o aparelho e estima o consumo mensal.',                          badge:'SaaS'},
+          {title:'Plataforma de Estimativa de Valores de Reformas',p:'Calculadora de custo de obra por m², com reserva para imprevisto e prazo.',                         badge:'SaaS'}
+        ]
+      },
+      calc:{
+        tag:'Ferramentas gratuitas',
+        h2:'Calculadoras que você<br>pode usar agora',
+        sub:'Três ferramentas que construímos e deixamos abertas para qualquer pessoa usar. São o mesmo tipo de calculadora que colocamos dentro do site dos nossos clientes para transformar visita em conversa no WhatsApp.',
+        cta:'Abrir calculadora →',
+        note:'Uso livre e sem cadastro. Os resultados são estimativas e não substituem orientação profissional.',
+        cards:[
+          {title:'Rescisão trabalhista', p:'Descubra quanto você tem a receber ao sair do emprego, com aviso prévio proporcional, FGTS e as tabelas de INSS e Imposto de Renda de 2026.'},
+          {title:'BTU para ar-condicionado', p:'Dimensione a capacidade certa para o ambiente considerando metragem, sol, pessoas e aparelhos — e veja o custo mensal na conta de luz.'},
+          {title:'Custo de reforma por m²', p:'Uma faixa realista de investimento antes do primeiro orçamento, com divisão entre material e mão de obra e reserva para imprevisto.'}
         ]
       },
       faq:{
@@ -547,7 +606,7 @@
             btn1:'💬 Falar no WhatsApp', btn2:'✉️ Enviar e-mail' },
       ft:{
         brandp:'Agência de soluções digitais em Belo Horizonte, MG. Edição de vídeo profissional, e-commerce (Nuvemshop, Loja Integrada, Tray), SaaS sob medida, consultoria e criação de sites para todo o Brasil.',
-        nav:{ title:'Navegação', links:['Home','Sobre','Serviços','Portfólio'] },
+        nav:{ title:'Navegação', links:['Home','Sobre','Serviços','Portfólio','Calculadoras'] },
         srv:{ title:'Serviços', links:['Edição de Vídeo','E-commerce','SaaS sob Medida','Consultoria Digital','Criação de Sites'] },
         contact:{ title:'Contato', city:'Belo Horizonte, MG', remote:'Atendimento remoto para todo o Brasil' },
         copyright:'© 2026 MAPA Soluções Digitais. Todos os direitos reservados.',
@@ -557,6 +616,7 @@
 
     en: {
       nav:{ home:'Home', sobre:'About', servicos:'Services', portfolio:'Portfolio',
+            calculadoras:'Calculators',
             cta:'Free Quote →', menuLabel:'Open menu' },
       hero:{
         badge:'✦ Complete Digital Solutions',
@@ -607,6 +667,7 @@
         viewBtn:'View project', viewProjectPrefix:'View project: ',
         videosLabel:'Videos delivered in this project',
         viewSite:'View site →',
+        openCalc:'Open calculator →',
         modalCta:'I want a similar project',
         waMsg:'Hi! I saw the MAPA portfolio and want a project similar to: ',
         cards:[
@@ -616,7 +677,22 @@
           {title:'SaaS for Pastry Chefs',               p:'100% custom system built to solve the client\'s specific pain points.',                          badge:'SaaS'},
           {title:'Institutional Site for a Law Firm', p:'Landing page with local SEO, legal blog and lead capture form.',                                   badge:'Site'},
           {title:'Drone YouTube Channel',p:'Complete editing of 4K aerial videos with color grading, animations and thumbnails for YouTube.',               badge:'Video Editing'},
-          {title:'Flower Shop on Nuvemshop',           p:'Online store from scratch: payments, shipping, plugins, products, banners, SEO & GEO.',              badge:'E-commerce'}
+          {title:'Flower Shop on Nuvemshop',           p:'Online store from scratch: payments, shipping, plugins, products, banners, SEO & GEO.',              badge:'E-commerce'},
+          {title:'Labor Law Calculation Platform',      p:'Severance calculator with proportional notice, social security, income tax and FGTS penalty.',        badge:'SaaS'},
+          {title:'HVAC Sizing Platform',                p:'BTU calculator that sizes the unit and estimates monthly running cost.',                              badge:'SaaS'},
+          {title:'Renovation Cost Estimation Platform', p:'Construction cost calculator per m², with contingency reserve and timeline.',                          badge:'SaaS'}
+        ]
+      },
+      calc:{
+        tag:'Free tools',
+        h2:'Calculators you can<br>use right now',
+        sub:'Three tools we built and left open for anyone to use. They are the same kind of calculator we put inside our clients\' websites to turn a visit into a WhatsApp conversation.',
+        cta:'Open calculator →',
+        note:'Free to use, no sign-up. Results are estimates and do not replace professional advice.',
+        cards:[
+          {title:'Severance pay', p:'Find out what you are owed when leaving a job, with proportional notice, FGTS and the 2026 social security and income tax tables.'},
+          {title:'Air conditioning BTU', p:'Size the right capacity for the room based on area, sun exposure, people and appliances — and see the monthly running cost.'},
+          {title:'Renovation cost per m²', p:'A realistic investment range before the first quote, split between materials and labour, with a contingency reserve.'}
         ]
       },
       faq:{
@@ -641,7 +717,7 @@
             btn1:'💬 Chat on WhatsApp', btn2:'✉️ Send email' },
       ft:{
         brandp:'Digital solutions agency based in Belo Horizonte, Brazil. Professional video editing, e-commerce (Nuvemshop, Loja Integrada, Tray), custom SaaS, consulting and website creation across Brazil.',
-        nav:{ title:'Navigation', links:['Home','About','Services','Portfolio'] },
+        nav:{ title:'Navigation', links:['Home','About','Services','Portfolio','Calculators'] },
         srv:{ title:'Services', links:['Video Editing','E-commerce','Custom SaaS','Digital Consulting','Website Creation'] },
         contact:{ title:'Contact', city:'Belo Horizonte, MG – Brazil', remote:'Remote service for all of Brazil' },
         copyright:'© 2026 MAPA Soluções Digitais. All rights reserved.',
@@ -651,6 +727,7 @@
 
     es: {
       nav:{ home:'Inicio', sobre:'Nosotros', servicos:'Servicios', portfolio:'Portafolio',
+            calculadoras:'Calculadoras',
             cta:'Presupuesto gratis →', menuLabel:'Abrir menú' },
       hero:{
         badge:'✦ Soluciones Digitales Completas',
@@ -701,6 +778,7 @@
         viewBtn:'Ver proyecto', viewProjectPrefix:'Ver proyecto: ',
         videosLabel:'Videos entregados en este proyecto',
         viewSite:'Ver sitio →',
+        openCalc:'Abrir calculadora →',
         modalCta:'Quiero un proyecto similar',
         waMsg:'¡Hola! Vi el portafolio de MAPA y quiero un proyecto parecido a: ',
         cards:[
@@ -710,7 +788,22 @@
           {title:'SaaS para Reposteras',                p:'Sistema 100% personalizado para resolver las necesidades específicas del cliente.',                badge:'SaaS'},
           {title:'Sitio Institucional para Estudio de Abogados',p:'Landing page con SEO local, blog jurídico y formulario de captación de leads.',                badge:'Sitio'},
           {title:'Canal de Drone en YouTube',p:'Edición completa de videos aéreos en 4K con color grading, animaciones y miniaturas para YouTube.',              badge:'Edición de Video'},
-          {title:'Floristería en Nuvemshop',              p:'Tienda virtual desde cero: pagos, envíos, plugins, productos, banners, SEO y GEO.',                   badge:'E-commerce'}
+          {title:'Floristería en Nuvemshop',              p:'Tienda virtual desde cero: pagos, envíos, plugins, productos, banners, SEO y GEO.',                   badge:'E-commerce'},
+          {title:'Plataforma de Cálculo Laboral',        p:'Calculadora de finiquito con preaviso proporcional, seguridad social, impuesto y FGTS.',            badge:'SaaS'},
+          {title:'Plataforma de Dimensionamiento de Climatización',p:'Calculadora de BTU que dimensiona el equipo y estima el consumo mensual.',                 badge:'SaaS'},
+          {title:'Plataforma de Estimación de Costos de Reformas',p:'Calculadora de costo de obra por m², con reserva para imprevistos y plazo.',                badge:'SaaS'}
+        ]
+      },
+      calc:{
+        tag:'Herramientas gratuitas',
+        h2:'Calculadoras que puedes<br>usar ahora mismo',
+        sub:'Tres herramientas que construimos y dejamos abiertas para cualquier persona. Son el mismo tipo de calculadora que colocamos dentro del sitio de nuestros clientes para convertir una visita en una conversación por WhatsApp.',
+        cta:'Abrir calculadora →',
+        note:'Uso libre y sin registro. Los resultados son estimaciones y no sustituyen la orientación profesional.',
+        cards:[
+          {title:'Finiquito laboral', p:'Descubre cuánto te corresponde al salir del empleo, con preaviso proporcional, FGTS y las tablas de seguridad social e impuesto de 2026.'},
+          {title:'BTU para aire acondicionado', p:'Dimensiona la capacidad correcta según metraje, sol, personas y equipos — y mira el costo mensual de energía.'},
+          {title:'Costo de reforma por m²', p:'Un rango realista de inversión antes del primer presupuesto, con división entre material y mano de obra y reserva para imprevistos.'}
         ]
       },
       faq:{
@@ -735,7 +828,7 @@
             btn1:'💬 Chatear en WhatsApp', btn2:'✉️ Enviar correo' },
       ft:{
         brandp:'Agencia de soluciones digitales en Belo Horizonte, Brasil. Edición de video profesional, e-commerce (Nuvemshop, Loja Integrada, Tray), SaaS a medida, consultoría y creación de sitios para todo Brasil.',
-        nav:{ title:'Navegación', links:['Inicio','Nosotros','Servicios','Portafolio'] },
+        nav:{ title:'Navegación', links:['Inicio','Nosotros','Servicios','Portafolio','Calculadoras'] },
         srv:{ title:'Servicios', links:['Edición de Video','E-commerce','SaaS a Medida','Consultoría Digital','Creación de Sitios'] },
         contact:{ title:'Contacto', city:'Belo Horizonte, MG – Brasil', remote:'Atención remota para todo Brasil' },
         copyright:'© 2026 MAPA Soluções Digitais. Todos los derechos reservados.',
@@ -767,7 +860,16 @@
         results:[{v:'2k',l:'Views/month'},{v:'+30',l:'Minutes of edited content'},{v:'+10',l:'Videos in 4K'}]},
       suplementos:{badge:'E-commerce',title:'Flower Shop on Nuvemshop',
         desc:'Flower shop built from scratch on Nuvemshop: payment methods, shipping, plugins, product registration, client tutorials, banners and full customisation. SEO and GEO throughout — from file names and alt attributes to every product description.',
-        results:[{v:'3',l:'Custom plugins'},{v:'15 business days',l:'Average delivery time'},{v:'100%',l:'SEO & GEO focused'}]}
+        results:[{v:'3',l:'Custom plugins'},{v:'15 business days',l:'Average delivery time'},{v:'100%',l:'SEO & GEO focused'}]},
+      'calc-trabalhista':{badge:'SaaS',title:'Labor Law Calculation Platform',
+        desc:'A public Brazilian severance calculator built from scratch, with the calculation engine kept separate from the interface and covered by automated tests. It handles the four types of termination, applies proportional notice under Law 12.506/2011 including the projection that pushes the official leaving date forward, counts thirteenth salary and holiday in twelfths, and applies social security and income tax on separate bases — including the 2025 rebate that zeroes tax for anyone earning up to R$5,000. Indemnity items are flagged as tax-exempt, which is the most common mistake in competing calculators.',
+        results:[{v:'73',l:'Automated tests'},{v:'4',l:'Termination types'},{v:'2026',l:'Tax tables'}]},
+      'calc-climatizacao':{badge:'SaaS',title:'HVAC Sizing Platform',
+        desc:'A cooling load calculator that sizes an air conditioning unit from floor area, ceiling height, sun exposure, number of people and heat-producing appliances. The result always rounds up to a capacity that actually exists on the Brazilian market, and the same screen estimates monthly consumption in kWh and in reais, comparing inverter and conventional units.',
+        results:[{v:'11',l:'Market capacities'},{v:'6',l:'Input variables'},{v:'2',l:'Outputs: BTU and cost'}]},
+      'calc-reformas':{badge:'SaaS',title:'Renovation Cost Estimation Platform',
+        desc:'A construction cost estimator per square metre anchored in SINAPI, the official Brazilian construction cost index, with multipliers for renovation depth, finishing standard and region. Bathrooms and kitchens are treated as add-ons because they do not follow the average, and the output is a range rather than a single number — alongside the material-versus-labour split, the timeline and the contingency reserve that almost no quote includes.',
+        results:[{v:'4',l:'Renovation levels'},{v:'3',l:'Finishing standards'},{v:'SINAPI',l:'Official cost base'}]}
     },
     es:{
       imoveis:{badge:'Edición de Video',title:'Videos para Mercado Inmobiliario',
@@ -790,7 +892,16 @@
         results:[{v:'2k',l:'Views/mes'},{v:'+30',l:'Minutos de contenido editado'},{v:'+10',l:'Videos en 4K'}]},
       suplementos:{badge:'E-commerce',title:'Floristería en Nuvemshop',
         desc:'Floristería creada desde cero en Nuvemshop: configuro medios de pago, formas de envío y plugins, registro productos, armo tutoriales para el cliente, añado banners y dejo el sitio exactamente como el cliente quiere. Todo el trabajo de SEO y GEO se realiza desde el nombre de los archivos y el atributo alt de las imágenes hasta la descripción de cada producto.',
-        results:[{v:'3',l:'Plugins personalizados'},{v:'15 días hábiles',l:'Plazo de entrega promedio'},{v:'100%',l:'Enfocado en SEO y GEO'}]}
+        results:[{v:'3',l:'Plugins personalizados'},{v:'15 días hábiles',l:'Plazo de entrega promedio'},{v:'100%',l:'Enfocado en SEO y GEO'}]},
+      'calc-trabalhista':{badge:'SaaS',title:'Plataforma de Cálculo Laboral',
+        desc:'Calculadora pública de finiquito laboral brasileño construida desde cero, con el motor de cálculo separado de la interfaz y cubierto por pruebas automatizadas. Trata los cuatro tipos de desvinculación, aplica el preaviso proporcional de la Ley 12.506/2011 con la proyección que adelanta la fecha de salida, calcula aguinaldo y vacaciones por doceavos y aplica seguridad social e impuesto sobre bases separadas — incluido el reductor de 2025 que anula el impuesto de quien gana hasta R$5.000. Los conceptos indemnizatorios aparecen marcados como exentos, que es el error más común de las calculadoras de la competencia.',
+        results:[{v:'73',l:'Pruebas automatizadas'},{v:'4',l:'Tipos de desvinculación'},{v:'2026',l:'Tablas fiscales'}]},
+      'calc-climatizacao':{badge:'SaaS',title:'Plataforma de Dimensionamiento de Climatización',
+        desc:'Calculadora de carga térmica que dimensiona el equipo de aire acondicionado a partir del metraje, la altura del techo, la exposición solar, el número de personas y los equipos que generan calor. El resultado siempre se redondea hacia arriba hasta una capacidad que existe en el mercado brasileño, y la misma pantalla estima el consumo mensual en kWh y en reales, comparando inverter y convencional.',
+        results:[{v:'11',l:'Capacidades del mercado'},{v:'6',l:'Variables de cálculo'},{v:'2',l:'Salidas: BTU y consumo'}]},
+      'calc-reformas':{badge:'SaaS',title:'Plataforma de Estimación de Costos de Reformas',
+        desc:'Estimador de costo de obra por metro cuadrado anclado en el SINAPI, el índice oficial brasileño de costos de construcción, con multiplicadores por profundidad de la reforma, estándar de acabado y región. Baño y cocina se tratan como adicionales porque no siguen el promedio, y el resultado es un rango en vez de un número único — junto con la división entre material y mano de obra, el plazo y la reserva para imprevistos que casi ningún presupuesto incluye.',
+        results:[{v:'4',l:'Niveles de reforma'},{v:'3',l:'Estándares de acabado'},{v:'SINAPI',l:'Base oficial de costos'}]}
     }
   };
 
@@ -937,10 +1048,12 @@
 
     /* Nav links */
     const navAs = document.querySelectorAll('.nav-ul li a');
-    ['home','sobre','servicos','portfolio'].forEach((k, i) => {
-      if (navAs[i]) navAs[i].textContent = t.nav[k];
+    const navKeys = ['home','sobre','servicos','portfolio','calculadoras'];
+    navKeys.forEach((k, i) => {
+      if (navAs[i] && t.nav[k]) navAs[i].textContent = t.nav[k];
     });
-    if (navAs[4]) navAs[4].innerHTML = t.nav.cta;
+    const navCta = navAs[navKeys.length];
+    if (navCta) navCta.innerHTML = t.nav.cta;
     document.getElementById('hbg').setAttribute('aria-label', t.nav.menuLabel);
 
     /* Hero */
@@ -1012,6 +1125,28 @@
       if (badge) badge.textContent = ci.badge;
       card.setAttribute('aria-label', t.pf.viewProjectPrefix + ci.title);
     });
+
+    /* Calculadoras */
+    if (t.calc) {
+      const calcTag = document.querySelector('#calculadoras .tag');
+      if (calcTag) calcTag.textContent = t.calc.tag;
+      const calcH2 = document.querySelector('#calculadoras h2');
+      if (calcH2) calcH2.innerHTML = t.calc.h2;
+      const calcSub = document.querySelector('#calculadoras .sub');
+      if (calcSub) calcSub.textContent = t.calc.sub;
+      document.querySelectorAll('.calc-card').forEach((card, i) => {
+        const ci = t.calc.cards[i];
+        if (!ci) return;
+        const h3 = card.querySelector('h3');
+        if (h3) h3.textContent = ci.title;
+        const pEl = card.querySelector('p');
+        if (pEl) pEl.textContent = ci.p;
+        const go = card.querySelector('.calc-go');
+        if (go) go.textContent = t.calc.cta;
+      });
+      const calcNote = document.querySelector('.calc-note');
+      if (calcNote) calcNote.textContent = t.calc.note;
+    }
 
     /* FAQ */
     const faqTag = document.querySelector('#faq .tag');

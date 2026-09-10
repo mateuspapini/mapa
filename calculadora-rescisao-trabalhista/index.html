@@ -1,0 +1,1055 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<script>
+(function(){try{var t=localStorage.getItem("mapa_theme");
+document.documentElement.setAttribute("data-theme",t==="light"?"light":"dark");}catch(e){}})();
+</script>
+<title>Calculadora de Rescisão Trabalhista 2026 — cálculo com INSS, IRRF e FGTS</title>
+<meta name="description" content="Calcule sua rescisão em 2026: saldo de salário, aviso prévio proporcional, 13º, férias, multa do FGTS e descontos. Tabelas de INSS e IRRF atualizadas, com o redutor da Lei 15.270/2025.">
+<meta name="keywords" content="calculadora rescisão trabalhista, cálculo rescisão 2026, quanto vou receber na demissão, multa 40 FGTS, aviso prévio proporcional">
+<meta name="author" content="MAPA Soluções Digitais">
+<link rel="canonical" href="https://mapasolucoesdigitais.com.br/calculadora-rescisao-trabalhista/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="MAPA Soluções Digitais">
+<meta property="og:title" content="Calculadora de Rescisão Trabalhista 2026 — cálculo com INSS, IRRF e FGTS">
+<meta property="og:description" content="Calcule sua rescisão em 2026: saldo de salário, aviso prévio proporcional, 13º, férias, multa do FGTS e descontos. Tabelas de INSS e IRRF atualizadas, com o redutor da Lei 15.270/2025.">
+<meta property="og:url" content="https://mapasolucoesdigitais.com.br/calculadora-rescisao-trabalhista/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#080c18">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap">
+<style>
+/* MAPA Soluções Digitais — calculadoras públicas
+   Tokens espelhados do site institucional (mapasolucoesdigitais.com.br) */
+:root,
+html[data-theme="dark"]{
+  --bg:#080c18;
+  --bg2:#0f1629;
+  --card:#141e35;
+  --card2:#1a2540;
+  --accent:#00c8f5;
+  --accent2:#0055ff;
+  --grad:linear-gradient(135deg,#00c8f5,#0055ff);
+  --glow:rgba(0,200,245,.12);
+  --t1:#f0f6ff;
+  --t2:#8da0bc;
+  --t3:#8799b2;
+  --bdr:rgba(255,255,255,.07);
+  --bdr2:rgba(255,255,255,.15);
+  --neg:#ff8574;
+  --shadow:0 24px 60px -34px rgba(0,0,0,.9);
+}
+html[data-theme="light"]{
+  --bg:#f2f5fc;
+  --bg2:#e8edf8;
+  --card:#ffffff;
+  --card2:#f5f8ff;
+  --glow:rgba(0,85,255,.07);
+  --t1:#0a1630;
+  --t2:#4e6080;
+  --t3:#52637f;
+  --bdr:rgba(0,50,130,.1);
+  --bdr2:rgba(0,50,130,.2);
+  --neg:#c5341c;
+  --shadow:0 24px 60px -38px rgba(10,22,48,.35);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--t1);
+  font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-size:15.5px;line-height:1.62;-webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{font-family:Sora,Inter,sans-serif;margin:0;line-height:1.16;letter-spacing:-.02em;text-wrap:balance}
+p{margin:0}
+a{color:var(--accent)}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:20px}
+.grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* ── topo ─────────────────────────────── */
+.topbar{border-bottom:1px solid var(--bdr);background:var(--bg2);position:sticky;top:0;z-index:30;
+  backdrop-filter:saturate(140%) blur(8px)}
+.topbar .wrap{display:flex;align-items:center;gap:16px;padding-block:12px;flex-wrap:wrap}
+.brand{display:flex;align-items:baseline;gap:8px;text-decoration:none;color:var(--t1)}
+.brand b{font-family:Sora,sans-serif;font-weight:800;font-size:19px;letter-spacing:-.03em}
+.brand span{font-size:9.5px;letter-spacing:.19em;text-transform:uppercase;color:var(--t3);font-weight:600}
+.topbar nav{margin-left:auto;display:flex;gap:17px;align-items:center;flex-wrap:wrap}
+.topbar nav a{font-size:13.5px;color:var(--t2);text-decoration:none;font-weight:500}
+.topbar nav a:hover,.topbar nav a[aria-current]{color:var(--accent)}
+.btn-grad{background:var(--grad);color:#fff!important;padding:8px 15px;border-radius:8px;font-weight:600;font-size:13px}
+.btn-grad:hover{filter:brightness(1.1)}
+.tgl{background:transparent;border:1px solid var(--bdr2);color:var(--t2);width:34px;height:34px;
+  border-radius:9px;cursor:pointer;font-size:17px;line-height:1;display:grid;place-items:center;
+  flex:none;font-family:inherit;padding:0}
+.tgl:hover{color:var(--accent);border-color:var(--accent)}
+
+/* ── cabeçalho ────────────────────────── */
+.hero{padding-block:44px 26px;display:grid;gap:13px;max-width:70ch}
+.kicker{font-size:11px;letter-spacing:.19em;text-transform:uppercase;font-weight:700;
+  background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero h1{font-size:clamp(30px,5.2vw,46px);font-weight:800}
+.hero p{color:var(--t2);font-size:17px}
+
+/* ── instrumento ──────────────────────── */
+.rig{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,420px);gap:22px;align-items:start;padding-bottom:14px}
+@media(max-width:900px){.rig{grid-template-columns:1fr}}
+
+.form{background:var(--card);border:1px solid var(--bdr);border-radius:14px;overflow:hidden}
+.form-head{padding:13px 18px;border-bottom:1px solid var(--bdr);background:var(--card2);
+  font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--t3);font-weight:700}
+.fields{padding:18px;display:grid;gap:17px}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:520px){.fgrid{grid-template-columns:1fr}}
+.field{display:grid;gap:6px;min-width:0}
+.field label{font-size:13px;font-weight:600;color:var(--t1)}
+.field .hint{font-size:12px;color:var(--t3);line-height:1.44}
+input[type=number],input[type=date],input[type=text],select{
+  width:100%;font-family:inherit;font-size:15px;padding:10px 12px;border-radius:9px;
+  border:1px solid var(--bdr2);background:var(--bg);color:var(--t1);
+  font-variant-numeric:tabular-nums;
+}
+input:focus,select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--glow)}
+select{cursor:pointer;appearance:none;
+  background-image:linear-gradient(45deg,transparent 50%,var(--t3) 50%),linear-gradient(135deg,var(--t3) 50%,transparent 50%);
+  background-position:calc(100% - 17px) 50%,calc(100% - 12px) 50%;
+  background-size:5px 5px,5px 5px;background-repeat:no-repeat;padding-right:34px}
+.radios{display:flex;flex-wrap:wrap;gap:7px}
+.radios label{
+  font-size:13px;padding:8px 14px;border-radius:9px;border:1px solid var(--bdr2);
+  background:var(--bg);color:var(--t2);cursor:pointer;font-weight:500;
+}
+.radios input{position:absolute;opacity:0;width:0;height:0}
+.radios label:has(input:checked){background:var(--grad);border-color:transparent;color:#fff;font-weight:600}
+.radios label:has(input:focus-visible){box-shadow:0 0 0 3px var(--glow)}
+.check{display:flex;gap:10px;align-items:flex-start;cursor:pointer}
+.check input{margin-top:3px;width:17px;height:17px;accent-color:var(--accent);flex:none}
+.check span{font-size:13.5px}
+
+/* ── leitura ──────────────────────────── */
+.readout{position:sticky;top:74px;display:grid;gap:14px}
+@media(max-width:900px){.readout{position:static}}
+.panel{background:var(--card);border:1px solid var(--bdr);border-radius:14px;overflow:hidden;box-shadow:var(--shadow)}
+.big{padding:20px 18px;background:var(--card2);border-bottom:1px solid var(--bdr);position:relative}
+.big::after{content:"";position:absolute;inset:0 0 auto;height:2px;background:var(--grad)}
+.big .lbl{display:block;font-size:10px;letter-spacing:.17em;text-transform:uppercase;color:var(--t3);
+  font-weight:700;margin-bottom:8px}
+.big .val{display:block;font-family:Sora,sans-serif;font-weight:800;font-size:clamp(25px,4.8vw,33px);
+  line-height:1.14;font-variant-numeric:tabular-nums;letter-spacing:-.035em;word-break:break-word;
+  background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.big .sub{display:block;font-size:12.8px;color:var(--t2);margin-top:9px;line-height:1.5}
+.big.err::after{background:var(--neg)}
+.big.err .val{background:none;-webkit-background-clip:border-box;background-clip:border-box;
+  color:var(--neg);font-size:17px;font-weight:600;font-family:Inter,sans-serif;letter-spacing:0}
+
+.rows{padding:5px 0}
+.rw{display:flex;gap:12px;padding:9px 18px;font-size:13.5px;align-items:baseline;border-bottom:1px solid var(--bdr)}
+.rw:last-child{border-bottom:0}
+.rw .n{flex:1;color:var(--t2);min-width:0}
+.rw .n em{display:block;font-style:normal;font-size:11.5px;color:var(--accent);margin-top:1px;opacity:.85}
+.rw .v{font-variant-numeric:tabular-nums;white-space:nowrap;font-size:13.5px;font-weight:600;letter-spacing:-.01em}
+.rw.neg .v{color:var(--neg)}
+.rw.tot{background:var(--card2);border-top:1px solid var(--bdr)}
+.rw.tot .n{color:var(--t1);font-weight:600}
+.rw.fg .v{color:var(--accent)}
+
+.notes{padding:14px 18px;display:grid;gap:9px;border-top:1px solid var(--bdr);background:var(--card2)}
+.notes p{font-size:12.5px;color:var(--t2);line-height:1.5;padding-left:16px;position:relative}
+.notes p::before{content:"";position:absolute;left:0;top:7px;width:6px;height:6px;border-radius:50%;background:var(--grad)}
+
+.cta{display:block;text-align:center;text-decoration:none;padding:15px 18px;
+  background:var(--grad);color:#fff;font-weight:700;font-size:15px;font-family:Sora,sans-serif;letter-spacing:-.015em}
+.cta:hover{filter:brightness(1.1)}
+.cta small{display:block;font-family:Inter,sans-serif;font-weight:400;font-size:12px;opacity:.82;margin-top:3px;letter-spacing:0}
+
+.pitch{background:var(--card);border:1px solid var(--bdr);border-radius:14px;padding:16px 18px;display:grid;gap:9px;
+  position:relative;overflow:hidden}
+.pitch::before{content:"";position:absolute;inset:0 auto 0 0;width:3px;background:var(--grad)}
+.pitch h3{font-size:15px;font-weight:700}
+.pitch p{font-size:13.3px;color:var(--t2)}
+.pitch a{display:inline-block;margin-top:3px;font-weight:700;font-size:13.5px;text-decoration:none}
+
+/* ── conteúdo ─────────────────────────── */
+section.doc{padding-block:46px 0}
+.doc h2{font-size:clamp(22px,3.5vw,30px);font-weight:800;margin-bottom:9px}
+.doc .sub{color:var(--t2);margin-bottom:22px;max-width:70ch}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:15px}
+.cardx{background:var(--card);border:1px solid var(--bdr);border-radius:14px;padding:17px 19px;display:grid;gap:9px}
+.cardx h3{font-size:15.5px;font-weight:700}
+.cardx p,.cardx li{font-size:13.8px;color:var(--t2)}
+.cardx ul{margin:0;padding-left:18px;display:grid;gap:5px}
+.cardx b{color:var(--t1)}
+.formula{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.5px;color:var(--accent);
+  background:var(--bg);border:1px solid var(--bdr);border-radius:9px;padding:12px 14px;
+  overflow-x:auto;white-space:pre;line-height:1.75}
+
+.faq{display:grid;gap:1px;border:1px solid var(--bdr);border-radius:14px;overflow:hidden;background:var(--bdr)}
+details{background:var(--card)}
+details summary{padding:15px 18px;cursor:pointer;font-weight:600;font-size:15px;list-style:none;
+  display:flex;gap:12px;align-items:baseline;font-family:Sora,sans-serif;letter-spacing:-.01em}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"+";color:var(--accent);font-weight:700;flex:none;font-size:17px;line-height:1}
+details[open] summary::before{content:"−"}
+details .ans{padding:0 18px 16px 42px;color:var(--t2);font-size:14.2px;display:grid;gap:9px}
+details .ans ul{margin:0;padding-left:18px;display:grid;gap:4px}
+details .ans b{color:var(--t1)}
+
+.tblx{overflow-x:auto;border:1px solid var(--bdr);border-radius:14px;background:var(--card)}
+table{border-collapse:collapse;width:100%;min-width:460px;font-size:13.5px}
+th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--bdr)}
+th{font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--t3);
+  background:var(--card2);white-space:nowrap;font-weight:700}
+td{color:var(--t2)}
+td b{color:var(--t1)}
+tbody tr:last-child td{border-bottom:0}
+td.mono{font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--t1);font-weight:600}
+
+.disclaimer{margin-top:34px;background:var(--card);border:1px solid var(--bdr);border-radius:14px;
+  padding:17px 19px;display:grid;gap:8px;position:relative;overflow:hidden}
+.disclaimer::before{content:"";position:absolute;inset:0 auto 0 0;width:3px;background:var(--grad)}
+.disclaimer h3{font-size:14.5px;font-weight:700}
+.disclaimer p{font-size:13px;color:var(--t2)}
+.disclaimer b{color:var(--t1)}
+.sources{font-size:11.8px;color:var(--t3);line-height:1.9;word-break:break-word}
+
+footer.pg{margin-top:54px;border-top:1px solid var(--bdr);background:var(--bg2);padding-block:30px 34px}
+footer.pg .wrap{display:grid;gap:18px}
+.fgrid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px}
+footer.pg h4{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--t3);margin-bottom:9px;font-weight:700}
+footer.pg p,footer.pg a{font-size:13.5px;color:var(--t2);text-decoration:none;display:block}
+footer.pg a:hover{color:var(--accent)}
+.copyr{border-top:1px solid var(--bdr);padding-top:16px;font-size:12px;color:var(--t3)}
+
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
+
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Quanto tempo a empresa tem para pagar a rescisão?", "acceptedAnswer": {"@type": "Answer", "text": "Dez dias corridos contados do fim do contrato, conforme o artigo 477, §6º da CLT. Passado esse prazo cabe multa de um salário em favor do trabalhador, prevista no §8º do mesmo artigo."}}, {"@type": "Question", "name": "A multa do FGTS é 40% do saldo que aparece no aplicativo?", "acceptedAnswer": {"@type": "Answer", "text": "Não. A lei manda calcular sobre a soma de todos os depósitos feitos durante o contrato, corrigidos, e não sobre o saldo atual da conta, conforme a Lei 8.036/90, artigo 18, §1º. Se você aderiu ao saque-aniversário, a base da multa é maior que o saldo que aparece hoje."}}, {"@type": "Question", "name": "Pedi demissão. Perco o FGTS?", "acceptedAnswer": {"@type": "Answer", "text": "Você não pode sacar por causa dessa rescisão e não recebe multa, mas o dinheiro continua na sua conta vinculada e fica disponível nas outras hipóteses de saque, como aposentadoria, compra da casa própria, saque-aniversário e doença grave."}}, {"@type": "Question", "name": "O que é o acordo do artigo 484-A e vale a pena?", "acceptedAnswer": {"@type": "Answer", "text": "É a demissão consensual criada em 2017. O trabalhador recebe metade do aviso indenizado e metade da multa do FGTS, ou seja 20% em vez de 40%, saca até 80% do saldo e não tem direito ao seguro-desemprego. Faz sentido quando as duas partes querem encerrar e o trabalhador já tem outro emprego."}}, {"@type": "Question", "name": "Trabalhei 6 anos. Quantos dias de aviso prévio eu tenho?", "acceptedAnswer": {"@type": "Answer", "text": "São 30 dias base mais 3 dias por ano completo, totalizando 48 dias. O teto de 90 dias é atingido com 20 anos de casa. Essa proporcionalidade vale quando a empresa dispensa o empregado; no pedido de demissão o aviso devido é sempre de 30 dias."}}, {"@type": "Question", "name": "Tenho direito a férias vencidas se fui demitido por justa causa?", "acceptedAnswer": {"@type": "Answer", "text": "Sim. Na justa causa perdem-se as férias proporcionais, mas as férias vencidas e o terço constitucional continuam devidos, conforme a Súmula 171 do TST."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Calculadora de rescisão trabalhista", "url": "https://mapasolucoesdigitais.com.br/calculadora-rescisao-trabalhista", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "inLanguage": "pt-BR", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "BRL"}, "publisher": {"@type": "Organization", "name": "MAPA Soluções Digitais", "url": "https://mapasolucoesdigitais.com.br"}}</script>
+</head>
+<body>
+<header class="topbar"><div class="wrap">
+  <a class="brand" href="https://mapasolucoesdigitais.com.br/"><b>MAPA</b><span>Soluções Digitais</span></a>
+  <nav><a href="/calculadora-rescisao-trabalhista/" aria-current="page">Rescisão</a><a href="/calculadora-btu-ar-condicionado/">BTU</a><a href="/calculadora-custo-de-reforma/">Reforma</a><a href="https://mapasolucoesdigitais.com.br/#servicos">Serviços</a><a class="btn-grad" href="https://wa.me/5531989190373?text=Ol%C3%A1%2C+vim+pelas+calculadoras+e+gostaria+de+um+or%C3%A7amento!" target="_blank" rel="noopener">Orçamento grátis →</a><button class="tgl" id="tgl" type="button" aria-label="Alternar tema claro e escuro"></button></nav>
+</div></header>
+
+<main class="wrap">
+  <div class="hero">
+    <span class="kicker">Calculadora gratuita · Atualizada para 2026</span>
+    <h1>Calculadora de rescisão trabalhista</h1>
+    <p>Descubra quanto você tem a receber ao sair do emprego. O cálculo considera o tipo de desligamento, o aviso prévio proporcional, a projeção na carteira e as tabelas de INSS e Imposto de Renda vigentes em 2026.</p>
+  </div>
+<div class="rig">
+  <form class="form" id="f" autocomplete="off">
+    <div class="form-head">Dados do contrato</div>
+    <div class="fields">
+
+      <div class="field">
+        <label for="tipo">Como foi o desligamento?</label>
+        <select id="tipo">
+          <option value="sem_justa_causa">Dispensa sem justa causa</option>
+          <option value="demissao">Pedi demissão</option>
+          <option value="acordo">Acordo entre as partes (art. 484-A)</option>
+          <option value="justa_causa">Dispensa por justa causa</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="salario">Salário bruto mensal</label>
+        <input type="number" id="salario" value="3000" min="0" step="50" inputmode="decimal">
+        <span class="hint">Só o salário fixo. Horas extras, comissões e adicionais entram na média e não são calculados aqui.</span>
+      </div>
+
+      <div class="fgrid">
+        <div class="field">
+          <label for="admissao">Data de admissão</label>
+          <input type="date" id="admissao" value="2021-03-01">
+        </div>
+        <div class="field">
+          <label for="saida">Último dia trabalhado</label>
+          <input type="date" id="saida" value="2026-09-10">
+        </div>
+      </div>
+
+      <div class="field" id="wrapAviso">
+        <label>Aviso prévio</label>
+        <div class="radios">
+          <label><input type="radio" name="aviso" value="indenizado" checked><span>Indenizado (fui embora na hora)</span></label>
+          <label><input type="radio" name="aviso" value="trabalhado"><span>Trabalhado</span></label>
+          <label><input type="radio" name="aviso" value="dispensado"><span>Dispensado</span></label>
+        </div>
+        <span class="hint" id="hintAviso">O aviso indenizado conta como tempo de serviço e empurra a data de saída na carteira para frente.</span>
+      </div>
+
+      <div class="fgrid">
+        <div class="field">
+          <label for="feriasVencidas">Períodos de férias vencidas</label>
+          <select id="feriasVencidas">
+            <option value="0">Nenhum — tirei todas as férias</option>
+            <option value="1">1 período (12 meses sem tirar)</option>
+            <option value="2">2 períodos</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="dependentes">Dependentes no Imposto de Renda</label>
+          <input type="number" id="dependentes" value="0" min="0" max="10" step="1">
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="fgtsBase">Saldo do FGTS para fins rescisórios</label>
+        <input type="number" id="fgtsBase" value="15000" min="0" step="500" inputmode="decimal">
+        <span class="hint">É a soma de todos os depósitos do contrato, corrigida — não o saldo que aparece hoje no app. Se você usa saque-aniversário, esse número é maior que o saldo. Deixe zero se não souber.</span>
+      </div>
+
+      <div class="field">
+        <label for="adiantou13">Adiantamento do 13º já recebido</label>
+        <input type="number" id="adiantou13" value="0" min="0" step="100" inputmode="decimal">
+        <span class="hint">Se você recebeu a primeira parcela do 13º este ano, informe aqui — ela é abatida da rescisão.</span>
+      </div>
+
+    </div>
+  </form>
+
+  <div class="readout">
+    <div class="panel">
+      <div class="big" id="big">
+        <span class="lbl">Total estimado a receber</span>
+        <span class="val" id="total">—</span>
+        <span class="sub" id="totalSub"></span>
+      </div>
+      <div class="rows" id="rows"></div>
+      <div class="notes" id="notes"></div>
+      <a class="cta" id="wa" href="#" target="_blank" rel="noopener">
+        Levar esta simulação para um advogado
+        <small>Abre o WhatsApp com o resumo do seu cálculo</small>
+      </a>
+    </div>
+
+    <div class="pitch">
+      <h3>Esta calculadora é uma demonstração</h3>
+      <p>Quem construiu foi a MAPA. Se você tem um escritório ou uma empresa e quer uma ferramenta assim no seu site — respondendo a pergunta que o seu cliente faz antes de te procurar — a gente constrói a sua.</p>
+      <a href="https://wa.me/5531989190373?text=Vi%20a%20calculadora%20de%20rescis%C3%A3o%20no%20site%20de%20voc%C3%AAs%20e%20queria%20uma%20parecida%20no%20meu." target="_blank" rel="noopener">Quero uma calculadora no meu site →</a>
+    </div>
+  </div>
+</div>
+
+<section class="doc">
+  <h2>Como esta conta é feita</h2>
+  <p class="sub">Nada aqui é caixa-preta. Estas são as regras aplicadas, item por item, com a base legal de cada uma.</p>
+  <div class="cols">
+    <div class="cardx">
+      <h3>Aviso prévio proporcional</h3>
+      <p>São 30 dias base, mais 3 dias por ano completo na mesma empresa, com teto de 90 dias — Lei 12.506/2011.</p>
+      <div class="formula">dias = 30 + (3 × anos completos)
+teto de 90 dias, atingido aos 20 anos</div>
+      <p>A proporcionalidade existe só em favor do empregado. Se você pediu demissão, o aviso que você deve é sempre de 30 dias, nunca 45 ou 90.</p>
+    </div>
+    <div class="cardx">
+      <h3>A projeção que quase toda calculadora esquece</h3>
+      <p>O aviso indenizado integra o tempo de serviço para todos os efeitos (CLT, art. 487, §1º). A data de saída na carteira é o fim do aviso, não o último dia trabalhado.</p>
+      <p>Isso importa em dinheiro: a projeção pode fechar mais um avo de 13º e mais um de férias, e às vezes completa um período aquisitivo inteiro, transformando férias proporcionais em férias vencidas.</p>
+    </div>
+    <div class="cardx">
+      <h3>Regra dos avos</h3>
+      <p>Cada mês trabalhado vale 1/12. Mês com 15 dias ou mais conta inteiro; com 14 ou menos, não conta.</p>
+      <ul>
+        <li><b>13º:</b> conta de 1º de janeiro até a data de saída projetada.</li>
+        <li><b>Férias proporcionais:</b> conta dentro do período aquisitivo em curso, que corre da data de admissão — não do ano civil. Trocar um pelo outro é erro comum.</li>
+      </ul>
+    </div>
+    <div class="cardx">
+      <h3>O que não sofre desconto</h3>
+      <p>Verba indenizatória não tem INSS nem Imposto de Renda. Ficam de fora dos descontos:</p>
+      <ul>
+        <li>Aviso prévio indenizado</li>
+        <li>Férias vencidas e proporcionais, e o 1/3 sobre elas (Súmula 386 do STJ)</li>
+        <li>Multa de 40% do FGTS e o saldo sacado</li>
+      </ul>
+      <p>Descontar imposto dessas verbas é o erro mais frequente — e o mais caro — das calculadoras públicas.</p>
+    </div>
+    <div class="cardx">
+      <h3>INSS e IRRF em bases separadas</h3>
+      <p>O 13º é tributado à parte do saldo de salário, com sua própria aplicação da tabela. Somar os dois numa base só empurra o cálculo para uma faixa maior e infla o desconto.</p>
+      <p>O INSS é progressivo por faixa, com teto de desconto em <b>R$ 988,09</b> — não é alíquota única.</p>
+    </div>
+    <div class="cardx">
+      <h3>O redutor do IR que mudou tudo em 2026</h3>
+      <p>A Lei 15.270/2025 criou um redutor aplicado depois do imposto calculado. Quem tem rendimento tributável de até R$ 5.000 no mês fica com IRRF zero; entre R$ 5.000 e R$ 7.350 o redutor diminui gradualmente.</p>
+      <p>Como na rescisão o rendimento mensal costuma ser só o saldo de poucos dias, a maioria das rescisões dá imposto zero em 2026.</p>
+    </div>
+  </div>
+</section>
+
+<section class="doc">
+  <h2>O que muda conforme o tipo de saída</h2>
+  <div class="tblx">
+    <table>
+      <thead><tr><th>Verba</th><th>Sem justa causa</th><th>Pedi demissão</th><th>Acordo 484-A</th><th>Justa causa</th></tr></thead>
+      <tbody>
+        <tr><td>Saldo de salário</td><td>Sim</td><td>Sim</td><td>Sim</td><td>Sim</td></tr>
+        <tr><td>Aviso prévio</td><td>Integral</td><td>Você é quem deve</td><td>Metade, se indenizado</td><td>Não</td></tr>
+        <tr><td>13º proporcional</td><td>Sim</td><td>Sim</td><td>Sim, integral</td><td>Não</td></tr>
+        <tr><td>Férias vencidas + 1/3</td><td>Sim</td><td>Sim</td><td>Sim</td><td><b>Sim</b></td></tr>
+        <tr><td>Férias proporcionais + 1/3</td><td>Sim</td><td>Sim</td><td>Sim, integral</td><td>Não</td></tr>
+        <tr><td>Multa do FGTS</td><td class="mono">40%</td><td>Não</td><td class="mono">20%</td><td>Não</td></tr>
+        <tr><td>Saque do FGTS</td><td class="mono">100%</td><td>Não</td><td class="mono">até 80%</td><td>Não</td></tr>
+        <tr><td>Seguro-desemprego</td><td>Sim</td><td>Não</td><td>Não</td><td>Não</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="disclaimer">
+    <h3>Duas coisas que quase todo mundo erra nessa tabela</h3>
+    <p><b>Férias vencidas são devidas mesmo na justa causa.</b> Só as proporcionais se perdem (Súmula 171 do TST). Há decisões recentes do TST em sentido diferente, com base na Convenção 132 da OIT, mas a súmula continua valendo.</p>
+    <p><b>No acordo do art. 484-A, só duas coisas caem pela metade:</b> o aviso indenizado e a multa do FGTS. O 13º e as férias proporcionais são integrais.</p>
+  </div>
+</section>
+
+<section class="doc">
+  <h2>Perguntas frequentes</h2>
+  <div class="faq">
+    <details open><summary>Quanto tempo a empresa tem para pagar a rescisão?</summary>
+      <div class="ans"><p>Dez dias corridos contados do fim do contrato (CLT, art. 477, §6º). Passou disso, cabe multa de um salário em favor do trabalhador, prevista no §8º do mesmo artigo — que esta calculadora não inclui.</p></div></details>
+    <details><summary>A multa do FGTS é 40% do saldo que aparece no meu aplicativo?</summary>
+      <div class="ans"><p>Não. A lei manda calcular sobre a soma de <b>todos os depósitos feitos durante o contrato</b>, corrigidos, e não sobre o saldo atual da conta (Lei 8.036/90, art. 18, §1º).</p><p>Se você já sacou por algum motivo, ou aderiu ao saque-aniversário, a base da multa é maior que o saldo que você vê hoje. Usar o saldo do app subestima o valor.</p></div></details>
+    <details><summary>Pedi demissão. Perco o FGTS?</summary>
+      <div class="ans"><p>Você não pode sacar por causa dessa rescisão e não recebe multa. Mas o dinheiro não some: continua na sua conta vinculada, rendendo, e fica disponível nas outras hipóteses de saque — aposentadoria, compra da casa própria, saque-aniversário, doença grave.</p></div></details>
+    <details><summary>O que é o acordo do art. 484-A e vale a pena?</summary>
+      <div class="ans"><p>É a demissão consensual criada em 2017. Você recebe metade do aviso indenizado e metade da multa do FGTS (20% em vez de 40%), saca até 80% do saldo e <b>não tem direito ao seguro-desemprego</b>.</p><p>Faz sentido quando as duas partes querem encerrar e o trabalhador já tem outro emprego. Se você vai ficar desempregado, a perda do seguro pesa mais que o acordo.</p></div></details>
+    <details><summary>Trabalhei 6 anos. Quantos dias de aviso eu tenho?</summary>
+      <div class="ans"><p>30 dias base mais 3 dias por ano completo: 30 + 18 = <b>48 dias</b>. O teto de 90 dias é atingido com 20 anos de casa.</p><p>Atenção: isso vale quando a empresa te dispensa. Se você é quem está pedindo demissão, o aviso que você deve é sempre 30 dias.</p></div></details>
+    <details><summary>Por que o Imposto de Renda deu zero?</summary>
+      <div class="ans"><p>Por causa do redutor criado pela Lei 15.270/2025, que vale desde janeiro de 2026 e zera o IRRF de quem tem rendimento tributável mensal de até R$ 5.000.</p><p>Além disso, boa parte da rescisão é composta de verbas indenizatórias — aviso indenizado, férias, 1/3, multa do FGTS — que são isentas por natureza. O que sobra para tributar costuma ser só o saldo de salário de poucos dias.</p></div></details>
+    <details><summary>Esse valor é o que eu vou receber mesmo?</summary>
+      <div class="ans"><p>É uma estimativa. O valor real depende de coisas que esta calculadora não pergunta: horas extras, comissões e adicionais que entram na média, descontos de vale-transporte, plano de saúde, pensão alimentícia e adiantamentos, faltas injustificadas, e o que o seu acordo ou convenção coletiva prevê a mais.</p><p>Se a diferença entre este número e o que a empresa pagou for grande, vale conversar com um advogado trabalhista.</p></div></details>
+  </div>
+
+  <div class="disclaimer">
+    <h3>Esta calculadora é uma estimativa</h3>
+    <p>Ela considera salário fixo, sem verbas variáveis, descontos contratuais, acordos coletivos ou situações especiais — estabilidade, contrato por prazo determinado, rescisão indireta, culpa recíproca, doméstico, rural, aprendiz ou intermitente. Os valores podem divergir do TRCT emitido pelo empregador e não substituem a orientação de um contador ou advogado.</p>
+    <p class="sources">Bases utilizadas — INSS: Portaria Interministerial MPS/MF nº 13, de 09/01/2026 · IRRF: Lei 15.191/2025 com o redutor da Lei 15.270/2025 · Salário mínimo: R$ 1.621,00, Decreto 12.797/2025 · Aviso prévio: Lei 12.506/2011 · FGTS: Lei 8.036/1990 · 13º: Lei 4.090/1962 · Acordo: CLT art. 484-A · Férias na justa causa: Súmula 171 do TST · Isenção de IR sobre férias indenizadas: Súmula 386 do STJ.<br>Última revisão das tabelas: setembro de 2026.</p>
+  </div>
+</section>
+</main>
+
+<footer class="pg"><div class="wrap">
+<div class="fgrid2">
+  <div><h4>Calculadoras</h4>
+    <a href="/calculadora-rescisao-trabalhista/">Rescisão trabalhista</a>
+    <a href="/calculadora-btu-ar-condicionado/">BTU para ar-condicionado</a>
+    <a href="/calculadora-custo-de-reforma/">Custo de reforma por m²</a></div>
+  <div><h4>MAPA Soluções Digitais</h4>
+    <a href="https://mapasolucoesdigitais.com.br/#servicos">Serviços</a>
+    <a href="https://mapasolucoesdigitais.com.br/#portfolio">Portfólio</a>
+    <a href="https://wa.me/5531989190373">WhatsApp (31) 98919-0373</a>
+    <a href="mailto:contato@mapasolucoesdigitais.com.br">contato@mapasolucoesdigitais.com.br</a></div>
+  <div><h4>Quer uma dessas no seu site?</h4>
+    <p>Construímos calculadoras sob medida que respondem a pergunta que o seu cliente faz antes de te procurar — e entregam o lead já qualificado no seu WhatsApp.</p>
+    <a href="https://wa.me/5531989190373?text=Quero%20uma%20calculadora%20no%20meu%20site." style="color:var(--accent);font-weight:700;margin-top:9px">Falar com a MAPA →</a></div>
+</div>
+<div class="copyr">Calculadora gratuita, oferecida pela MAPA Soluções Digitais — Belo Horizonte, MG. Os resultados são estimativas e não substituem orientação profissional.</div>
+</div></footer>
+
+<script>
+/* ==========================================================================
+   MAPA Soluções Digitais — núcleo de cálculo das calculadoras públicas
+   Referências: INSS Portaria MPS/MF 13/2026 · IRRF Lei 15.191/2025 +
+   redutor da Lei 15.270/2025 · Salário mínimo Decreto 12.797/2025 ·
+   SINAPI/IBGE jul-2026 · ANEEL bandeira amarela set-2026
+   ========================================================================== */
+var MAPA = (function () {
+  "use strict";
+
+  /* ---------- utilidades ---------- */
+  function r2(n) { return Math.round(n * 100) / 100; }
+  function brl(n) {
+    return "R$ " + n.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+  function num(n) { return n.toLocaleString("pt-BR", { maximumFractionDigits: 0 }); }
+  function parseDate(s) {
+    if (!s) return null;
+    var p = String(s).split("-");
+    if (p.length !== 3) return null;
+    var d = new Date(Number(p[0]), Number(p[1]) - 1, Number(p[2]));
+    return isNaN(d.getTime()) ? null : d;
+  }
+  function addDays(d, n) { var x = new Date(d.getTime()); x.setDate(x.getDate() + n); return x; }
+  function fmtDate(d) {
+    return String(d.getDate()).padStart(2, "0") + "/" +
+           String(d.getMonth() + 1).padStart(2, "0") + "/" + d.getFullYear();
+  }
+  function daysInMonth(y, m) { return new Date(y, m + 1, 0).getDate(); }
+
+  /* Anos COMPLETOS entre duas datas */
+  function fullYears(from, to) {
+    var y = to.getFullYear() - from.getFullYear();
+    var anniv = new Date(from.getFullYear() + y, from.getMonth(), from.getDate());
+    if (anniv > to) y--;
+    return Math.max(0, y);
+  }
+
+  /* Avos pela regra dos 15 dias: conta meses do intervalo [ini, fim] em que
+     o trabalhador teve 15 dias ou mais. Teto de 12. */
+  function avos(ini, fim) {
+    if (!ini || !fim || fim < ini) return 0;
+    var count = 0;
+    var y = ini.getFullYear(), m = ini.getMonth();
+    while (y < fim.getFullYear() || (y === fim.getFullYear() && m <= fim.getMonth())) {
+      var first = new Date(y, m, 1);
+      var last = new Date(y, m, daysInMonth(y, m));
+      var a = first > ini ? first : ini;
+      var b = last < fim ? last : fim;
+      var dias = Math.floor((b - a) / 86400000) + 1;
+      if (dias >= 15) count++;
+      m++; if (m > 11) { m = 0; y++; }
+    }
+    return Math.min(12, count);
+  }
+
+  /* ======================================================================
+     1. RESCISÃO TRABALHISTA
+     ====================================================================== */
+
+  var INSS_2026 = [
+    { ate: 1621.00, aliq: 0.075 },
+    { ate: 2902.84, aliq: 0.09 },
+    { ate: 4354.27, aliq: 0.12 },
+    { ate: 8475.55, aliq: 0.14 }
+  ];
+  var IRRF_2026 = [
+    { ate: 2428.80, aliq: 0,     deduz: 0 },
+    { ate: 2826.65, aliq: 0.075, deduz: 182.16 },
+    { ate: 3751.05, aliq: 0.15,  deduz: 394.16 },
+    { ate: 4664.68, aliq: 0.225, deduz: 675.49 },
+    { ate: Infinity, aliq: 0.275, deduz: 908.73 }
+  ];
+  var DEPENDENTE = 189.59;
+  var SIMPLIFICADO = 607.20;
+  var SALARIO_MINIMO = 1621.00;
+
+  /* INSS progressivo por faixa, com teto */
+  function inss(base) {
+    if (base <= 0) return 0;
+    var b = Math.min(base, 8475.55), total = 0, ant = 0;
+    for (var i = 0; i < INSS_2026.length; i++) {
+      var f = INSS_2026[i];
+      if (b > ant) total += (Math.min(b, f.ate) - ant) * f.aliq;
+      ant = f.ate;
+      if (b <= f.ate) break;
+    }
+    return r2(total);
+  }
+
+  /* IRRF com tabela 2026 + redutor da Lei 15.270/2025.
+     `bruto` = rendimento tributável bruto (gatilho do redutor)
+     `deducoes` = INSS + outras deduções legais */
+  function irrf(bruto, deducoes, dependentes) {
+    if (bruto <= 0) return { imposto: 0, redutor: 0, base: 0, aliquota: 0 };
+    var legais = deducoes + (dependentes || 0) * DEPENDENTE;
+    var base = bruto - Math.max(legais, SIMPLIFICADO);
+    if (base < 0) base = 0;
+    var faixa = IRRF_2026[IRRF_2026.length - 1];
+    for (var i = 0; i < IRRF_2026.length; i++) {
+      if (base <= IRRF_2026[i].ate) { faixa = IRRF_2026[i]; break; }
+    }
+    var imposto = base * faixa.aliq - faixa.deduz;
+    if (imposto < 0) imposto = 0;
+
+    var redutor = 0;
+    if (bruto <= 5000) redutor = imposto;
+    else if (bruto <= 7350) redutor = Math.max(0, 978.62 - 0.133145 * bruto);
+    var final = Math.max(0, imposto - redutor);
+
+    return {
+      imposto: r2(final),
+      bruto_antes_redutor: r2(imposto),
+      redutor: r2(Math.min(redutor, imposto)),
+      base: r2(base),
+      aliquota: faixa.aliq
+    };
+  }
+
+  /* Dias de aviso prévio — Lei 12.506/2011.
+     A proporcionalidade beneficia SÓ o empregado (Nota Técnica CGRT 184/2012):
+     no pedido de demissão o empregado deve sempre 30 dias. */
+  function diasAviso(anosCompletos, tipo) {
+    if (tipo === "demissao") return 30;
+    return Math.min(90, 30 + 3 * anosCompletos);
+  }
+
+  function rescisao(inp) {
+    var salario = Number(inp.salario) || 0;
+    var admissao = parseDate(inp.admissao);
+    var saida = parseDate(inp.saida);
+    var tipo = inp.tipo || "sem_justa_causa";          // sem_justa_causa | demissao | acordo | justa_causa
+    var modoAviso = inp.aviso || "indenizado";          // indenizado | trabalhado | dispensado
+    var feriasVencidas = Number(inp.feriasVencidas) || 0;
+    var fgtsBase = Number(inp.fgtsBase) || 0;
+    var dependentes = Number(inp.dependentes) || 0;
+    var adiantou13 = Number(inp.adiantou13) || 0;
+
+    if (!salario || !admissao || !saida || saida < admissao) {
+      return { erro: "Preencha salário, data de admissão e data de saída." };
+    }
+
+    var anos = fullYears(admissao, saida);
+    var temAviso = (tipo === "sem_justa_causa" || tipo === "acordo");
+    var dias = diasAviso(anos, tipo);
+
+    /* Projeção: o aviso indenizado integra o tempo de serviço (CLT 487 §1º) */
+    var avisoIndenizado = temAviso && modoAviso === "indenizado";
+    var diasProjetados = 0;
+    if (avisoIndenizado) diasProjetados = (tipo === "acordo") ? Math.round(dias / 2) : dias;
+    var saidaProjetada = diasProjetados > 0 ? addDays(saida, diasProjetados) : saida;
+
+    var linhas = [], descontos = [], avisos = [];
+    var salarioDia = salario / 30;
+
+    /* --- saldo de salário --- */
+    var diasSaldo = saida.getDate();
+    var saldo = r2(salarioDia * diasSaldo);
+    linhas.push({ n: "Saldo de salário (" + diasSaldo + " dias)", v: saldo, trib: true });
+
+    /* --- aviso prévio --- */
+    var valorAviso = 0, avisoTributavel = false;
+    if (temAviso) {
+      if (modoAviso === "indenizado") {
+        var d = (tipo === "acordo") ? Math.round(dias / 2) : dias;
+        valorAviso = r2(salarioDia * d);
+        linhas.push({
+          n: "Aviso prévio indenizado (" + d + " dias" + (tipo === "acordo" ? ", metade — art. 484-A" : "") + ")",
+          v: valorAviso, trib: false, isento: "Isento de INSS e IRRF"
+        });
+      } else if (modoAviso === "trabalhado") {
+        avisos.push("Aviso trabalhado: os " + dias + " dias entram na folha normal, não na rescisão. Por isso não aparecem abaixo.");
+      }
+    } else if (tipo === "demissao" && modoAviso !== "dispensado") {
+      valorAviso = -r2(salarioDia * 30);
+      descontos.push({ n: "Aviso prévio não cumprido (30 dias)", v: -valorAviso });
+      avisos.push("No pedido de demissão o aviso é devido pelo empregado. Se o empregador dispensar o cumprimento, esse desconto não existe.");
+    }
+
+    /* --- 13º proporcional --- */
+    var t13 = 0;
+    if (tipo !== "justa_causa") {
+      var ini13 = new Date(saidaProjetada.getFullYear(), 0, 1);
+      if (admissao > ini13) ini13 = admissao;
+      var a13 = avos(ini13, saidaProjetada);
+      t13 = r2(salario * a13 / 12);
+      linhas.push({ n: "13º salário proporcional (" + a13 + "/12)", v: t13, trib: false, decimo: true });
+      if (adiantou13 > 0) {
+        descontos.push({ n: "Adiantamento do 13º já recebido", v: adiantou13 });
+      }
+    } else {
+      avisos.push("Na justa causa o 13º proporcional e as férias proporcionais não são devidos (Lei 4.090/62, art. 3º).");
+    }
+
+    /* --- férias vencidas --- */
+    var periodosVencidos = feriasVencidas;
+
+    /* --- férias proporcionais --- */
+    var aFer = 0, propFerias = 0;
+    var ciclos = fullYears(admissao, saidaProjetada);
+    var iniAquisitivo = new Date(admissao.getFullYear() + ciclos, admissao.getMonth(), admissao.getDate());
+    if (iniAquisitivo > saidaProjetada) {
+      iniAquisitivo = new Date(admissao.getFullYear() + ciclos - 1, admissao.getMonth(), admissao.getDate());
+    }
+    aFer = avos(iniAquisitivo, saidaProjetada);
+    if (aFer >= 12) { periodosVencidos += 1; aFer = 0; }
+
+    if (periodosVencidos > 0) {
+      var vv = r2(salario * periodosVencidos);
+      var vt = r2(vv / 3);
+      linhas.push({ n: "Férias vencidas (" + periodosVencidos + " período" + (periodosVencidos > 1 ? "s" : "") + ")", v: vv, trib: false, isento: "Isento de INSS e IRRF" });
+      linhas.push({ n: "1/3 sobre férias vencidas", v: vt, trib: false, isento: "Isento de INSS e IRRF" });
+    }
+
+    if (tipo !== "justa_causa" && aFer > 0) {
+      propFerias = r2(salario * aFer / 12);
+      var pt = r2(propFerias / 3);
+      linhas.push({ n: "Férias proporcionais (" + aFer + "/12)", v: propFerias, trib: false, isento: "Isento de INSS e IRRF" });
+      linhas.push({ n: "1/3 sobre férias proporcionais", v: pt, trib: false, isento: "Isento de INSS e IRRF" });
+    }
+
+    /* --- FGTS --- */
+    var pctMulta = tipo === "sem_justa_causa" ? 0.40 : (tipo === "acordo" ? 0.20 : 0);
+    var pctSaque = tipo === "sem_justa_causa" ? 1.00 : (tipo === "acordo" ? 0.80 : 0);
+    var multa = 0, saque = 0;
+    if (fgtsBase > 0 && pctMulta > 0) {
+      multa = r2(fgtsBase * pctMulta);
+      linhas.push({ n: "Multa do FGTS (" + (pctMulta * 100) + "%)", v: multa, trib: false, isento: "Isento de INSS e IRRF", fgts: true });
+    }
+    if (fgtsBase > 0 && pctSaque > 0) {
+      saque = r2(fgtsBase * pctSaque);
+    }
+
+    /* --- descontos: INSS e IRRF --- */
+    /* Base mensal tributável na rescisão = saldo de salário.
+       Aviso indenizado, férias indenizadas, 1/3 e multa do FGTS são isentos. */
+    var baseMensal = saldo;
+    var inssMensal = inss(baseMensal);
+    var irMensal = irrf(baseMensal, inssMensal, dependentes);
+
+    if (inssMensal > 0) descontos.push({ n: "INSS sobre o saldo de salário", v: inssMensal });
+    if (irMensal.imposto > 0) descontos.push({ n: "IRRF sobre o saldo de salário", v: irMensal.imposto });
+
+    /* 13º tem base e tributação SEPARADAS */
+    var inss13 = 0, ir13 = { imposto: 0, redutor: 0 };
+    if (t13 > 0) {
+      inss13 = inss(t13);
+      ir13 = irrf(t13, inss13, dependentes);
+      if (inss13 > 0) descontos.push({ n: "INSS sobre o 13º (cálculo separado)", v: inss13 });
+      if (ir13.imposto > 0) descontos.push({ n: "IRRF sobre o 13º (exclusivo na fonte)", v: ir13.imposto });
+    }
+
+    /* --- totais --- */
+    var bruto = 0;
+    for (var i = 0; i < linhas.length; i++) if (!linhas[i].fgts) bruto += linhas[i].v;
+    bruto = r2(bruto);
+
+    var totalDesc = 0;
+    for (var j = 0; j < descontos.length; j++) totalDesc += descontos[j].v;
+    totalDesc = r2(totalDesc);
+
+    var liquido = r2(bruto - totalDesc);
+    var totalReceber = r2(liquido + multa + saque);
+
+    /* --- avisos contextuais --- */
+    if (avisoIndenizado) {
+      avisos.push("Data de saída projetada na carteira: " + fmtDate(saidaProjetada) +
+        " — o aviso indenizado conta como tempo de serviço e pode fechar mais um avo de 13º e de férias.");
+    }
+    if (tipo === "sem_justa_causa") {
+      avisos.push("Você tem direito ao seguro-desemprego. O número de parcelas depende de quantas vezes já pediu e de quantos meses trabalhou.");
+    }
+    if (tipo === "acordo") {
+      avisos.push("No acordo do art. 484-A não há direito ao seguro-desemprego, e o saque do FGTS fica limitado a 80% do saldo.");
+    }
+    if (tipo === "justa_causa") {
+      avisos.push("As férias vencidas continuam devidas mesmo na justa causa (Súmula 171 do TST).");
+    }
+    if (tipo === "demissao" || tipo === "justa_causa") {
+      avisos.push("Sem multa e sem saque do FGTS por esta rescisão — mas o dinheiro continua na sua conta do FGTS, disponível em outras hipóteses de saque.");
+    }
+    if (fgtsBase > 0) {
+      avisos.push("A multa incide sobre a soma de todos os depósitos do contrato corrigidos, não sobre o saldo atual da conta. Se você usa saque-aniversário, a base é maior que o saldo.");
+    }
+    if (irMensal.redutor > 0 || ir13.redutor > 0) {
+      avisos.push("O redutor do Imposto de Renda criado pela Lei 15.270/2025 foi aplicado — é o que zera ou reduz o IRRF de quem recebe até R$ 5.000 por mês.");
+    }
+
+    return {
+      linhas: linhas, descontos: descontos, avisos: avisos,
+      bruto: bruto, totalDescontos: totalDesc, liquido: liquido,
+      multaFgts: multa, saqueFgts: saque, totalReceber: totalReceber,
+      diasAviso: temAviso ? dias : (tipo === "demissao" ? 30 : 0),
+      saidaProjetada: fmtDate(saidaProjetada),
+      anosCasa: anos,
+      seguroDesemprego: tipo === "sem_justa_causa"
+    };
+  }
+
+  /* ======================================================================
+     2. BTU — carga térmica estimada
+     ====================================================================== */
+
+  var CAPACIDADES = [7000, 9000, 10000, 12000, 18000, 22000, 24000, 30000, 36000, 48000, 60000];
+
+  function btu(inp) {
+    var area = Number(inp.area) || 0;
+    var pe = Number(inp.peDireito) || 2.7;
+    var pessoas = Number(inp.pessoas) || 1;
+    var aparelhos = Number(inp.aparelhos) || 0;
+    var sol = inp.sol || "sombra";        // sombra | manha | tarde
+    var ambiente = inp.ambiente || "residencial"; // residencial | cozinha | comercial
+    var horas = Number(inp.horas) || 8;
+    var tarifa = Number(inp.tarifa) || 0.85;
+    var tecnologia = inp.tecnologia || "inverter";
+
+    if (!area) return { erro: "Informe a metragem do ambiente." };
+
+    /* Fator por m²: sombra e sol da manhã = 600; sol da tarde = 800 */
+    var fator = (sol === "tarde") ? 800 : 600;
+    if (ambiente === "comercial") fator = Math.max(fator, 800);
+
+    var base = area * fator;
+    var addPessoas = Math.max(0, pessoas - 1) * 600;
+    var addAparelhos = aparelhos * 600;
+    var subtotal = base + addPessoas + addAparelhos;
+
+    /* Pé-direito */
+    var pctPe = 0;
+    if (pe > 3.5) pctPe = 0.20;
+    else if (pe > 2.7) pctPe = 0.10;
+    var addPe = subtotal * pctPe;
+
+    /* Cozinha: carga extra de fogão e forno */
+    var pctCozinha = (ambiente === "cozinha") ? 0.20 : 0;
+    var addCozinha = subtotal * pctCozinha;
+
+    var total = subtotal + addPe + addCozinha;
+
+    /* Arredonda SEMPRE para cima, para a capacidade comercial existente */
+    var recomendado = CAPACIDADES[CAPACIDADES.length - 1];
+    for (var i = 0; i < CAPACIDADES.length; i++) {
+      if (CAPACIDADES[i] >= total) { recomendado = CAPACIDADES[i]; break; }
+    }
+    var acimaDoMaior = total > CAPACIDADES[CAPACIDADES.length - 1];
+
+    /* Consumo: convencional ~100 W por 1.000 BTU; inverter em regime médio ~65 W */
+    var wattsPorMil = (tecnologia === "inverter") ? 65 : 100;
+    var potencia = recomendado / 1000 * wattsPorMil;
+    var kwhMes = potencia / 1000 * horas * 30;
+    var custoMes = kwhMes * tarifa;
+
+    var potConv = recomendado / 1000 * 100;
+    var kwhConv = potConv / 1000 * horas * 30;
+    var custoConv = kwhConv * tarifa;
+    var economiaAno = (custoConv - custoMes) * 12;
+
+    var notas = [];
+    if (acimaDoMaior) notas.push("A carga calculada passa de 60.000 BTU/h. Nesse porte o correto é dividir em mais de um aparelho ou partir para um projeto de carga térmica.");
+    if (ambiente === "comercial") notas.push("Ambiente comercial tem porta abrindo e fechando o tempo todo, o que a estimativa por m² não captura. Para loja de rua, considere um projeto conforme a NBR 16401.");
+    if (pe > 3.5) notas.push("Pé-direito acima de 3,5 m: aplicamos 20% de acréscimo, mas nesse caso o cálculo por volume costuma ser mais preciso.");
+    if (sol === "tarde") notas.push("Sol da tarde é o pior cenário de carga térmica — por isso o fator sobe de 600 para 800 BTU/h por m².");
+
+    return {
+      total: Math.round(total),
+      recomendado: recomendado,
+      base: Math.round(base), addPessoas: addPessoas, addAparelhos: addAparelhos,
+      addPe: Math.round(addPe), addCozinha: Math.round(addCozinha),
+      fator: fator, pctPe: pctPe,
+      potencia: Math.round(potencia),
+      kwhMes: r2(kwhMes), custoMes: r2(custoMes),
+      custoConvencional: r2(custoConv), economiaAno: r2(economiaAno),
+      tecnologia: tecnologia, notas: notas, acimaDoMaior: acimaDoMaior
+    };
+  }
+
+  /* ======================================================================
+     3. REFORMA — custo estimado por m²
+     ====================================================================== */
+
+  /* Base R$/m² no padrão econômico. Ancorado em SINAPI jul/2026
+     (R$ 1.985,10/m² de construção nova) e levantamentos de mercado 2026. */
+  var BASE_REFORMA = {
+    leve:       { base: 550,  nome: "Reforma leve",       desc: "Pintura, troca de piso sobre o existente, reparos — sem quebra." },
+    media:      { base: 1200, nome: "Reforma média",      desc: "Revestimentos novos, marcenaria simples, pontos elétricos." },
+    pesada:     { base: 2000, nome: "Reforma pesada",     desc: "Quebra de parede, elétrica e hidráulica refeitas, contrapiso." },
+    estrutural: { base: 2600, nome: "Retrofit estrutural", desc: "Mudança de layout estrutural, automação, alto padrão." }
+  };
+  var PADRAO = {
+    economico:    { m: 1.00, nome: "Econômico",    desc: "Cerâmica, tinta acrílica standard, louças básicas" },
+    medio:        { m: 1.65, nome: "Médio",        desc: "Porcelanato 60x60, tinta premium, metais nacionais" },
+    alto:         { m: 2.50, nome: "Alto padrão",  desc: "Mármore, porcelanato e metais importados, automação" }
+  };
+  var REGIAO = {
+    interior:   { m: 1.00, nome: "Interior / cidade média" },
+    capital:    { m: 1.10, nome: "Capital (exceto SP e RJ)" },
+    sprj:       { m: 1.20, nome: "São Paulo ou Rio de Janeiro" }
+  };
+  var ADD_BANHEIRO = { economico: 4000, medio: 9000, alto: 20000 };
+  var ADD_COZINHA  = { economico: 8000, medio: 16000, alto: 30000 };
+
+  function reforma(inp) {
+    var area = Number(inp.area) || 0;
+    var tipo = inp.tipo || "media";
+    var padrao = inp.padrao || "medio";
+    var regiao = inp.regiao || "interior";
+    var banheiros = Number(inp.banheiros) || 0;
+    var cozinha = inp.cozinha ? 1 : 0;
+    var idade = inp.idade || "novo";      // novo | medio | antigo
+    var trocaInstalacoes = !!inp.trocaInstalacoes;
+
+    if (!area) return { erro: "Informe a metragem a reformar." };
+
+    var t = BASE_REFORMA[tipo], p = PADRAO[padrao], rg = REGIAO[regiao];
+    var porM2 = t.base * p.m * rg.m;
+    var custoArea = area * porM2;
+
+    var custoBanheiros = banheiros * ADD_BANHEIRO[padrao];
+    var custoCozinha = cozinha * ADD_COZINHA[padrao];
+
+    var subtotal = custoArea + custoBanheiros + custoCozinha;
+
+    /* Troca de instalações elétricas e hidráulicas em reforma leve/média
+       é o item que mais empurra o orçamento para cima */
+    var addInstal = 0;
+    if (trocaInstalacoes && (tipo === "leve" || tipo === "media")) {
+      addInstal = subtotal * 0.18;
+      subtotal += addInstal;
+    }
+
+    /* Contingência conforme a idade do imóvel */
+    var pctCont = idade === "antigo" ? 0.20 : (idade === "medio" ? 0.15 : 0.10);
+    var contingencia = subtotal * pctCont;
+
+    var totalMin = subtotal * 0.85;
+    var totalMax = (subtotal + contingencia) * 1.10;
+    var totalRef = subtotal + contingencia;
+
+    /* Divisão material / mão de obra — SINAPI jul/2026: 56,4% / 43,6%.
+       Em reforma com muita instalação a mão de obra sobe. */
+    var pctMaterial = trocaInstalacoes ? 0.52 : 0.56;
+    var material = subtotal * pctMaterial;
+    var maoDeObra = subtotal * (1 - pctMaterial);
+
+    /* Prazo */
+    var prazo;
+    if (tipo === "leve") prazo = "7 a 15 dias úteis";
+    else if (tipo === "media") prazo = "20 a 40 dias úteis";
+    else if (tipo === "pesada") prazo = "60 a 90 dias úteis";
+    else prazo = "90 a 120 dias úteis";
+    if (area > 120) prazo += " (some 2 a 4 semanas por ser área grande)";
+
+    var alertas = [];
+    if (idade === "antigo") alertas.push("Imóvel com mais de 20 anos: instalação elétrica ou hidráulica fora de norma pode elevar o custo final em até 30% depois que a parede abre. Por isso a reserva aqui é de 20%.");
+    if (cozinha) alertas.push("Marcenaria sob medida e a pedra da bancada, juntas, costumam custar mais que piso, entulho e mão de obra somados.");
+    if (banheiros > 0) alertas.push("Manter os pontos hidráulicos onde estão economiza até 20% da mão de obra do banheiro. Impermeabilização é 3 a 5% do orçamento e evita o prejuízo mais caro depois.");
+    alertas.push("Entulho, caçamba e descarte quase nunca entram no primeiro orçamento — numa cozinha de 10 m² são de R$ 1.800 a R$ 4.200.");
+    alertas.push("ART ou RRT do responsável técnico custa de R$ 108 a R$ 286, fora os honorários do engenheiro ou arquiteto.");
+    if (tipo === "pesada" || tipo === "estrutural") alertas.push("Derrubar parede estrutural exige projeto e laudo. Se o condomínio exigir, some proteção de elevador e taxa de obra.");
+
+    return {
+      porM2: r2(porM2),
+      custoArea: r2(custoArea),
+      custoBanheiros: r2(custoBanheiros),
+      custoCozinha: r2(custoCozinha),
+      addInstalacoes: r2(addInstal),
+      subtotal: r2(subtotal),
+      contingencia: r2(contingencia), pctContingencia: pctCont,
+      totalMin: r2(totalMin), totalMax: r2(totalMax), totalRef: r2(totalRef),
+      material: r2(material), maoDeObra: r2(maoDeObra), pctMaterial: pctMaterial,
+      prazo: prazo, alertas: alertas,
+      nomeTipo: t.nome, descTipo: t.desc, nomePadrao: p.nome, descPadrao: p.desc, nomeRegiao: rg.nome
+    };
+  }
+
+  return {
+    rescisao: rescisao, btu: btu, reforma: reforma,
+    inss: inss, irrf: irrf, avos: avos, fullYears: fullYears, diasAviso: diasAviso,
+    brl: brl, num: num, r2: r2, fmtDate: fmtDate, parseDate: parseDate,
+    CAPACIDADES: CAPACIDADES, SALARIO_MINIMO: SALARIO_MINIMO
+  };
+})();
+
+if (typeof module !== "undefined" && module.exports) module.exports = MAPA;
+
+</script>
+<script>
+(function(){
+"use strict";
+var $ = function (id) { return document.getElementById(id); };
+var WA = "5531989190373";
+
+function ler() {
+  var av = document.querySelector('input[name=aviso]:checked');
+  return {
+    salario: $("salario").value,
+    admissao: $("admissao").value,
+    saida: $("saida").value,
+    tipo: $("tipo").value,
+    aviso: av ? av.value : "indenizado",
+    feriasVencidas: $("feriasVencidas").value,
+    dependentes: $("dependentes").value,
+    fgtsBase: $("fgtsBase").value,
+    adiantou13: $("adiantou13").value
+  };
+}
+
+function render() {
+  var inp = ler();
+  var big = $("big"), rows = $("rows"), notes = $("notes");
+  var r = MAPA.rescisao(inp);
+
+  if (r.erro) {
+    big.classList.add("err");
+    $("total").textContent = r.erro;
+    $("totalSub").textContent = "";
+    rows.innerHTML = ""; notes.innerHTML = "";
+    return;
+  }
+  big.classList.remove("err");
+  $("total").textContent = MAPA.brl(r.totalReceber);
+
+  var sub = "Verbas líquidas de " + MAPA.brl(r.liquido);
+  if (r.multaFgts > 0) sub += " + multa de " + MAPA.brl(r.multaFgts);
+  if (r.saqueFgts > 0) sub += " + FGTS de " + MAPA.brl(r.saqueFgts);
+  $("totalSub").textContent = sub;
+
+  var h = "";
+  for (var i = 0; i < r.linhas.length; i++) {
+    var l = r.linhas[i];
+    h += '<div class="rw' + (l.fgts ? " fg" : "") + '"><span class="n">' + l.n +
+         (l.isento ? '<em>' + l.isento + '</em>' : '') + '</span><span class="v">' + MAPA.brl(l.v) + '</span></div>';
+  }
+  if (r.descontos.length) {
+    h += '<div class="rw tot"><span class="n">Subtotal das verbas</span><span class="v">' + MAPA.brl(r.bruto) + '</span></div>';
+    for (var j = 0; j < r.descontos.length; j++) {
+      h += '<div class="rw neg"><span class="n">' + r.descontos[j].n + '</span><span class="v">− ' +
+           MAPA.brl(r.descontos[j].v) + '</span></div>';
+    }
+  }
+  h += '<div class="rw tot"><span class="n">Líquido da rescisão</span><span class="v">' + MAPA.brl(r.liquido) + '</span></div>';
+  if (r.saqueFgts > 0) {
+    h += '<div class="rw fg"><span class="n">FGTS disponível para saque</span><span class="v">' + MAPA.brl(r.saqueFgts) + '</span></div>';
+  }
+  rows.innerHTML = h;
+
+  var n = "";
+  for (var k = 0; k < r.avisos.length; k++) n += "<p>" + r.avisos[k] + "</p>";
+  notes.innerHTML = n;
+
+  var msg = "Simulei minha rescisão e queria conferir se está certo.\n\n" +
+    "Tipo: " + $("tipo").options[$("tipo").selectedIndex].text + "\n" +
+    "Salário: " + MAPA.brl(Number(inp.salario)) + "\n" +
+    "Tempo de casa: " + r.anosCasa + " ano(s)\n" +
+    "Aviso: " + r.diasAviso + " dias\n" +
+    "Líquido estimado: " + MAPA.brl(r.liquido) + "\n" +
+    (r.multaFgts ? "Multa do FGTS: " + MAPA.brl(r.multaFgts) + "\n" : "") +
+    "Total estimado: " + MAPA.brl(r.totalReceber);
+  $("wa").href = "https://wa.me/" + WA + "?text=" + encodeURIComponent(msg);
+}
+
+function ajustarAviso() {
+  var t = $("tipo").value;
+  var w = $("wrapAviso"), hint = $("hintAviso");
+  if (t === "justa_causa") {
+    w.style.display = "none";
+  } else {
+    w.style.display = "";
+    hint.textContent = (t === "demissao")
+      ? "No pedido de demissão o aviso é devido por você. Se a empresa dispensar o cumprimento, o desconto não existe."
+      : "O aviso indenizado conta como tempo de serviço e empurra a data de saída na carteira para frente.";
+  }
+}
+
+$("f").addEventListener("input", function () { ajustarAviso(); render(); });
+$("f").addEventListener("change", function () { ajustarAviso(); render(); });
+ajustarAviso(); render();
+
+var tgl=document.getElementById("tgl");
+function pintarTgl(){
+  if(!tgl) return;
+  var claro=document.documentElement.getAttribute("data-theme")==="light";
+  tgl.textContent=claro?"\u2600":"\u263D";
+  tgl.title=claro?"Mudar para o tema escuro":"Mudar para o tema claro";
+}
+if(tgl){
+  pintarTgl();
+  tgl.addEventListener("click",function(){
+    var cur=document.documentElement.getAttribute("data-theme")==="light"?"dark":"light";
+    document.documentElement.setAttribute("data-theme",cur);
+    try{localStorage.setItem("mapa_theme",cur);}catch(e){}
+    pintarTgl();
+  });
+}
+})();
+</script>
+</body>
+</html>
