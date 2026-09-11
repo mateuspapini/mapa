@@ -1,0 +1,1042 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<script>
+(function(){try{var t=localStorage.getItem("mapa_theme");
+document.documentElement.setAttribute("data-theme",t==="light"?"light":"dark");}catch(e){}})();
+</script>
+<title>Calculadora de Custo de Reforma por m² — quanto custa reformar em 2026</title>
+<meta name="description" content="Estime o custo da sua reforma por m² em 2026: faixa de investimento, divisão entre material e mão de obra, reserva para imprevisto e prazo. Base SINAPI de julho de 2026.">
+<meta name="keywords" content="quanto custa reforma por m2, calculadora custo reforma, preço reforma apartamento 2026, custo reforma banheiro, custo reforma cozinha">
+<meta name="author" content="MAPA Soluções Digitais">
+<link rel="canonical" href="https://mapasolucoesdigitais.com.br/calculadora-custo-de-reforma/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="MAPA Soluções Digitais">
+<meta property="og:title" content="Calculadora de Custo de Reforma por m² — quanto custa reformar em 2026">
+<meta property="og:description" content="Estime o custo da sua reforma por m² em 2026: faixa de investimento, divisão entre material e mão de obra, reserva para imprevisto e prazo. Base SINAPI de julho de 2026.">
+<meta property="og:url" content="https://mapasolucoesdigitais.com.br/calculadora-custo-de-reforma/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#080c18">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap">
+<style>
+/* MAPA Soluções Digitais — calculadoras públicas
+   Tokens espelhados do site institucional (mapasolucoesdigitais.com.br) */
+:root,
+html[data-theme="dark"]{
+  --bg:#080c18;
+  --bg2:#0f1629;
+  --card:#141e35;
+  --card2:#1a2540;
+  --accent:#00c8f5;
+  --accent2:#0055ff;
+  --grad:linear-gradient(135deg,#00c8f5,#0055ff);
+  --glow:rgba(0,200,245,.12);
+  --t1:#f0f6ff;
+  --t2:#8da0bc;
+  --t3:#8799b2;
+  --bdr:rgba(255,255,255,.07);
+  --bdr2:rgba(255,255,255,.15);
+  --neg:#ff8574;
+  --shadow:0 24px 60px -34px rgba(0,0,0,.9);
+}
+html[data-theme="light"]{
+  --bg:#f2f5fc;
+  --bg2:#e8edf8;
+  --card:#ffffff;
+  --card2:#f5f8ff;
+  --glow:rgba(0,85,255,.07);
+  --t1:#0a1630;
+  --t2:#4e6080;
+  --t3:#52637f;
+  --bdr:rgba(0,50,130,.1);
+  --bdr2:rgba(0,50,130,.2);
+  --neg:#c5341c;
+  --shadow:0 24px 60px -38px rgba(10,22,48,.35);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--t1);
+  font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-size:15.5px;line-height:1.62;-webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{font-family:Sora,Inter,sans-serif;margin:0;line-height:1.16;letter-spacing:-.02em;text-wrap:balance}
+p{margin:0}
+a{color:var(--accent)}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:20px}
+.grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* ── topo ─────────────────────────────── */
+.topbar{border-bottom:1px solid var(--bdr);background:var(--bg2);position:sticky;top:0;z-index:30;
+  backdrop-filter:saturate(140%) blur(8px)}
+.topbar .wrap{display:flex;align-items:center;gap:16px;padding-block:12px;flex-wrap:wrap}
+.brand{display:flex;align-items:baseline;gap:8px;text-decoration:none;color:var(--t1)}
+.brand b{font-family:Sora,sans-serif;font-weight:800;font-size:19px;letter-spacing:-.03em}
+.brand span{font-size:9.5px;letter-spacing:.19em;text-transform:uppercase;color:var(--t3);font-weight:600}
+.topbar nav{margin-left:auto;display:flex;gap:17px;align-items:center;flex-wrap:wrap}
+.topbar nav a{font-size:13.5px;color:var(--t2);text-decoration:none;font-weight:500}
+.topbar nav a:hover,.topbar nav a[aria-current]{color:var(--accent)}
+.btn-grad{background:var(--grad);color:#fff!important;padding:8px 15px;border-radius:8px;font-weight:600;font-size:13px}
+.btn-grad:hover{filter:brightness(1.1)}
+.tgl{background:transparent;border:1px solid var(--bdr2);color:var(--t2);width:34px;height:34px;
+  border-radius:9px;cursor:pointer;font-size:17px;line-height:1;display:grid;place-items:center;
+  flex:none;font-family:inherit;padding:0}
+.tgl:hover{color:var(--accent);border-color:var(--accent)}
+
+/* ── cabeçalho ────────────────────────── */
+.hero{padding-block:44px 26px;display:grid;gap:13px;max-width:70ch}
+.kicker{font-size:11px;letter-spacing:.19em;text-transform:uppercase;font-weight:700;
+  background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero h1{font-size:clamp(30px,5.2vw,46px);font-weight:800}
+.hero p{color:var(--t2);font-size:17px}
+
+/* ── instrumento ──────────────────────── */
+.rig{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,420px);gap:22px;align-items:start;padding-bottom:14px}
+@media(max-width:900px){.rig{grid-template-columns:1fr}}
+
+.form{background:var(--card);border:1px solid var(--bdr);border-radius:14px;overflow:hidden}
+.form-head{padding:13px 18px;border-bottom:1px solid var(--bdr);background:var(--card2);
+  font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--t3);font-weight:700}
+.fields{padding:18px;display:grid;gap:17px}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:520px){.fgrid{grid-template-columns:1fr}}
+.field{display:grid;gap:6px;min-width:0}
+.field label{font-size:13px;font-weight:600;color:var(--t1)}
+.field .hint{font-size:12px;color:var(--t3);line-height:1.44}
+input[type=number],input[type=date],input[type=text],select{
+  width:100%;font-family:inherit;font-size:15px;padding:10px 12px;border-radius:9px;
+  border:1px solid var(--bdr2);background:var(--bg);color:var(--t1);
+  font-variant-numeric:tabular-nums;
+}
+input:focus,select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--glow)}
+select{cursor:pointer;appearance:none;
+  background-image:linear-gradient(45deg,transparent 50%,var(--t3) 50%),linear-gradient(135deg,var(--t3) 50%,transparent 50%);
+  background-position:calc(100% - 17px) 50%,calc(100% - 12px) 50%;
+  background-size:5px 5px,5px 5px;background-repeat:no-repeat;padding-right:34px}
+.radios{display:flex;flex-wrap:wrap;gap:7px}
+.radios label{
+  font-size:13px;padding:8px 14px;border-radius:9px;border:1px solid var(--bdr2);
+  background:var(--bg);color:var(--t2);cursor:pointer;font-weight:500;
+}
+.radios input{position:absolute;opacity:0;width:0;height:0}
+.radios label:has(input:checked){background:var(--grad);border-color:transparent;color:#fff;font-weight:600}
+.radios label:has(input:focus-visible){box-shadow:0 0 0 3px var(--glow)}
+.check{display:flex;gap:10px;align-items:flex-start;cursor:pointer}
+.check input{margin-top:3px;width:17px;height:17px;accent-color:var(--accent);flex:none}
+.check span{font-size:13.5px}
+
+/* ── leitura ──────────────────────────── */
+.readout{position:sticky;top:74px;display:grid;gap:14px}
+@media(max-width:900px){.readout{position:static}}
+.panel{background:var(--card);border:1px solid var(--bdr);border-radius:14px;overflow:hidden;box-shadow:var(--shadow)}
+.big{padding:20px 18px;background:var(--card2);border-bottom:1px solid var(--bdr);position:relative}
+.big::after{content:"";position:absolute;inset:0 0 auto;height:2px;background:var(--grad)}
+.big .lbl{display:block;font-size:10px;letter-spacing:.17em;text-transform:uppercase;color:var(--t3);
+  font-weight:700;margin-bottom:8px}
+.big .val{display:block;font-family:Sora,sans-serif;font-weight:800;font-size:clamp(25px,4.8vw,33px);
+  line-height:1.14;font-variant-numeric:tabular-nums;letter-spacing:-.035em;word-break:break-word;
+  background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.big .sub{display:block;font-size:12.8px;color:var(--t2);margin-top:9px;line-height:1.5}
+.big.err::after{background:var(--neg)}
+.big.err .val{background:none;-webkit-background-clip:border-box;background-clip:border-box;
+  color:var(--neg);font-size:17px;font-weight:600;font-family:Inter,sans-serif;letter-spacing:0}
+
+.rows{padding:5px 0}
+.rw{display:flex;gap:12px;padding:9px 18px;font-size:13.5px;align-items:baseline;border-bottom:1px solid var(--bdr)}
+.rw:last-child{border-bottom:0}
+.rw .n{flex:1;color:var(--t2);min-width:0}
+.rw .n em{display:block;font-style:normal;font-size:11.5px;color:var(--accent);margin-top:1px;opacity:.85}
+.rw .v{font-variant-numeric:tabular-nums;white-space:nowrap;font-size:13.5px;font-weight:600;letter-spacing:-.01em}
+.rw.neg .v{color:var(--neg)}
+.rw.tot{background:var(--card2);border-top:1px solid var(--bdr)}
+.rw.tot .n{color:var(--t1);font-weight:600}
+.rw.fg .v{color:var(--accent)}
+
+.notes{padding:14px 18px;display:grid;gap:9px;border-top:1px solid var(--bdr);background:var(--card2)}
+.notes p{font-size:12.5px;color:var(--t2);line-height:1.5;padding-left:16px;position:relative}
+.notes p::before{content:"";position:absolute;left:0;top:7px;width:6px;height:6px;border-radius:50%;background:var(--grad)}
+
+.cta{display:block;text-align:center;text-decoration:none;padding:15px 18px;
+  background:var(--grad);color:#fff;font-weight:700;font-size:15px;font-family:Sora,sans-serif;letter-spacing:-.015em}
+.cta:hover{filter:brightness(1.1)}
+.cta small{display:block;font-family:Inter,sans-serif;font-weight:400;font-size:12px;opacity:.82;margin-top:3px;letter-spacing:0}
+
+.pitch{background:var(--card);border:1px solid var(--bdr);border-radius:14px;padding:16px 18px;display:grid;gap:9px;
+  position:relative;overflow:hidden}
+.pitch::before{content:"";position:absolute;inset:0 auto 0 0;width:3px;background:var(--grad)}
+.pitch h3{font-size:15px;font-weight:700}
+.pitch p{font-size:13.3px;color:var(--t2)}
+.pitch a{display:inline-block;margin-top:3px;font-weight:700;font-size:13.5px;text-decoration:none}
+
+/* ── conteúdo ─────────────────────────── */
+section.doc{padding-block:46px 0}
+.doc h2{font-size:clamp(22px,3.5vw,30px);font-weight:800;margin-bottom:9px}
+.doc .sub{color:var(--t2);margin-bottom:22px;max-width:70ch}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:15px}
+.cardx{background:var(--card);border:1px solid var(--bdr);border-radius:14px;padding:17px 19px;display:grid;gap:9px}
+.cardx h3{font-size:15.5px;font-weight:700}
+.cardx p,.cardx li{font-size:13.8px;color:var(--t2)}
+.cardx ul{margin:0;padding-left:18px;display:grid;gap:5px}
+.cardx b{color:var(--t1)}
+.formula{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.5px;color:var(--accent);
+  background:var(--bg);border:1px solid var(--bdr);border-radius:9px;padding:12px 14px;
+  overflow-x:auto;white-space:pre;line-height:1.75}
+
+.faq{display:grid;gap:1px;border:1px solid var(--bdr);border-radius:14px;overflow:hidden;background:var(--bdr)}
+details{background:var(--card)}
+details summary{padding:15px 18px;cursor:pointer;font-weight:600;font-size:15px;list-style:none;
+  display:flex;gap:12px;align-items:baseline;font-family:Sora,sans-serif;letter-spacing:-.01em}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"+";color:var(--accent);font-weight:700;flex:none;font-size:17px;line-height:1}
+details[open] summary::before{content:"−"}
+details .ans{padding:0 18px 16px 42px;color:var(--t2);font-size:14.2px;display:grid;gap:9px}
+details .ans ul{margin:0;padding-left:18px;display:grid;gap:4px}
+details .ans b{color:var(--t1)}
+
+.tblx{overflow-x:auto;border:1px solid var(--bdr);border-radius:14px;background:var(--card)}
+table{border-collapse:collapse;width:100%;min-width:460px;font-size:13.5px}
+th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--bdr)}
+th{font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--t3);
+  background:var(--card2);white-space:nowrap;font-weight:700}
+td{color:var(--t2)}
+td b{color:var(--t1)}
+tbody tr:last-child td{border-bottom:0}
+td.mono{font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--t1);font-weight:600}
+
+.disclaimer{margin-top:34px;background:var(--card);border:1px solid var(--bdr);border-radius:14px;
+  padding:17px 19px;display:grid;gap:8px;position:relative;overflow:hidden}
+.disclaimer::before{content:"";position:absolute;inset:0 auto 0 0;width:3px;background:var(--grad)}
+.disclaimer h3{font-size:14.5px;font-weight:700}
+.disclaimer p{font-size:13px;color:var(--t2)}
+.disclaimer b{color:var(--t1)}
+.sources{font-size:11.8px;color:var(--t3);line-height:1.9;word-break:break-word}
+
+footer.pg{margin-top:54px;border-top:1px solid var(--bdr);background:var(--bg2);padding-block:30px 34px}
+footer.pg .wrap{display:grid;gap:18px}
+.fgrid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px}
+footer.pg h4{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--t3);margin-bottom:9px;font-weight:700}
+footer.pg p,footer.pg a{font-size:13.5px;color:var(--t2);text-decoration:none;display:block}
+footer.pg a:hover{color:var(--accent)}
+.copyr{border-top:1px solid var(--bdr);padding-top:16px;font-size:12px;color:var(--t3)}
+
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
+
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Quanto custa reformar um apartamento por metro quadrado em 2026?", "acceptedAnswer": {"@type": "Answer", "text": "Depende da profundidade da obra. Reforma leve, sem quebra, fica entre R$ 500 e R$ 1.400 por m². Reforma média entre R$ 1.400 e R$ 2.600. Reforma pesada, com quebra de parede e instalações refeitas, entre R$ 2.500 e R$ 3.500. Retrofit de alto padrão parte de R$ 3.800 por m²."}}, {"@type": "Question", "name": "Por que o resultado é uma faixa e não um valor exato?", "acceptedAnswer": {"@type": "Answer", "text": "Duas reformas com o mesmo escopo podem ter 40% de diferença de preço conforme a cidade, a época do ano, quem executa e o que a demolição revelar. Um valor único passaria uma precisão que não existe antes da visita técnica."}}, {"@type": "Question", "name": "Quanto devo reservar para imprevistos numa reforma?", "acceptedAnswer": {"@type": "Answer", "text": "De 10% para imóvel novo ou reforma simples, 15% para reforma completa e 20% para imóvel com mais de 20 anos. Instalação elétrica ou hidráulica fora de norma, descoberta com a parede aberta, pode elevar o custo final em até 30%."}}, {"@type": "Question", "name": "Quanto tempo demora uma reforma?", "acceptedAnswer": {"@type": "Answer", "text": "Reforma leve leva de 7 a 15 dias úteis, reforma média de 20 a 40 dias úteis, reforma completa de 60 a 90 dias úteis e alto padrão de 90 a 120 dias úteis. Banheiro isolado leva de 10 a 20 dias úteis e cozinha completa de 2 a 4 meses."}}, {"@type": "Question", "name": "Quanto custa reformar um banheiro completo?", "acceptedAnswer": {"@type": "Answer", "text": "De R$ 5.000 a R$ 8.500 no padrão básico, de R$ 8.000 a R$ 18.000 no intermediário e acima de R$ 25.000 no alto padrão. Manter os pontos hidráulicos onde estão economiza até 20% da mão de obra."}}, {"@type": "Question", "name": "Qual a divisão entre material e mão de obra numa reforma?", "acceptedAnswer": {"@type": "Answer", "text": "Fica perto de 55% material e 45% mão de obra, seguindo a proporção do SINAPI, que na referência de julho de 2026 apurou 56,4% de material e 43,6% de mão de obra. Em reformas com muita instalação, a mão de obra sobe para perto de 50%."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Quanto custa reformar por m²", "url": "https://mapasolucoesdigitais.com.br/calculadora-custo-de-reforma", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Web", "inLanguage": "pt-BR", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "BRL"}, "publisher": {"@type": "Organization", "name": "MAPA Soluções Digitais", "url": "https://mapasolucoesdigitais.com.br"}}</script>
+</head>
+<body>
+<header class="topbar"><div class="wrap">
+  <a class="brand" href="https://mapasolucoesdigitais.com.br/"><b>MAPA</b><span>Soluções Digitais</span></a>
+  <nav><a href="/calculadora-rescisao-trabalhista/">Rescisão</a><a href="/calculadora-btu-ar-condicionado/">BTU</a><a href="/calculadora-custo-de-reforma/" aria-current="page">Reforma</a><a href="https://mapasolucoesdigitais.com.br/#servicos">Serviços</a><a class="btn-grad" href="https://wa.me/5531989190373?text=Ol%C3%A1%2C+vim+pelas+calculadoras+e+gostaria+de+um+or%C3%A7amento!" target="_blank" rel="noopener">Orçamento grátis →</a><button class="tgl" id="tgl" type="button" aria-label="Alternar tema claro e escuro"></button></nav>
+</div></header>
+
+<main class="wrap">
+  <div class="hero">
+    <span class="kicker">Calculadora gratuita · Base SINAPI jul/2026</span>
+    <h1>Quanto custa reformar por m²</h1>
+    <p>Uma faixa realista de investimento antes de chamar o primeiro orçamento — com a reserva para imprevisto que quase nenhum orçamento inclui, e a lista do que costuma aparecer depois que a obra começa.</p>
+  </div>
+<div class="rig">
+  <form class="form" id="f" autocomplete="off">
+    <div class="form-head">O que você vai reformar</div>
+    <div class="fields">
+
+      <div class="field">
+        <label for="tipo">Profundidade da reforma</label>
+        <select id="tipo">
+          <option value="leve">Leve — pintura e piso, sem quebra</option>
+          <option value="media" selected>Média — revestimentos novos e pontos elétricos</option>
+          <option value="pesada">Pesada — quebra de parede, elétrica e hidráulica refeitas</option>
+          <option value="estrutural">Retrofit — mudança de layout estrutural e automação</option>
+        </select>
+        <span class="hint" id="hintTipo"></span>
+      </div>
+
+      <div class="fgrid">
+        <div class="field">
+          <label for="area">Área a reformar (m²)</label>
+          <input type="number" id="area" value="80" min="1" max="2000" step="1" inputmode="decimal">
+          <span class="hint">Só a área que entra na obra.</span>
+        </div>
+        <div class="field">
+          <label for="padrao">Padrão de acabamento</label>
+          <select id="padrao">
+            <option value="economico">Econômico</option>
+            <option value="medio" selected>Médio</option>
+            <option value="alto">Alto padrão</option>
+          </select>
+          <span class="hint" id="hintPadrao"></span>
+        </div>
+      </div>
+
+      <div class="fgrid">
+        <div class="field">
+          <label for="banheiros">Banheiros na reforma</label>
+          <input type="number" id="banheiros" value="1" min="0" max="10" step="1">
+          <span class="hint">Entram como custo extra: louças, metais, impermeabilização.</span>
+        </div>
+        <div class="field">
+          <label for="regiao">Onde fica o imóvel</label>
+          <select id="regiao">
+            <option value="interior" selected>Interior ou cidade média</option>
+            <option value="capital">Capital (exceto SP e RJ)</option>
+            <option value="sprj">São Paulo ou Rio de Janeiro</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="check"><input type="checkbox" id="cozinha" checked>
+          <span><b>A cozinha entra na reforma</b><br><span class="hint">Marcenaria sob medida e pedra de bancada, juntas, costumam custar mais que piso, entulho e mão de obra somados.</span></span>
+        </label>
+      </div>
+
+      <div class="field">
+        <label class="check"><input type="checkbox" id="trocaInstalacoes">
+          <span><b>Vou trocar a elétrica e a hidráulica</b><br><span class="hint">Em reforma leve ou média, isso muda o patamar do orçamento.</span></span>
+        </label>
+      </div>
+
+      <div class="field">
+        <label for="idade">Idade do imóvel</label>
+        <select id="idade">
+          <option value="novo">Até 10 anos</option>
+          <option value="medio" selected>Entre 10 e 20 anos</option>
+          <option value="antigo">Mais de 20 anos</option>
+        </select>
+        <span class="hint">Define a reserva para imprevisto. Quanto mais velho, maior a chance de a parede aberta revelar surpresa.</span>
+      </div>
+
+    </div>
+  </form>
+
+  <div class="readout">
+    <div class="panel">
+      <div class="big" id="big">
+        <span class="lbl">Investimento estimado</span>
+        <span class="val" id="total">—</span>
+        <span class="sub" id="totalSub"></span>
+      </div>
+      <div class="rows" id="rows"></div>
+      <div class="notes" id="notes"></div>
+      <a class="cta" id="wa" href="#" target="_blank" rel="noopener">
+        Pedir uma visita técnica
+        <small>Abre o WhatsApp com o escopo que você montou</small>
+      </a>
+    </div>
+
+    <div class="pitch">
+      <h3>Esta calculadora é uma demonstração</h3>
+      <p>Quem construiu foi a MAPA. Se você é construtora, arquiteto, marmoraria ou marcenaria, essa mesma ferramenta pode estar no seu site com a sua tabela de preços — e o lead chega sabendo a faixa antes de te ligar.</p>
+      <a href="https://wa.me/5531989190373?text=Vi%20a%20calculadora%20de%20reforma%20no%20site%20de%20voc%C3%AAs%20e%20queria%20uma%20parecida%20no%20meu." target="_blank" rel="noopener">Quero uma calculadora no meu site →</a>
+    </div>
+  </div>
+</div>
+
+<section class="doc">
+  <h2>De onde vêm estes números</h2>
+  <p class="sub">Custo de obra varia com região, época do ano e disponibilidade de mão de obra. Por isso o resultado é uma faixa, e não um preço.</p>
+  <div class="cols">
+    <div class="cardx">
+      <h3>A âncora oficial</h3>
+      <p>O SINAPI, do IBGE com a Caixa, mede o custo nacional da construção em <b>R$ 1.985,10 por m²</b> na referência de julho de 2026 — dividido em 56,4% de material e 43,6% de mão de obra.</p>
+      <p>Esse número é de construção nova. Reforma tem lógica própria: demolição, entulho e trabalhar dentro de um imóvel ocupado encarecem o m².</p>
+    </div>
+    <div class="cardx">
+      <h3>Faixas por profundidade</h3>
+      <ul>
+        <li><b>Leve:</b> R$ 500 a R$ 1.400 por m²</li>
+        <li><b>Média:</b> R$ 1.400 a R$ 2.600 por m²</li>
+        <li><b>Pesada:</b> R$ 2.500 a R$ 3.500 por m²</li>
+        <li><b>Retrofit:</b> R$ 3.800 a R$ 5.500 e acima</li>
+      </ul>
+      <p>Dentro de cada faixa, o que move o valor é o padrão de acabamento.</p>
+    </div>
+    <div class="cardx">
+      <h3>O peso do acabamento</h3>
+      <p>Tomando o econômico como base:</p>
+      <ul>
+        <li><b>Econômico</b> — 1,0×. Cerâmica, tinta acrílica, louças básicas.</li>
+        <li><b>Médio</b> — cerca de 1,65×. Porcelanato, tinta premium, metais nacionais.</li>
+        <li><b>Alto padrão</b> — cerca de 2,5×. Mármore, importados, automação.</li>
+      </ul>
+      <p>É o multiplicador que mais mexe no total. Trocar o padrão pesa mais que aumentar a metragem.</p>
+    </div>
+    <div class="cardx">
+      <h3>Banheiro e cozinha entram à parte</h3>
+      <p>São os ambientes mais caros por m² e não seguem a média da casa. Por isso somamos um adicional por unidade em vez de diluir na metragem.</p>
+      <ul>
+        <li><b>Banheiro:</b> de R$ 5.000 no básico a R$ 37.000 no alto padrão</li>
+        <li><b>Cozinha de 10 m²:</b> de R$ 15.000 a R$ 60.000</li>
+      </ul>
+    </div>
+    <div class="cardx">
+      <h3>A reserva para imprevisto</h3>
+      <p>Não é gordura no orçamento, é parte do orçamento. A recomendação de mercado:</p>
+      <ul>
+        <li>Imóvel novo ou reforma simples — 10%</li>
+        <li>Reforma completa — 15%</li>
+        <li>Imóvel com mais de 20 anos — 20%</li>
+      </ul>
+      <p>Instalação antiga fora de norma, descoberta com a parede aberta, pode elevar o custo final em até 30%.</p>
+    </div>
+    <div class="cardx">
+      <h3>Material contra mão de obra</h3>
+      <p>A divisão fica perto de 55% material e 45% mão de obra, seguindo o SINAPI. Em reforma com muita instalação elétrica e hidráulica, a mão de obra sobe para perto de 50%.</p>
+      <p>Vale saber: em doze meses a mão de obra subiu 9,56% no SINAPI, quase o dobro dos materiais, que subiram 5,81%. Mão de obra qualificada está escassa e cara.</p>
+    </div>
+  </div>
+</section>
+
+<section class="doc">
+  <h2>O que costuma faltar no primeiro orçamento</h2>
+  <p class="sub">Estes são os itens que aparecem depois que a obra começou — e que transformam um orçamento fechado em briga.</p>
+  <div class="tblx">
+    <table>
+      <thead><tr><th>Item</th><th>Ordem de grandeza</th><th>Por que escapa</th></tr></thead>
+      <tbody>
+        <tr><td>Entulho, caçamba e descarte</td><td class="mono">R$ 1.800 – 4.200</td><td>Ninguém orça o que vai sair, só o que vai entrar</td></tr>
+        <tr><td>ART ou RRT do responsável técnico</td><td class="mono">R$ 108 – 286</td><td>Fora os honorários do engenheiro ou arquiteto</td></tr>
+        <tr><td>Proteção de elevador e taxa de obra</td><td class="mono">Varia por condomínio</td><td>Só aparece quando o síndico é avisado</td></tr>
+        <tr><td>Argamassa, rejunte, perfis, rodapés</td><td class="mono">3% a 6% do total</td><td>Material auxiliar não entra na lista de acabamento</td></tr>
+        <tr><td>Perda de material no corte</td><td class="mono">5% a 15%</td><td>Porcelanato grande formato tem perda alta</td></tr>
+        <tr><td>Elétrica e hidráulica fora de norma</td><td class="mono">até +30% do total</td><td>Só se descobre com a parede aberta</td></tr>
+        <tr><td>Retrabalho de marcenaria</td><td class="mono">Varia</td><td>O projeto não bateu com a obra construída</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="doc">
+  <h2>Perguntas frequentes</h2>
+  <div class="faq">
+    <details open><summary>Por que o resultado é uma faixa e não um valor?</summary>
+      <div class="ans"><p>Porque duas reformas de 80 m² com o mesmo escopo podem ter 40% de diferença de preço, dependendo da cidade, da época do ano, de quem executa e do que a demolição revelar.</p><p>Um valor único passaria uma precisão que não existe antes da visita técnica. A faixa é honesta: mostra o piso realista e o teto provável.</p></div></details>
+    <details><summary>Reforma sai mais barata que construir do zero?</summary>
+      <div class="ans"><p>Por m², normalmente não. Construção nova trabalha em terreno livre, com logística simples e sem demolição. Reforma envolve quebrar, retirar entulho, trabalhar em espaço apertado, e às vezes refazer o que estava escondido.</p><p>O que faz reforma valer a pena é o terreno e a estrutura já existirem — não o custo do metro quadrado.</p></div></details>
+    <details><summary>Quanto tempo demora?</summary>
+      <div class="ans"><ul><li>Reforma leve: 7 a 15 dias úteis</li><li>Reforma média: 20 a 40 dias úteis</li><li>Reforma completa: 60 a 90 dias úteis</li><li>Alto padrão ou área grande: 90 a 120 dias úteis</li></ul><p>Banheiro isolado leva de 10 a 20 dias úteis. Cozinha completa, com projeto e marcenaria sob medida, leva de 2 a 4 meses.</p></div></details>
+    <details><summary>Dá para economizar sem baixar o padrão?</summary>
+      <div class="ans"><p>Sim, e o maior ganho está em não mexer no que não precisa mudar de lugar:</p><ul><li>Manter os pontos hidráulicos onde estão economiza até 20% da mão de obra do banheiro</li><li>Assentar piso sobre piso, quando a altura permite, corta demolição e entulho</li><li>Concentrar o alto padrão nos ambientes sociais e usar padrão médio nas áreas de serviço</li></ul><p>O que não vale cortar é impermeabilização: são 3 a 5% do orçamento e evitam o prejuízo mais caro que existe.</p></div></details>
+    <details><summary>Por que a cozinha pesa tanto no orçamento?</summary>
+      <div class="ans"><p>Porque marcenaria sob medida e a pedra da bancada, somadas, custam mais que piso, entulho e mão de obra juntos. Numa cozinha de 10 m², os armários sozinhos ficam entre R$ 8.500 e R$ 13.500.</p><p>É também o ambiente com mais pontos de água, esgoto e elétrica por metro quadrado.</p></div></details>
+    <details><summary>Vale contratar arquiteto para uma reforma pequena?</summary>
+      <div class="ans"><p>Depende do que "pequena" quer dizer. Para pintura e troca de piso, dificilmente compensa. Para qualquer coisa que mexa em layout, marcenaria ou instalação, o projeto costuma se pagar em compatibilização — evitando o retrabalho de descobrir na obra que a marcenaria não encaixa ou que o ponto de luz ficou no lugar errado.</p><p>Se houver quebra de parede estrutural, projeto e laudo deixam de ser opção e viram exigência.</p></div></details>
+  </div>
+
+  <div class="disclaimer">
+    <h3>Esta calculadora é uma estimativa</h3>
+    <p>Ela usa médias de mercado e índices oficiais para dar uma ordem de grandeza antes da visita técnica. Não é orçamento, não considera as condições específicas do seu imóvel e não substitui a visita de um profissional. Custos de obra variam por cidade, por época do ano e por disponibilidade de mão de obra.</p>
+    <p class="sources">Bases utilizadas — SINAPI/IBGE, custo nacional da construção de R$ 1.985,10 por m² e divisão de 56,4% material e 43,6% mão de obra, referência de julho de 2026, divulgada em 11/08/2026 · CUB Sinduscon-MG de agosto de 2026 · Faixas de reforma por m², custos de banheiro e cozinha, multiplicadores de acabamento, prazos e reservas de contingência: levantamentos de mercado de 2026.<br>Última revisão: setembro de 2026. Os índices são mensais — reconfira antes de usar como base contratual.</p>
+  </div>
+</section>
+</main>
+
+<footer class="pg"><div class="wrap">
+<div class="fgrid2">
+  <div><h4>Calculadoras</h4>
+    <a href="/calculadora-rescisao-trabalhista/">Rescisão trabalhista</a>
+    <a href="/calculadora-btu-ar-condicionado/">BTU para ar-condicionado</a>
+    <a href="/calculadora-custo-de-reforma/">Custo de reforma por m²</a></div>
+  <div><h4>MAPA Soluções Digitais</h4>
+    <a href="https://mapasolucoesdigitais.com.br/#servicos">Serviços</a>
+    <a href="https://mapasolucoesdigitais.com.br/#portfolio">Portfólio</a>
+    <a href="https://wa.me/5531989190373">WhatsApp (31) 98919-0373</a>
+    <a href="mailto:contato@mapasolucoesdigitais.com.br">contato@mapasolucoesdigitais.com.br</a></div>
+  <div><h4>Quer uma dessas no seu site?</h4>
+    <p>Construímos calculadoras sob medida que respondem a pergunta que o seu cliente faz antes de te procurar — e entregam o lead já qualificado no seu WhatsApp.</p>
+    <a href="https://wa.me/5531989190373?text=Quero%20uma%20calculadora%20no%20meu%20site." style="color:var(--accent);font-weight:700;margin-top:9px">Falar com a MAPA →</a></div>
+</div>
+<div class="copyr">Calculadora gratuita, oferecida pela MAPA Soluções Digitais — Belo Horizonte, MG. Os resultados são estimativas e não substituem orientação profissional.</div>
+</div></footer>
+
+<script>
+/* ==========================================================================
+   MAPA Soluções Digitais — núcleo de cálculo das calculadoras públicas
+   Referências: INSS Portaria MPS/MF 13/2026 · IRRF Lei 15.191/2025 +
+   redutor da Lei 15.270/2025 · Salário mínimo Decreto 12.797/2025 ·
+   SINAPI/IBGE jul-2026 · ANEEL bandeira amarela set-2026
+   ========================================================================== */
+var MAPA = (function () {
+  "use strict";
+
+  /* ---------- utilidades ---------- */
+  function r2(n) { return Math.round(n * 100) / 100; }
+  function brl(n) {
+    return "R$ " + n.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+  function num(n) { return n.toLocaleString("pt-BR", { maximumFractionDigits: 0 }); }
+  function parseDate(s) {
+    if (!s) return null;
+    var p = String(s).split("-");
+    if (p.length !== 3) return null;
+    var d = new Date(Number(p[0]), Number(p[1]) - 1, Number(p[2]));
+    return isNaN(d.getTime()) ? null : d;
+  }
+  function addDays(d, n) { var x = new Date(d.getTime()); x.setDate(x.getDate() + n); return x; }
+  function fmtDate(d) {
+    return String(d.getDate()).padStart(2, "0") + "/" +
+           String(d.getMonth() + 1).padStart(2, "0") + "/" + d.getFullYear();
+  }
+  function daysInMonth(y, m) { return new Date(y, m + 1, 0).getDate(); }
+
+  /* Anos COMPLETOS entre duas datas */
+  function fullYears(from, to) {
+    var y = to.getFullYear() - from.getFullYear();
+    var anniv = new Date(from.getFullYear() + y, from.getMonth(), from.getDate());
+    if (anniv > to) y--;
+    return Math.max(0, y);
+  }
+
+  /* Avos pela regra dos 15 dias: conta meses do intervalo [ini, fim] em que
+     o trabalhador teve 15 dias ou mais. Teto de 12. */
+  function avos(ini, fim) {
+    if (!ini || !fim || fim < ini) return 0;
+    var count = 0;
+    var y = ini.getFullYear(), m = ini.getMonth();
+    while (y < fim.getFullYear() || (y === fim.getFullYear() && m <= fim.getMonth())) {
+      var first = new Date(y, m, 1);
+      var last = new Date(y, m, daysInMonth(y, m));
+      var a = first > ini ? first : ini;
+      var b = last < fim ? last : fim;
+      var dias = Math.floor((b - a) / 86400000) + 1;
+      if (dias >= 15) count++;
+      m++; if (m > 11) { m = 0; y++; }
+    }
+    return Math.min(12, count);
+  }
+
+  /* ======================================================================
+     1. RESCISÃO TRABALHISTA
+     ====================================================================== */
+
+  var INSS_2026 = [
+    { ate: 1621.00, aliq: 0.075 },
+    { ate: 2902.84, aliq: 0.09 },
+    { ate: 4354.27, aliq: 0.12 },
+    { ate: 8475.55, aliq: 0.14 }
+  ];
+  var IRRF_2026 = [
+    { ate: 2428.80, aliq: 0,     deduz: 0 },
+    { ate: 2826.65, aliq: 0.075, deduz: 182.16 },
+    { ate: 3751.05, aliq: 0.15,  deduz: 394.16 },
+    { ate: 4664.68, aliq: 0.225, deduz: 675.49 },
+    { ate: Infinity, aliq: 0.275, deduz: 908.73 }
+  ];
+  var DEPENDENTE = 189.59;
+  var SIMPLIFICADO = 607.20;
+  var SALARIO_MINIMO = 1621.00;
+
+  /* INSS progressivo por faixa, com teto */
+  function inss(base) {
+    if (base <= 0) return 0;
+    var b = Math.min(base, 8475.55), total = 0, ant = 0;
+    for (var i = 0; i < INSS_2026.length; i++) {
+      var f = INSS_2026[i];
+      if (b > ant) total += (Math.min(b, f.ate) - ant) * f.aliq;
+      ant = f.ate;
+      if (b <= f.ate) break;
+    }
+    return r2(total);
+  }
+
+  /* IRRF com tabela 2026 + redutor da Lei 15.270/2025.
+     `bruto` = rendimento tributável bruto (gatilho do redutor)
+     `deducoes` = INSS + outras deduções legais */
+  function irrf(bruto, deducoes, dependentes) {
+    if (bruto <= 0) return { imposto: 0, redutor: 0, base: 0, aliquota: 0 };
+    var legais = deducoes + (dependentes || 0) * DEPENDENTE;
+    var base = bruto - Math.max(legais, SIMPLIFICADO);
+    if (base < 0) base = 0;
+    var faixa = IRRF_2026[IRRF_2026.length - 1];
+    for (var i = 0; i < IRRF_2026.length; i++) {
+      if (base <= IRRF_2026[i].ate) { faixa = IRRF_2026[i]; break; }
+    }
+    var imposto = base * faixa.aliq - faixa.deduz;
+    if (imposto < 0) imposto = 0;
+
+    var redutor = 0;
+    if (bruto <= 5000) redutor = imposto;
+    else if (bruto <= 7350) redutor = Math.max(0, 978.62 - 0.133145 * bruto);
+    var final = Math.max(0, imposto - redutor);
+
+    return {
+      imposto: r2(final),
+      bruto_antes_redutor: r2(imposto),
+      redutor: r2(Math.min(redutor, imposto)),
+      base: r2(base),
+      aliquota: faixa.aliq
+    };
+  }
+
+  /* Dias de aviso prévio — Lei 12.506/2011.
+     A proporcionalidade beneficia SÓ o empregado (Nota Técnica CGRT 184/2012):
+     no pedido de demissão o empregado deve sempre 30 dias. */
+  function diasAviso(anosCompletos, tipo) {
+    if (tipo === "demissao") return 30;
+    return Math.min(90, 30 + 3 * anosCompletos);
+  }
+
+  function rescisao(inp) {
+    var salario = Number(inp.salario) || 0;
+    var admissao = parseDate(inp.admissao);
+    var saida = parseDate(inp.saida);
+    var tipo = inp.tipo || "sem_justa_causa";          // sem_justa_causa | demissao | acordo | justa_causa
+    var modoAviso = inp.aviso || "indenizado";          // indenizado | trabalhado | dispensado
+    var feriasVencidas = Number(inp.feriasVencidas) || 0;
+    var fgtsBase = Number(inp.fgtsBase) || 0;
+    var dependentes = Number(inp.dependentes) || 0;
+    var adiantou13 = Number(inp.adiantou13) || 0;
+
+    if (!salario || !admissao || !saida || saida < admissao) {
+      return { erro: "Preencha salário, data de admissão e data de saída." };
+    }
+
+    var anos = fullYears(admissao, saida);
+    var temAviso = (tipo === "sem_justa_causa" || tipo === "acordo");
+    var dias = diasAviso(anos, tipo);
+
+    /* Projeção: o aviso indenizado integra o tempo de serviço (CLT 487 §1º) */
+    var avisoIndenizado = temAviso && modoAviso === "indenizado";
+    var diasProjetados = 0;
+    if (avisoIndenizado) diasProjetados = (tipo === "acordo") ? Math.round(dias / 2) : dias;
+    var saidaProjetada = diasProjetados > 0 ? addDays(saida, diasProjetados) : saida;
+
+    var linhas = [], descontos = [], avisos = [];
+    var salarioDia = salario / 30;
+
+    /* --- saldo de salário --- */
+    var diasSaldo = saida.getDate();
+    var saldo = r2(salarioDia * diasSaldo);
+    linhas.push({ n: "Saldo de salário (" + diasSaldo + " dias)", v: saldo, trib: true });
+
+    /* --- aviso prévio --- */
+    var valorAviso = 0, avisoTributavel = false;
+    if (temAviso) {
+      if (modoAviso === "indenizado") {
+        var d = (tipo === "acordo") ? Math.round(dias / 2) : dias;
+        valorAviso = r2(salarioDia * d);
+        linhas.push({
+          n: "Aviso prévio indenizado (" + d + " dias" + (tipo === "acordo" ? ", metade — art. 484-A" : "") + ")",
+          v: valorAviso, trib: false, isento: "Isento de INSS e IRRF"
+        });
+      } else if (modoAviso === "trabalhado") {
+        avisos.push("Aviso trabalhado: os " + dias + " dias entram na folha normal, não na rescisão. Por isso não aparecem abaixo.");
+      }
+    } else if (tipo === "demissao" && modoAviso !== "dispensado") {
+      valorAviso = -r2(salarioDia * 30);
+      descontos.push({ n: "Aviso prévio não cumprido (30 dias)", v: -valorAviso });
+      avisos.push("No pedido de demissão o aviso é devido pelo empregado. Se o empregador dispensar o cumprimento, esse desconto não existe.");
+    }
+
+    /* --- 13º proporcional --- */
+    var t13 = 0;
+    if (tipo !== "justa_causa") {
+      var ini13 = new Date(saidaProjetada.getFullYear(), 0, 1);
+      if (admissao > ini13) ini13 = admissao;
+      var a13 = avos(ini13, saidaProjetada);
+      t13 = r2(salario * a13 / 12);
+      linhas.push({ n: "13º salário proporcional (" + a13 + "/12)", v: t13, trib: false, decimo: true });
+      if (adiantou13 > 0) {
+        descontos.push({ n: "Adiantamento do 13º já recebido", v: adiantou13 });
+      }
+    } else {
+      avisos.push("Na justa causa o 13º proporcional e as férias proporcionais não são devidos (Lei 4.090/62, art. 3º).");
+    }
+
+    /* --- férias vencidas --- */
+    var periodosVencidos = feriasVencidas;
+
+    /* --- férias proporcionais --- */
+    var aFer = 0, propFerias = 0;
+    var ciclos = fullYears(admissao, saidaProjetada);
+    var iniAquisitivo = new Date(admissao.getFullYear() + ciclos, admissao.getMonth(), admissao.getDate());
+    if (iniAquisitivo > saidaProjetada) {
+      iniAquisitivo = new Date(admissao.getFullYear() + ciclos - 1, admissao.getMonth(), admissao.getDate());
+    }
+    aFer = avos(iniAquisitivo, saidaProjetada);
+    if (aFer >= 12) { periodosVencidos += 1; aFer = 0; }
+
+    if (periodosVencidos > 0) {
+      var vv = r2(salario * periodosVencidos);
+      var vt = r2(vv / 3);
+      linhas.push({ n: "Férias vencidas (" + periodosVencidos + " período" + (periodosVencidos > 1 ? "s" : "") + ")", v: vv, trib: false, isento: "Isento de INSS e IRRF" });
+      linhas.push({ n: "1/3 sobre férias vencidas", v: vt, trib: false, isento: "Isento de INSS e IRRF" });
+    }
+
+    if (tipo !== "justa_causa" && aFer > 0) {
+      propFerias = r2(salario * aFer / 12);
+      var pt = r2(propFerias / 3);
+      linhas.push({ n: "Férias proporcionais (" + aFer + "/12)", v: propFerias, trib: false, isento: "Isento de INSS e IRRF" });
+      linhas.push({ n: "1/3 sobre férias proporcionais", v: pt, trib: false, isento: "Isento de INSS e IRRF" });
+    }
+
+    /* --- FGTS --- */
+    var pctMulta = tipo === "sem_justa_causa" ? 0.40 : (tipo === "acordo" ? 0.20 : 0);
+    var pctSaque = tipo === "sem_justa_causa" ? 1.00 : (tipo === "acordo" ? 0.80 : 0);
+    var multa = 0, saque = 0;
+    if (fgtsBase > 0 && pctMulta > 0) {
+      multa = r2(fgtsBase * pctMulta);
+      linhas.push({ n: "Multa do FGTS (" + (pctMulta * 100) + "%)", v: multa, trib: false, isento: "Isento de INSS e IRRF", fgts: true });
+    }
+    if (fgtsBase > 0 && pctSaque > 0) {
+      saque = r2(fgtsBase * pctSaque);
+    }
+
+    /* --- descontos: INSS e IRRF --- */
+    /* Base mensal tributável na rescisão = saldo de salário.
+       Aviso indenizado, férias indenizadas, 1/3 e multa do FGTS são isentos. */
+    var baseMensal = saldo;
+    var inssMensal = inss(baseMensal);
+    var irMensal = irrf(baseMensal, inssMensal, dependentes);
+
+    if (inssMensal > 0) descontos.push({ n: "INSS sobre o saldo de salário", v: inssMensal });
+    if (irMensal.imposto > 0) descontos.push({ n: "IRRF sobre o saldo de salário", v: irMensal.imposto });
+
+    /* 13º tem base e tributação SEPARADAS */
+    var inss13 = 0, ir13 = { imposto: 0, redutor: 0 };
+    if (t13 > 0) {
+      inss13 = inss(t13);
+      ir13 = irrf(t13, inss13, dependentes);
+      if (inss13 > 0) descontos.push({ n: "INSS sobre o 13º (cálculo separado)", v: inss13 });
+      if (ir13.imposto > 0) descontos.push({ n: "IRRF sobre o 13º (exclusivo na fonte)", v: ir13.imposto });
+    }
+
+    /* --- totais --- */
+    var bruto = 0;
+    for (var i = 0; i < linhas.length; i++) if (!linhas[i].fgts) bruto += linhas[i].v;
+    bruto = r2(bruto);
+
+    var totalDesc = 0;
+    for (var j = 0; j < descontos.length; j++) totalDesc += descontos[j].v;
+    totalDesc = r2(totalDesc);
+
+    var liquido = r2(bruto - totalDesc);
+    var totalReceber = r2(liquido + multa + saque);
+
+    /* --- avisos contextuais --- */
+    if (avisoIndenizado) {
+      avisos.push("Data de saída projetada na carteira: " + fmtDate(saidaProjetada) +
+        " — o aviso indenizado conta como tempo de serviço e pode fechar mais um avo de 13º e de férias.");
+    }
+    if (tipo === "sem_justa_causa") {
+      avisos.push("Você tem direito ao seguro-desemprego. O número de parcelas depende de quantas vezes já pediu e de quantos meses trabalhou.");
+    }
+    if (tipo === "acordo") {
+      avisos.push("No acordo do art. 484-A não há direito ao seguro-desemprego, e o saque do FGTS fica limitado a 80% do saldo.");
+    }
+    if (tipo === "justa_causa") {
+      avisos.push("As férias vencidas continuam devidas mesmo na justa causa (Súmula 171 do TST).");
+    }
+    if (tipo === "demissao" || tipo === "justa_causa") {
+      avisos.push("Sem multa e sem saque do FGTS por esta rescisão — mas o dinheiro continua na sua conta do FGTS, disponível em outras hipóteses de saque.");
+    }
+    if (fgtsBase > 0) {
+      avisos.push("A multa incide sobre a soma de todos os depósitos do contrato corrigidos, não sobre o saldo atual da conta. Se você usa saque-aniversário, a base é maior que o saldo.");
+    }
+    if (irMensal.redutor > 0 || ir13.redutor > 0) {
+      avisos.push("O redutor do Imposto de Renda criado pela Lei 15.270/2025 foi aplicado — é o que zera ou reduz o IRRF de quem recebe até R$ 5.000 por mês.");
+    }
+
+    return {
+      linhas: linhas, descontos: descontos, avisos: avisos,
+      bruto: bruto, totalDescontos: totalDesc, liquido: liquido,
+      multaFgts: multa, saqueFgts: saque, totalReceber: totalReceber,
+      diasAviso: temAviso ? dias : (tipo === "demissao" ? 30 : 0),
+      saidaProjetada: fmtDate(saidaProjetada),
+      anosCasa: anos,
+      seguroDesemprego: tipo === "sem_justa_causa"
+    };
+  }
+
+  /* ======================================================================
+     2. BTU — carga térmica estimada
+     ====================================================================== */
+
+  var CAPACIDADES = [7000, 9000, 10000, 12000, 18000, 22000, 24000, 30000, 36000, 48000, 60000];
+
+  function btu(inp) {
+    var area = Number(inp.area) || 0;
+    var pe = Number(inp.peDireito) || 2.7;
+    var pessoas = Number(inp.pessoas) || 1;
+    var aparelhos = Number(inp.aparelhos) || 0;
+    var sol = inp.sol || "sombra";        // sombra | manha | tarde
+    var ambiente = inp.ambiente || "residencial"; // residencial | cozinha | comercial
+    var horas = Number(inp.horas) || 8;
+    var tarifa = Number(inp.tarifa) || 0.85;
+    var tecnologia = inp.tecnologia || "inverter";
+
+    if (!area) return { erro: "Informe a metragem do ambiente." };
+
+    /* Fator por m²: sombra e sol da manhã = 600; sol da tarde = 800 */
+    var fator = (sol === "tarde") ? 800 : 600;
+    if (ambiente === "comercial") fator = Math.max(fator, 800);
+
+    var base = area * fator;
+    var addPessoas = Math.max(0, pessoas - 1) * 600;
+    var addAparelhos = aparelhos * 600;
+    var subtotal = base + addPessoas + addAparelhos;
+
+    /* Pé-direito */
+    var pctPe = 0;
+    if (pe > 3.5) pctPe = 0.20;
+    else if (pe > 2.7) pctPe = 0.10;
+    var addPe = subtotal * pctPe;
+
+    /* Cozinha: carga extra de fogão e forno */
+    var pctCozinha = (ambiente === "cozinha") ? 0.20 : 0;
+    var addCozinha = subtotal * pctCozinha;
+
+    var total = subtotal + addPe + addCozinha;
+
+    /* Arredonda SEMPRE para cima, para a capacidade comercial existente */
+    var recomendado = CAPACIDADES[CAPACIDADES.length - 1];
+    for (var i = 0; i < CAPACIDADES.length; i++) {
+      if (CAPACIDADES[i] >= total) { recomendado = CAPACIDADES[i]; break; }
+    }
+    var acimaDoMaior = total > CAPACIDADES[CAPACIDADES.length - 1];
+
+    /* Consumo: convencional ~100 W por 1.000 BTU; inverter em regime médio ~65 W */
+    var wattsPorMil = (tecnologia === "inverter") ? 65 : 100;
+    var potencia = recomendado / 1000 * wattsPorMil;
+    var kwhMes = potencia / 1000 * horas * 30;
+    var custoMes = kwhMes * tarifa;
+
+    var potConv = recomendado / 1000 * 100;
+    var kwhConv = potConv / 1000 * horas * 30;
+    var custoConv = kwhConv * tarifa;
+    var economiaAno = (custoConv - custoMes) * 12;
+
+    var notas = [];
+    if (acimaDoMaior) notas.push("A carga calculada passa de 60.000 BTU/h. Nesse porte o correto é dividir em mais de um aparelho ou partir para um projeto de carga térmica.");
+    if (ambiente === "comercial") notas.push("Ambiente comercial tem porta abrindo e fechando o tempo todo, o que a estimativa por m² não captura. Para loja de rua, considere um projeto conforme a NBR 16401.");
+    if (pe > 3.5) notas.push("Pé-direito acima de 3,5 m: aplicamos 20% de acréscimo, mas nesse caso o cálculo por volume costuma ser mais preciso.");
+    if (sol === "tarde") notas.push("Sol da tarde é o pior cenário de carga térmica — por isso o fator sobe de 600 para 800 BTU/h por m².");
+
+    return {
+      total: Math.round(total),
+      recomendado: recomendado,
+      base: Math.round(base), addPessoas: addPessoas, addAparelhos: addAparelhos,
+      addPe: Math.round(addPe), addCozinha: Math.round(addCozinha),
+      fator: fator, pctPe: pctPe,
+      potencia: Math.round(potencia),
+      kwhMes: r2(kwhMes), custoMes: r2(custoMes),
+      custoConvencional: r2(custoConv), economiaAno: r2(economiaAno),
+      tecnologia: tecnologia, notas: notas, acimaDoMaior: acimaDoMaior
+    };
+  }
+
+  /* ======================================================================
+     3. REFORMA — custo estimado por m²
+     ====================================================================== */
+
+  /* Base R$/m² no padrão econômico. Ancorado em SINAPI jul/2026
+     (R$ 1.985,10/m² de construção nova) e levantamentos de mercado 2026. */
+  var BASE_REFORMA = {
+    leve:       { base: 550,  nome: "Reforma leve",       desc: "Pintura, troca de piso sobre o existente, reparos — sem quebra." },
+    media:      { base: 1200, nome: "Reforma média",      desc: "Revestimentos novos, marcenaria simples, pontos elétricos." },
+    pesada:     { base: 2000, nome: "Reforma pesada",     desc: "Quebra de parede, elétrica e hidráulica refeitas, contrapiso." },
+    estrutural: { base: 2600, nome: "Retrofit estrutural", desc: "Mudança de layout estrutural, automação, alto padrão." }
+  };
+  var PADRAO = {
+    economico:    { m: 1.00, nome: "Econômico",    desc: "Cerâmica, tinta acrílica standard, louças básicas" },
+    medio:        { m: 1.65, nome: "Médio",        desc: "Porcelanato 60x60, tinta premium, metais nacionais" },
+    alto:         { m: 2.50, nome: "Alto padrão",  desc: "Mármore, porcelanato e metais importados, automação" }
+  };
+  var REGIAO = {
+    interior:   { m: 1.00, nome: "Interior / cidade média" },
+    capital:    { m: 1.10, nome: "Capital (exceto SP e RJ)" },
+    sprj:       { m: 1.20, nome: "São Paulo ou Rio de Janeiro" }
+  };
+  var ADD_BANHEIRO = { economico: 4000, medio: 9000, alto: 20000 };
+  var ADD_COZINHA  = { economico: 8000, medio: 16000, alto: 30000 };
+
+  function reforma(inp) {
+    var area = Number(inp.area) || 0;
+    var tipo = inp.tipo || "media";
+    var padrao = inp.padrao || "medio";
+    var regiao = inp.regiao || "interior";
+    var banheiros = Number(inp.banheiros) || 0;
+    var cozinha = inp.cozinha ? 1 : 0;
+    var idade = inp.idade || "novo";      // novo | medio | antigo
+    var trocaInstalacoes = !!inp.trocaInstalacoes;
+
+    if (!area) return { erro: "Informe a metragem a reformar." };
+
+    var t = BASE_REFORMA[tipo], p = PADRAO[padrao], rg = REGIAO[regiao];
+    var porM2 = t.base * p.m * rg.m;
+    var custoArea = area * porM2;
+
+    var custoBanheiros = banheiros * ADD_BANHEIRO[padrao];
+    var custoCozinha = cozinha * ADD_COZINHA[padrao];
+
+    var subtotal = custoArea + custoBanheiros + custoCozinha;
+
+    /* Troca de instalações elétricas e hidráulicas em reforma leve/média
+       é o item que mais empurra o orçamento para cima */
+    var addInstal = 0;
+    if (trocaInstalacoes && (tipo === "leve" || tipo === "media")) {
+      addInstal = subtotal * 0.18;
+      subtotal += addInstal;
+    }
+
+    /* Contingência conforme a idade do imóvel */
+    var pctCont = idade === "antigo" ? 0.20 : (idade === "medio" ? 0.15 : 0.10);
+    var contingencia = subtotal * pctCont;
+
+    var totalMin = subtotal * 0.85;
+    var totalMax = (subtotal + contingencia) * 1.10;
+    var totalRef = subtotal + contingencia;
+
+    /* Divisão material / mão de obra — SINAPI jul/2026: 56,4% / 43,6%.
+       Em reforma com muita instalação a mão de obra sobe. */
+    var pctMaterial = trocaInstalacoes ? 0.52 : 0.56;
+    var material = subtotal * pctMaterial;
+    var maoDeObra = subtotal * (1 - pctMaterial);
+
+    /* Prazo */
+    var prazo;
+    if (tipo === "leve") prazo = "7 a 15 dias úteis";
+    else if (tipo === "media") prazo = "20 a 40 dias úteis";
+    else if (tipo === "pesada") prazo = "60 a 90 dias úteis";
+    else prazo = "90 a 120 dias úteis";
+    if (area > 120) prazo += " (some 2 a 4 semanas por ser área grande)";
+
+    var alertas = [];
+    if (idade === "antigo") alertas.push("Imóvel com mais de 20 anos: instalação elétrica ou hidráulica fora de norma pode elevar o custo final em até 30% depois que a parede abre. Por isso a reserva aqui é de 20%.");
+    if (cozinha) alertas.push("Marcenaria sob medida e a pedra da bancada, juntas, costumam custar mais que piso, entulho e mão de obra somados.");
+    if (banheiros > 0) alertas.push("Manter os pontos hidráulicos onde estão economiza até 20% da mão de obra do banheiro. Impermeabilização é 3 a 5% do orçamento e evita o prejuízo mais caro depois.");
+    alertas.push("Entulho, caçamba e descarte quase nunca entram no primeiro orçamento — numa cozinha de 10 m² são de R$ 1.800 a R$ 4.200.");
+    alertas.push("ART ou RRT do responsável técnico custa de R$ 108 a R$ 286, fora os honorários do engenheiro ou arquiteto.");
+    if (tipo === "pesada" || tipo === "estrutural") alertas.push("Derrubar parede estrutural exige projeto e laudo. Se o condomínio exigir, some proteção de elevador e taxa de obra.");
+
+    return {
+      porM2: r2(porM2),
+      custoArea: r2(custoArea),
+      custoBanheiros: r2(custoBanheiros),
+      custoCozinha: r2(custoCozinha),
+      addInstalacoes: r2(addInstal),
+      subtotal: r2(subtotal),
+      contingencia: r2(contingencia), pctContingencia: pctCont,
+      totalMin: r2(totalMin), totalMax: r2(totalMax), totalRef: r2(totalRef),
+      material: r2(material), maoDeObra: r2(maoDeObra), pctMaterial: pctMaterial,
+      prazo: prazo, alertas: alertas,
+      nomeTipo: t.nome, descTipo: t.desc, nomePadrao: p.nome, descPadrao: p.desc, nomeRegiao: rg.nome
+    };
+  }
+
+  return {
+    rescisao: rescisao, btu: btu, reforma: reforma,
+    inss: inss, irrf: irrf, avos: avos, fullYears: fullYears, diasAviso: diasAviso,
+    brl: brl, num: num, r2: r2, fmtDate: fmtDate, parseDate: parseDate,
+    CAPACIDADES: CAPACIDADES, SALARIO_MINIMO: SALARIO_MINIMO
+  };
+})();
+
+if (typeof module !== "undefined" && module.exports) module.exports = MAPA;
+
+</script>
+<script>
+(function(){
+"use strict";
+var $ = function (id) { return document.getElementById(id); };
+var WA = "5531989190373";
+
+var DESC_TIPO = {
+  leve: "Pintura, troca de piso sobre o existente e reparos, sem quebra.",
+  media: "Revestimentos novos, marcenaria simples e pontos elétricos adicionais.",
+  pesada: "Quebra de parede, elétrica e hidráulica refeitas, contrapiso novo.",
+  estrutural: "Mudança de layout estrutural, automação e acabamento importado."
+};
+var DESC_PADRAO = {
+  economico: "Cerâmica, tinta acrílica, louças básicas.",
+  medio: "Porcelanato, tinta premium, metais nacionais.",
+  alto: "Mármore, importados, automação."
+};
+
+function ler() {
+  return {
+    area: $("area").value, tipo: $("tipo").value, padrao: $("padrao").value,
+    regiao: $("regiao").value, banheiros: $("banheiros").value,
+    cozinha: $("cozinha").checked, idade: $("idade").value,
+    trocaInstalacoes: $("trocaInstalacoes").checked
+  };
+}
+
+function render() {
+  var inp = ler();
+  var big = $("big"), rows = $("rows"), notes = $("notes");
+  $("hintTipo").textContent = DESC_TIPO[inp.tipo] || "";
+  $("hintPadrao").textContent = DESC_PADRAO[inp.padrao] || "";
+
+  var r = MAPA.reforma(inp);
+  if (r.erro) {
+    big.classList.add("err");
+    $("total").textContent = r.erro;
+    $("totalSub").textContent = ""; rows.innerHTML = ""; notes.innerHTML = "";
+    return;
+  }
+  big.classList.remove("err");
+  $("total").textContent = MAPA.brl(r.totalMin) + " a " + MAPA.brl(r.totalMax);
+  $("totalSub").textContent = "Referência de " + MAPA.brl(r.totalRef) + " — cerca de " +
+    MAPA.brl(r.totalRef / Number(inp.area)) + " por m². Prazo: " + r.prazo + ".";
+
+  var h = "";
+  h += '<div class="rw"><span class="n">' + r.nomeTipo + ', padrão ' + r.nomePadrao.toLowerCase() +
+       '<em>' + MAPA.brl(r.porM2) + ' por m² × ' + inp.area + ' m²</em></span><span class="v">' + MAPA.brl(r.custoArea) + '</span></div>';
+  if (r.custoBanheiros) h += '<div class="rw"><span class="n">Adicional de banheiro (' + inp.banheiros + ')<em>Louças, metais, impermeabilização</em></span><span class="v">+ ' + MAPA.brl(r.custoBanheiros) + '</span></div>';
+  if (r.custoCozinha) h += '<div class="rw"><span class="n">Adicional de cozinha<em>Marcenaria, bancada, pontos de água</em></span><span class="v">+ ' + MAPA.brl(r.custoCozinha) + '</span></div>';
+  if (r.addInstalacoes) h += '<div class="rw"><span class="n">Troca de elétrica e hidráulica</span><span class="v">+ ' + MAPA.brl(r.addInstalacoes) + '</span></div>';
+  h += '<div class="rw tot"><span class="n">Subtotal da obra</span><span class="v">' + MAPA.brl(r.subtotal) + '</span></div>';
+  h += '<div class="rw"><span class="n">Material (' + Math.round(r.pctMaterial * 100) + '%)</span><span class="v">' + MAPA.brl(r.material) + '</span></div>';
+  h += '<div class="rw"><span class="n">Mão de obra (' + Math.round((1 - r.pctMaterial) * 100) + '%)</span><span class="v">' + MAPA.brl(r.maoDeObra) + '</span></div>';
+  h += '<div class="rw fg"><span class="n">Reserva para imprevisto (' + Math.round(r.pctContingencia * 100) + '%)<em>Faz parte do orçamento, não é folga</em></span><span class="v">+ ' + MAPA.brl(r.contingencia) + '</span></div>';
+  h += '<div class="rw tot"><span class="n">Referência com reserva</span><span class="v">' + MAPA.brl(r.totalRef) + '</span></div>';
+  rows.innerHTML = h;
+
+  var n = "";
+  for (var k = 0; k < r.alertas.length; k++) n += "<p>" + r.alertas[k] + "</p>";
+  notes.innerHTML = n;
+
+  var msg = "Simulei minha reforma no site e queria uma visita técnica.\n\n" +
+    "Escopo: " + r.nomeTipo + ", padrão " + r.nomePadrao.toLowerCase() + "\n" +
+    "Área: " + inp.area + " m²\n" +
+    "Banheiros: " + inp.banheiros + (inp.cozinha ? " · Cozinha incluída" : "") + "\n" +
+    (inp.trocaInstalacoes ? "Troca de elétrica e hidráulica: sim\n" : "") +
+    "Imóvel: " + ({ novo: "até 10 anos", medio: "10 a 20 anos", antigo: "mais de 20 anos" })[inp.idade] + "\n" +
+    "Faixa estimada: " + MAPA.brl(r.totalMin) + " a " + MAPA.brl(r.totalMax);
+  $("wa").href = "https://wa.me/" + WA + "?text=" + encodeURIComponent(msg);
+}
+
+$("f").addEventListener("input", render);
+$("f").addEventListener("change", render);
+render();
+
+var tgl=document.getElementById("tgl");
+function pintarTgl(){
+  if(!tgl) return;
+  var claro=document.documentElement.getAttribute("data-theme")==="light";
+  tgl.textContent=claro?"\u2600":"\u263D";
+  tgl.title=claro?"Mudar para o tema escuro":"Mudar para o tema claro";
+}
+if(tgl){
+  pintarTgl();
+  tgl.addEventListener("click",function(){
+    var cur=document.documentElement.getAttribute("data-theme")==="light"?"dark":"light";
+    document.documentElement.setAttribute("data-theme",cur);
+    try{localStorage.setItem("mapa_theme",cur);}catch(e){}
+    pintarTgl();
+  });
+}
+})();
+</script>
+</body>
+</html>
