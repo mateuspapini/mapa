@@ -48,6 +48,19 @@
 
   <meta name="theme-color" content="#080c18">
   <link rel="manifest" href="manifest.webmanifest">
+
+  <!-- Aplica o tema antes da primeira pintura (evita o "flash" escuro no modo claro) -->
+  <script>
+    (function(){
+      try{
+        if(localStorage.getItem('mapa_theme') === 'light'){
+          document.documentElement.setAttribute('data-theme','light');
+          var m = document.querySelector('meta[name="theme-color"]');
+          if(m) m.setAttribute('content','#f2f5fc');
+        }
+      }catch(e){}
+    })();
+  </script>
   <link rel="preload" href="assets/fonts/inter-latin-var.woff2" as="font" type="font/woff2" crossorigin>
 
   <!-- ═══════════════════════════════════════════
@@ -210,15 +223,26 @@
       --t2:       #8da0bc;
       --t3:       #8799b2;
       --bdr:      rgba(255,255,255,0.07);
+      /* Tokens de acessibilidade do header */
+      --accent-txt: #00c8f5;                                  /* accent legível como texto */
+      --nav-bg:     rgba(8,12,24,.92);                         /* fundo da barra fixa */
+      --nav-bg-solid: #080c18;                                 /* menu mobile aberto (opaco) */
+      --nav-bdr:    rgba(255,255,255,0.07);
+      --grad-cta:   linear-gradient(135deg,#00c8f5,#2e8bff);   /* contraste ≥ 6:1 com texto escuro */
+      --cta-ink:    #00121f;
+      --focus:      #00c8f5;
     }
 
     /* ════ TEMA CLARO ════════════════════════════════ */
     html[data-theme="light"]{
       --bg:#f2f5fc;--bg2:#e8edf8;--card:#ffffff;--card2:#f5f8ff;
       --t1:#0a1630;--t2:#4e6080;--t3:#52637f;--glow:rgba(0,85,255,.07);--bdr:rgba(0,50,130,.1);
+      --accent-txt:#0057b8;                                    /* 6.3:1 sobre o fundo claro */
+      --nav-bg:rgba(242,245,252,.93);
+      --nav-bg-solid:#f2f5fc;
+      --nav-bdr:rgba(0,50,130,.13);
+      --focus:#0044cc;
     }
-    html[data-theme="light"] nav{background:rgba(242,245,252,.9);border-bottom-color:rgba(0,50,130,.13)}
-    html[data-theme="light"]
     html[data-theme="light"] .chip{background:rgba(0,85,255,.07);border-color:rgba(0,85,255,.18)}
     html[data-theme="light"] .srv-tab.active{color:#fff}
 
@@ -279,9 +303,13 @@
     header{
       position:fixed;top:0;width:100%;z-index:999;
       padding:0 1.5rem;
-      background:rgba(8,12,24,.88);
+      background:var(--nav-bg);
       backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
-      border-bottom:1px solid var(--bdr);
+      border-bottom:1px solid var(--nav-bdr);
+    }
+    /* Fallback: sem backdrop-filter o fundo precisa ser opaco */
+    @supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
+      header{background:var(--nav-bg-solid)}
     }
     nav{
       max-width:1200px;margin:0 auto;
@@ -297,6 +325,11 @@
     .ft-brand .logo-img img{
       height:32px;
     }
+    /* Logo por tema: a versão original tem o lettering branco,
+       ilegível sobre o fundo claro. */
+    .logo-img .logo-on-light{display:none}
+    html[data-theme="light"] .logo-img .logo-on-dark{display:none}
+    html[data-theme="light"] .logo-img .logo-on-light{display:block}
     .nav-ul{
       display:flex;align-items:center;
       gap:2rem;list-style:none;
@@ -307,10 +340,17 @@
       transition:color .2s;
     }
     .nav-ul a:hover{color:var(--t1)}
-    .nav-cta{
-      background:var(--grad);color:#000 !important;
+    /* Seção ativa: cor + sublinhado (não depende só da cor — WCAG 1.4.1) */
+    .nav-ul a[aria-current="true"]{
+      color:var(--accent-txt);font-weight:700;
+      box-shadow:inset 0 -2px 0 0 var(--accent-txt);
+    }
+    .nav-cta,
+    .nav-ul a.nav-cta[aria-current="true"]{
+      background:var(--grad-cta);color:var(--cta-ink) !important;
       font-weight:700 !important;
       padding:.45rem 1.15rem;border-radius:8px;
+      box-shadow:none;
       transition:opacity .2s !important;
     }
     .nav-cta:hover{opacity:.84}
@@ -554,28 +594,6 @@
        PORTFÓLIO
     ════════════════════════════════════ */
     #portfolio{padding:6rem 1.5rem;background:var(--bg)}
-
-    /* ── Calculadoras gratuitas ── */
-    #calculadoras{padding:6rem 1.5rem;background:var(--bg2)}
-    .calc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:2rem}
-    .calc-card{
-      display:flex;flex-direction:column;gap:.55rem;padding:1.5rem 1.4rem;
-      background:var(--card);border:1px solid var(--bdr);border-radius:16px;
-      text-decoration:none;color:inherit;position:relative;overflow:hidden;
-      transition:transform .25s,border-color .25s,box-shadow .25s;
-    }
-    .calc-card::before{content:"";position:absolute;inset:0 0 auto;height:3px;background:var(--grad);
-      opacity:0;transition:opacity .25s}
-    .calc-card:hover{transform:translateY(-4px);border-color:rgba(0,200,245,.35);
-      box-shadow:0 18px 44px -26px rgba(0,200,245,.5)}
-    .calc-card:hover::before{opacity:1}
-    .calc-ico{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;
-      font-size:1.35rem;background:var(--grad);margin-bottom:.35rem}
-    .calc-card h3{font-size:1rem;font-weight:700;line-height:1.35}
-    .calc-card p{font-size:.83rem;color:var(--t2);line-height:1.6;flex:1}
-    .calc-go{font-size:.8rem;font-weight:700;color:var(--accent);margin-top:.4rem}
-    .calc-note{margin-top:1.6rem;font-size:.8rem;color:var(--t3);text-align:center}
-    @media(max-width:900px){.calc-grid{grid-template-columns:1fr}}
     /* Portfólio – filtros */
     .pf-filters{display:flex;gap:.65rem;flex-wrap:wrap;margin:1.75rem 0 2rem}
     .pf-btn{
@@ -849,10 +867,11 @@
       .nav-ul{
         display:none;position:fixed;
         top:68px;left:0;right:0;
-        background:rgba(8,12,24,.97);
+        background:var(--nav-bg-solid);
         flex-direction:column;align-items:flex-start;
         padding:1.5rem;gap:1.25rem;
-        border-bottom:1px solid var(--bdr);
+        border-bottom:1px solid var(--nav-bdr);
+        box-shadow:0 18px 40px -22px rgba(0,25,70,.45);
       }
       .nav-ul.open{display:flex}
       .hbg{display:flex}
@@ -888,27 +907,37 @@
     .lang-sw{display:flex;align-items:center;gap:.35rem;margin-left:.6rem}
     .lang-btn{background:transparent;border:2px solid transparent;cursor:pointer;
       padding:1px;border-radius:50%;transition:transform .15s,opacity .2s,border-color .2s;
-      opacity:.45;line-height:0}
+      opacity:.72;line-height:0}
     .lang-btn img{width:26px;height:26px;border-radius:50%;display:block;object-fit:cover}
-    .lang-btn:hover{opacity:.8;transform:scale(1.1)}
-    .lang-btn.active{opacity:1;transform:scale(1.12);border-color:var(--accent)}
+    .lang-btn:hover{opacity:1;transform:scale(1.1)}
+    .lang-btn.active{opacity:1;transform:scale(1.12);border-color:var(--accent-txt)}
     .theme-btn{background:transparent;border:none;cursor:pointer;
       padding:5px;border-radius:50%;transition:transform .18s,opacity .2s;
-      opacity:.5;line-height:0;margin-left:.3rem;display:inline-flex;
+      opacity:.82;line-height:0;margin-left:.3rem;display:inline-flex;
       align-items:center;justify-content:center}
-    .theme-btn:hover{opacity:.9;transform:scale(1.12)}
+    .theme-btn:hover{opacity:1;transform:scale(1.12)}
     .theme-btn svg{width:19px;height:19px;stroke:var(--t1);fill:none;
       stroke-width:2;stroke-linecap:round;stroke-linejoin:round;display:block}
     @media(max-width:768px){.theme-btn{padding:4px}.theme-btn svg{width:17px;height:17px}}
 
     @media(max-width:768px){.lang-sw{margin-left:.4rem}.lang-btn img{width:22px;height:22px}}
+    /* Telas estreitas: o logo encostava nas bandeiras */
+    @media(max-width:480px){
+      header{padding:0 1rem}
+      .logo-img img{height:28px}
+      .lang-sw{margin-left:.3rem;gap:.2rem}
+      .lang-btn img{width:20px;height:20px}
+      .theme-btn{margin-left:.15rem;padding:3px}
+      .nav-ul{top:60px}
+      nav{height:60px}
+    }
   
     @font-face{font-family:Inter;src:url('assets/fonts/inter-latin-var.woff2') format('woff2');font-style:normal;font-weight:400 800;font-display:swap}
     @font-face{font-family:Sora;src:url('assets/fonts/sora-latin-var.woff2') format('woff2');font-style:normal;font-weight:700 800;font-display:swap}
     [hidden]{display:none!important}
     .skip-link{position:fixed;top:.5rem;left:.5rem;z-index:10000;padding:.75rem 1rem;border-radius:8px;background:#fff;color:#071225;font-weight:800;transform:translateY(-150%)}
     .skip-link:focus{transform:none}
-    :focus-visible{outline:3px solid #00c8f5;outline-offset:3px}
+    :focus-visible{outline:3px solid var(--focus);outline-offset:3px}
     .pf-btn,.srv-tab{min-height:44px}.pf-modal-close,.soc{min-width:44px;min-height:44px}.ft-col a{display:inline-flex;align-items:center;min-height:44px}
     .srv-progress-bar{width:100%;transform:scaleX(0);transform-origin:left;will-change:transform}
     .srv-progress-bar.run{animation:srvProg 5s linear forwards}
@@ -932,7 +961,8 @@
 <header>
   <nav aria-label="Menu principal">
     <a href="#home" class="logo-img" aria-label="MAPA Soluções Digitais – Início">
-      <img src="assets/img/brand/logo-mapa.png" alt="MAPA Soluções Digitais" width="191" height="40" loading="eager">
+      <img class="logo-on-dark" src="assets/img/brand/logo-mapa.png" alt="" width="191" height="40" loading="eager">
+      <img class="logo-on-light" src="assets/img/brand/logo-mapa-light.png" alt="" width="191" height="40" loading="eager">
     </a>
 
     <ul class="nav-ul" id="navUl" role="menubar">
@@ -940,7 +970,6 @@
       <li role="none"><a href="#sobre" role="menuitem">Sobre</a></li>
       <li role="none"><a href="#servicos" role="menuitem">Serviços</a></li>
       <li role="none"><a href="#portfolio" role="menuitem">Portfólio</a></li>
-      <li role="none"><a href="#calculadoras" role="menuitem">Calculadoras</a></li>
       <li role="none">
         <a href="https://wa.me/5531989190373?text=Ol%C3%A1%2C+vim+pelo+site+e+gostaria+de+um+or%C3%A7amento!"
            class="nav-cta" target="_blank" rel="noopener noreferrer" role="menuitem">
@@ -1311,99 +1340,7 @@
           </div>
         </article>
 
-        <article class="pf-card" data-t="saas" data-id="calc-trabalhista"
-          role="button" tabindex="0"
-          aria-label="Ver projeto: Plataforma de Cálculo Trabalhista">
-          <div class="pf-thumb" style="--thumb-grad:linear-gradient(135deg,#0284c7,#4f46e5)">
-            <img src="assets/img/portfolio/calculadora-trabalhista.webp" alt="" loading="lazy">
-            <div class="pf-thumb-cta" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
-              Ver projeto
-            </div>
-            <span class="pf-badge">SaaS</span>
-          </div>
-          <div class="pf-info">
-            <h3>Plataforma de Cálculo Trabalhista</h3>
-            <p>Calculadora de rescisão com aviso proporcional, INSS, IRRF e multa do FGTS.</p>
-          </div>
-        </article>
-
-        <article class="pf-card" data-t="saas" data-id="calc-climatizacao"
-          role="button" tabindex="0"
-          aria-label="Ver projeto: Plataforma de Dimensionamento de Climatização">
-          <div class="pf-thumb" style="--thumb-grad:linear-gradient(135deg,#0891b2,#2563eb)">
-            <img src="assets/img/portfolio/calculadora-climatizacao.webp" alt="" loading="lazy">
-            <div class="pf-thumb-cta" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
-              Ver projeto
-            </div>
-            <span class="pf-badge">SaaS</span>
-          </div>
-          <div class="pf-info">
-            <h3>Plataforma de Dimensionamento de Climatização</h3>
-            <p>Calculadora de BTUs que dimensiona o aparelho e estima o consumo mensal.</p>
-          </div>
-        </article>
-
-        <article class="pf-card" data-t="saas" data-id="calc-reformas"
-          role="button" tabindex="0"
-          aria-label="Ver projeto: Plataforma de Estimativa de Valores de Reformas">
-          <div class="pf-thumb" style="--thumb-grad:linear-gradient(135deg,#7c3aed,#2563eb)">
-            <img src="assets/img/portfolio/calculadora-reformas.webp" alt="" loading="lazy">
-            <div class="pf-thumb-cta" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
-              Ver projeto
-            </div>
-            <span class="pf-badge">SaaS</span>
-          </div>
-          <div class="pf-info">
-            <h3>Plataforma de Estimativa de Valores de Reformas</h3>
-            <p>Calculadora de custo de obra por m², com reserva para imprevisto e prazo.</p>
-          </div>
-        </article>
-
       </div>
-    </div>
-  </section>
-
-
-  <!-- ══════════════════════════════════
-       CALCULADORAS GRATUITAS
-  ══════════════════════════════════ -->
-  <section id="calculadoras" aria-label="Calculadoras gratuitas da MAPA Soluções Digitais">
-    <div class="inner">
-      <span class="tag">Ferramentas gratuitas</span>
-      <h2>Calculadoras que você<br>pode usar agora</h2>
-      <p class="sub">
-        Três ferramentas que construímos e deixamos abertas para qualquer pessoa usar.
-        São o mesmo tipo de calculadora que colocamos dentro do site dos nossos clientes
-        para transformar visita em conversa no WhatsApp.
-      </p>
-
-      <div class="calc-grid">
-        <a class="calc-card" href="/calculadora-rescisao-trabalhista/">
-          <span class="calc-ico" aria-hidden="true">⚖️</span>
-          <h3>Rescisão trabalhista</h3>
-          <p>Descubra quanto você tem a receber ao sair do emprego, com aviso prévio proporcional, FGTS e as tabelas de INSS e Imposto de Renda de 2026.</p>
-          <span class="calc-go">Abrir calculadora →</span>
-        </a>
-
-        <a class="calc-card" href="/calculadora-btu-ar-condicionado/">
-          <span class="calc-ico" aria-hidden="true">❄️</span>
-          <h3>BTU para ar-condicionado</h3>
-          <p>Dimensione a capacidade certa para o ambiente considerando metragem, sol, pessoas e aparelhos — e veja o custo mensal na conta de luz.</p>
-          <span class="calc-go">Abrir calculadora →</span>
-        </a>
-
-        <a class="calc-card" href="/calculadora-custo-de-reforma/">
-          <span class="calc-ico" aria-hidden="true">🧱</span>
-          <h3>Custo de reforma por m²</h3>
-          <p>Uma faixa realista de investimento antes do primeiro orçamento, com divisão entre material e mão de obra e reserva para imprevisto.</p>
-          <span class="calc-go">Abrir calculadora →</span>
-        </a>
-      </div>
-
-      <p class="calc-note">Uso livre e sem cadastro. Os resultados são estimativas e não substituem orientação profissional.</p>
     </div>
   </section>
 
@@ -1561,7 +1498,8 @@
   <div class="ft-grid">
     <div class="ft-brand">
       <a href="#home" class="logo-img" aria-label="MAPA Soluções Digitais — início">
-        <img src="assets/img/brand/logo-mapa.png" alt="MAPA Soluções Digitais" width="153" height="32" decoding="async" fetchpriority="high">
+        <img class="logo-on-dark" src="assets/img/brand/logo-mapa.png" alt="" width="153" height="32" decoding="async">
+        <img class="logo-on-light" src="assets/img/brand/logo-mapa-light.png" alt="" width="153" height="32" decoding="async">
       </a>
       <p>
         Agência de soluções digitais em Belo Horizonte, MG. Edição de vídeo profissional,
@@ -1604,7 +1542,6 @@
         <li><a href="#sobre">Sobre</a></li>
         <li><a href="#servicos">Serviços</a></li>
         <li><a href="#portfolio">Portfólio</a></li>
-        <li><a href="#calculadoras">Calculadoras</a></li>
       </ul>
     </div>
 
