@@ -193,6 +193,8 @@
       ]
     },
     moda:{
+      // print do site no ar (lojaaurenstore.com.br)
+      shot:'assets/img/portfolio/shot-auren.jpg',
       badge:'E-commerce',
       title:'Loja de Calçados na Nuvemshop',
       url:'https://lojaaurenstore.com.br/',
@@ -206,6 +208,8 @@
       videos:[]
     },
     saas:{
+      // print do site no ar (calculadoraconfeitaria.mapasolucoesdigitais.com.br)
+      shot:'assets/img/portfolio/shot-confeitaria.jpg',
       badge:'SaaS',
       title:'SaaS para Confeiteiras',
       desc:'Desenvolvo sistemas SaaS totalmente personalizados para confeiteiras e outros negócios: calculadora de precificação, controle de receitas, agenda de pedidos, relatórios financeiros e muito mais. Cada projeto é único e feito à medida para resolver as dores específicas do cliente, do zero ao deploy.',
@@ -252,6 +256,8 @@
       ]
     },
     suplementos:{
+      // print do site no ar (www.floriculturabh.com.br)
+      shot:'assets/img/portfolio/shot-floricultura.jpg',
       badge:'E-commerce',
       title:'Floricultura na Nuvemshop',
       url:'https://www.floriculturabh.com.br/',
@@ -261,6 +267,48 @@
         {v:'3',l:'Plugins personalizados'},
         {v:'15 dias úteis',l:'Prazo de entrega médio'},
         {v:'100%',l:'Pensando em SEO e GEO'}
+      ],
+      videos:[]
+    },
+    'calc-trabalhista':{
+      badge:'SaaS',
+      title:'Plataforma de Cálculo Trabalhista',
+      url:'/calculadora-rescisao-trabalhista/',
+      ctaKey:'openCalc',
+      desc:'Calculadora pública de rescisão trabalhista construída do zero, com o motor de cálculo separado da interface e coberto por testes automatizados. Trata os quatro tipos de desligamento, aplica o aviso prévio proporcional da Lei 12.506/2011 com a projeção que empurra a data de saída na carteira, calcula 13º e férias pela regra dos avos e aplica INSS e IRRF em bases separadas — incluindo o redutor da Lei 15.270/2025, que zera o imposto de quem recebe até R$ 5.000. Verbas indenizatórias aparecem marcadas como isentas, que é o erro mais comum das calculadoras concorrentes.',
+      tags:['CLT','INSS 2026','IRRF + Lei 15.270','FGTS','Aviso proporcional','SEO & GEO','Sem backend'],
+      results:[
+        {v:'73',l:'Testes automatizados'},
+        {v:'4',l:'Tipos de desligamento'},
+        {v:'2026',l:'Tabelas INSS e IRRF'}
+      ],
+      videos:[]
+    },
+    'calc-climatizacao':{
+      badge:'SaaS',
+      title:'Plataforma de Dimensionamento de Climatização',
+      url:'/calculadora-btu-ar-condicionado/',
+      ctaKey:'openCalc',
+      desc:'Calculadora de carga térmica que dimensiona o aparelho de ar-condicionado a partir da metragem, do pé-direito, da insolação, do número de pessoas e dos aparelhos que esquentam o ambiente. O resultado é sempre arredondado para cima até uma capacidade que realmente existe no mercado brasileiro, e a mesma tela estima o consumo mensal em kWh e em reais, comparando inverter e convencional.',
+      tags:['Carga térmica','Capacidades comerciais','Consumo em kWh','Inverter x convencional','SEO & GEO','Sem backend'],
+      results:[
+        {v:'11',l:'Capacidades comerciais'},
+        {v:'6',l:'Variáveis no cálculo'},
+        {v:'2',l:'Saídas: BTU e consumo'}
+      ],
+      videos:[]
+    },
+    'calc-reformas':{
+      badge:'SaaS',
+      title:'Plataforma de Estimativa de Valores de Reformas',
+      url:'/calculadora-custo-de-reforma/',
+      ctaKey:'openCalc',
+      desc:'Estimador de custo de obra por metro quadrado ancorado no SINAPI do IBGE, com multiplicadores por profundidade da reforma, padrão de acabamento e região. Trata banheiro e cozinha como adicionais, porque não seguem a média da casa, e devolve uma faixa em vez de um número único — junto da divisão entre material e mão de obra, do prazo e da reserva para imprevisto que quase nenhum orçamento inclui.',
+      tags:['SINAPI','CUB','Custo por m²','Material x mão de obra','Contingência','SEO & GEO'],
+      results:[
+        {v:'4',l:'Níveis de reforma'},
+        {v:'3',l:'Padrões de acabamento'},
+        {v:'SINAPI',l:'Base oficial de custo'}
       ],
       videos:[]
     }
@@ -350,7 +398,7 @@
       <div class="pf-modal-tags">${tags}</div>
       ${vidSec}
       ${d.url ? `<a href="${d.url}" class="pf-modal-cta-sec" target="_blank" rel="noopener noreferrer">
-        ${(I18N[window._mapLang||'pt']||I18N.pt).pf.viewSite}
+        ${(I18N[window._mapLang||'pt']||I18N.pt).pf[d.ctaKey||'viewSite']}
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
       </a>` : ''}
       <a href="https://wa.me/5531989190373?text=${waTxt}"
@@ -479,8 +527,9 @@
           {title:'Sites Personalizados', p:'Otimizados para SEO, GEO e com todas as boas práticas do Google.'}
         ]
       },
-      stats:['Clientes satisfeitos','Projetos entregues','Compromisso com prazo','Anos de experiência'],
+      stats:['Por dia à sua disposição','Burocracia para começar','Compromisso com prazo','Anos de experiência'],
       sobre:{
+        shotAlt:'Reunião ao redor de uma mesa de madeira em sala com parede de tijolo escuro, com uma apresentação da MAPA Soluções Digitais projetada na tela ao fundo.',
         tag:'Quem somos',
         h2:'A equipe por trás do<br>seu crescimento digital',
         ps:[
@@ -488,25 +537,19 @@
           'Trabalhamos com <strong>criadores de conteúdo, lojistas, empreendedores e empresas</strong> que querem escalar sua presença digital, seja pela edição de vídeos que retêm audiência, pela criação de um e-commerce nas principais plataformas (Nuvemshop, Loja Integrada e Tray), pelo desenvolvimento de um SaaS personalizado ou pela criação de um site profissional otimizado para SEO.',
           'Nossa missão é simples: <strong>você foca no seu negócio, nós cuidamos da tecnologia.</strong>'
         ],
-        vals:[
-          {title:'Entrega Rápida', p:'Prazos cumpridos e comunicação transparente em cada etapa do projeto.'},
-          {title:'Foco em Resultado', p:'Cada decisão pensada no impacto real para o seu negócio.'},
-          {title:'Qualidade Garantida', p:'Revisões incluídas e suporte pós-entrega em todos os projetos.'},
-          {title:'Parceria Real', p:'Atendimento próximo, sem burocracia, com atenção personalizada.'}
-        ]
       },
       srv:{
         tag:'O que fazemos',
         h2:'Soluções para cada<br>fase do <em class="grad-text">seu negócio</em>',
         sub:'Do conteúdo visual ao sistema personalizado: temos o serviço certo para o momento certo da sua empresa.',
         cta:'Solicitar orçamento →',
-        tabs:['🎬 Vídeo','🛒 E-commerce','⚙️ SaaS','🧭 Consultoria','🌐 Sites'],
+        tabs:['Sites','SaaS','Vídeo','E-commerce','Consultoria'],
         cards:[
+          {title:'Criação de Pequenos Sites', desc:'Sites institucionais, landing pages e portfólios para pequenas empresas e profissionais autônomos: rápidos, responsivos e <strong style="color:var(--t1)">otimizados para SEO</strong> desde o primeiro dia.'},
+          {title:'Desenvolvimento de SaaS sob Medida', desc:'Transformamos ideias em plataformas SaaS completas. Da concepção ao deploy: sistemas web, APIs, automações e dashboards personalizados para a sua operação.'},
           {title:'Edição de Vídeo Profissional', desc:'Você grava, a gente edita, e o mundo assiste. Produzimos vídeos que prendem atenção e aumentam o tempo de visualização nas principais plataformas. Do corte básico ao motion graphics completo, entregamos conteúdo otimizado para <strong style="color:var(--t1)">YouTube, Instagram, TikTok e LinkedIn</strong>, em formato horizontal e vertical, com mixagem de áudio, color grading e legendas.'},
           {title:'Configuração de E-commerce do Zero', desc:'Montamos sua loja virtual nas plataformas <strong style="color:var(--t1)">Nuvemshop, Loja Integrada ou Tray</strong> sem dor de cabeça. Layout, catálogo, meios de pagamento (Pix, cartão, boleto), frete, integrações e domínio. Pronto para vender.'},
-          {title:'Desenvolvimento de SaaS sob Medida', desc:'Transformamos ideias em plataformas SaaS completas. Da concepção ao deploy: sistemas web, APIs, automações e dashboards personalizados para a sua operação.'},
-          {title:'Consultoria Digital', desc:'Não sabe por onde começar ou qual tecnologia escolher? Mapeamos sua situação atual e entregamos um plano de ação claro, com prioridades e recomendações de ferramentas, sem enrolação.'},
-          {title:'Criação de Pequenos Sites', desc:'Sites institucionais, landing pages e portfólios para pequenas empresas e profissionais autônomos: rápidos, responsivos e <strong style="color:var(--t1)">otimizados para SEO</strong> desde o primeiro dia.'}
+          {title:'Consultoria Digital', desc:'Não sabe por onde começar ou qual tecnologia escolher? Mapeamos sua situação atual e entregamos um plano de ação claro, com prioridades e recomendações de ferramentas, sem enrolação.'}
         ]
       },
       pf:{
@@ -516,6 +559,7 @@
         viewBtn:'Ver projeto', viewProjectPrefix:'Ver projeto: ',
         videosLabel:'Vídeos entregues neste projeto',
         viewSite:'Ver site →',
+        openCalc:'Abrir calculadora →',
         modalCta:'Quero um projeto similar',
         waMsg:'Olá! Vi o portfólio da MAPA e quero um projeto parecido com: ',
         cards:[
@@ -525,7 +569,22 @@
           {title:'SaaS para Confeiteiras',               p:'Sistema 100% personalizado que resolve as dores específicas do cliente.',                             badge:'SaaS'},
           {title:'Site Institucional para Escritório de Advocacia', p:'Landing page com SEO local, blog jurídico e formulário de captação de leads.',           badge:'Site'},
           {title:'Canal de Drone no YouTube',p:'Edição completa de vídeos aéreos em 4K com color grading, animações e thumbnails para YouTube.',               badge:'Edição de Vídeo'},
-          {title:'Floricultura na Nuvemshop',             p:'Loja virtual do zero: pagamento, envio, plugins, produtos, banners, SEO e GEO.',                      badge:'E-commerce'}
+          {title:'Floricultura na Nuvemshop',             p:'Loja virtual do zero: pagamento, envio, plugins, produtos, banners, SEO e GEO.',                      badge:'E-commerce'},
+          {title:'Plataforma de Cálculo Trabalhista',              p:'Calculadora de rescisão com aviso proporcional, INSS, IRRF e multa do FGTS.',                       badge:'SaaS'},
+          {title:'Plataforma de Dimensionamento de Climatização',  p:'Calculadora de BTUs que dimensiona o aparelho e estima o consumo mensal.',                          badge:'SaaS'},
+          {title:'Plataforma de Estimativa de Valores de Reformas',p:'Calculadora de custo de obra por m², com reserva para imprevisto e prazo.',                         badge:'SaaS'}
+        ]
+      },
+      calc:{
+        tag:'Ferramentas gratuitas',
+        h2:'Calculadoras que você<br>pode usar agora',
+        sub:'Três ferramentas que construímos e deixamos abertas para qualquer pessoa usar. São o mesmo tipo de calculadora que colocamos dentro do site dos nossos clientes para transformar visita em conversa no WhatsApp.',
+        cta:'Abrir calculadora →',
+        note:'Uso livre e sem cadastro. Os resultados são estimativas e não substituem orientação profissional.',
+        cards:[
+          {title:'Rescisão trabalhista', p:'Descubra quanto você tem a receber ao sair do emprego, com aviso prévio proporcional, FGTS e as tabelas de INSS e Imposto de Renda de 2026.'},
+          {title:'BTU para ar-condicionado', p:'Dimensione a capacidade certa para o ambiente considerando metragem, sol, pessoas e aparelhos — e veja o custo mensal na conta de luz.'},
+          {title:'Custo de reforma por m²', p:'Uma faixa realista de investimento antes do primeiro orçamento, com divisão entre material e mão de obra e reserva para imprevisto.'}
         ]
       },
       faq:{
@@ -550,8 +609,8 @@
             btn1:'💬 Falar no WhatsApp', btn2:'✉️ Enviar e-mail' },
       ft:{
         brandp:'Agência de soluções digitais em Belo Horizonte, MG. Edição de vídeo profissional, e-commerce (Nuvemshop, Loja Integrada, Tray), SaaS sob medida, consultoria e criação de sites para todo o Brasil.',
-        nav:{ title:'Navegação', links:['Home','Sobre','Serviços','Portfólio','Calculadoras'] },
-        srv:{ title:'Serviços', links:['Edição de Vídeo','E-commerce','SaaS sob Medida','Consultoria Digital','Criação de Sites'] },
+        nav:{ title:'Navegação', links:['Home','Sobre','Portfólio','Serviços','Calculadoras'] },
+        srv:{ title:'Serviços', links:['Criação de Sites','SaaS sob Medida','Edição de Vídeo','E-commerce','Consultoria Digital'] },
         contact:{ title:'Contato', city:'Belo Horizonte, MG', remote:'Atendimento remoto para todo o Brasil' },
         copyright:'© 2026 MAPA Soluções Digitais. Todos os direitos reservados.',
         cnpj:'CNPJ: 38.295.265/0001-37 · Belo Horizonte, MG · Atendimento para todo o Brasil'
@@ -574,8 +633,9 @@
           {title:'Custom Websites', p:'Optimized for SEO, GEO and all Google best practices.'}
         ]
       },
-      stats:['Happy clients','Projects delivered','On-time delivery','Years of experience'],
+      stats:['A day at your service','Red tape to get started','On-time delivery','Years of experience'],
       sobre:{
+        shotAlt:'A meeting around a wooden table in a room with a dark brick wall, with a MAPA Soluções Digitais presentation projected on the screen behind.',
         tag:'Who we are',
         h2:'The team behind<br>your digital growth',
         ps:[
@@ -583,25 +643,19 @@
           'We work with <strong>content creators, retailers, entrepreneurs and companies</strong> looking to scale their digital presence — through videos that retain audiences, e-commerce stores on major platforms (Nuvemshop, Loja Integrada and Tray), custom SaaS development, or professional SEO-optimized websites.',
           'Our mission is simple: <strong>you focus on your business, we take care of the technology.</strong>'
         ],
-        vals:[
-          {title:'Fast Delivery', p:'Deadlines met and transparent communication at every stage.'},
-          {title:'Results-Focused', p:'Every decision made with real impact on your business in mind.'},
-          {title:'Guaranteed Quality', p:'Revisions included and post-delivery support on all projects.'},
-          {title:'True Partnership', p:'Close, bureaucracy-free service with personalized attention.'}
-        ]
       },
       srv:{
         tag:'What we do',
         h2:'Solutions for every<br>stage of <em class="grad-text">your business</em>',
         sub:'From visual content to custom systems: we have the right service for the right moment in your company.',
         cta:'Request a quote →',
-        tabs:['🎬 Video','🛒 E-commerce','⚙️ SaaS','🧭 Consulting','🌐 Websites'],
+        tabs:['Websites','SaaS','Video','E-commerce','Consulting'],
         cards:[
+          {title:'Small Website Creation', desc:'Institutional sites, landing pages and portfolios for small businesses and freelancers: fast, responsive and <strong style="color:var(--t1)">SEO-optimized</strong> from day one.'},
+          {title:'Custom SaaS Development', desc:'We turn ideas into complete SaaS platforms. From concept to deploy: web systems, APIs, automations and custom dashboards for your operation.'},
           {title:'Professional Video Editing', desc:'You record, we edit, and the world watches. We produce videos that capture attention and boost watch time on major platforms. From basic cuts to full motion graphics, we deliver content optimized for <strong style="color:var(--t1)">YouTube, Instagram, TikTok and LinkedIn</strong>, in horizontal and vertical formats with audio mixing, color grading and captions.'},
           {title:'E-commerce Setup from Scratch', desc:'We build your online store on <strong style="color:var(--t1)">Nuvemshop, Loja Integrada or Tray</strong> without the headache. Layout, catalog, payment methods, shipping, integrations and domain. Ready to sell.'},
-          {title:'Custom SaaS Development', desc:'We turn ideas into complete SaaS platforms. From concept to deploy: web systems, APIs, automations and custom dashboards for your operation.'},
-          {title:'Digital Consulting', desc:"Don't know where to start or which technology to choose? We map your current situation and deliver a clear action plan, with priorities and tool recommendations — no fluff."},
-          {title:'Small Website Creation', desc:'Institutional sites, landing pages and portfolios for small businesses and freelancers: fast, responsive and <strong style="color:var(--t1)">SEO-optimized</strong> from day one.'}
+          {title:'Digital Consulting', desc:"Don't know where to start or which technology to choose? We map your current situation and deliver a clear action plan, with priorities and tool recommendations — no fluff."}
         ]
       },
       pf:{
@@ -611,6 +665,7 @@
         viewBtn:'View project', viewProjectPrefix:'View project: ',
         videosLabel:'Videos delivered in this project',
         viewSite:'View site →',
+        openCalc:'Open calculator →',
         modalCta:'I want a similar project',
         waMsg:'Hi! I saw the MAPA portfolio and want a project similar to: ',
         cards:[
@@ -620,7 +675,22 @@
           {title:'SaaS for Pastry Chefs',               p:'100% custom system built to solve the client\'s specific pain points.',                          badge:'SaaS'},
           {title:'Institutional Site for a Law Firm', p:'Landing page with local SEO, legal blog and lead capture form.',                                   badge:'Site'},
           {title:'Drone YouTube Channel',p:'Complete editing of 4K aerial videos with color grading, animations and thumbnails for YouTube.',               badge:'Video Editing'},
-          {title:'Flower Shop on Nuvemshop',           p:'Online store from scratch: payments, shipping, plugins, products, banners, SEO & GEO.',              badge:'E-commerce'}
+          {title:'Flower Shop on Nuvemshop',           p:'Online store from scratch: payments, shipping, plugins, products, banners, SEO & GEO.',              badge:'E-commerce'},
+          {title:'Labor Law Calculation Platform',      p:'Severance calculator with proportional notice, social security, income tax and FGTS penalty.',        badge:'SaaS'},
+          {title:'HVAC Sizing Platform',                p:'BTU calculator that sizes the unit and estimates monthly running cost.',                              badge:'SaaS'},
+          {title:'Renovation Cost Estimation Platform', p:'Construction cost calculator per m², with contingency reserve and timeline.',                          badge:'SaaS'}
+        ]
+      },
+      calc:{
+        tag:'Free tools',
+        h2:'Calculators you can<br>use right now',
+        sub:'Three tools we built and left open for anyone to use. They are the same kind of calculator we put inside our clients\' websites to turn a visit into a WhatsApp conversation.',
+        cta:'Open calculator →',
+        note:'Free to use, no sign-up. Results are estimates and do not replace professional advice.',
+        cards:[
+          {title:'Severance pay', p:'Find out what you are owed when leaving a job, with proportional notice, FGTS and the 2026 social security and income tax tables.'},
+          {title:'Air conditioning BTU', p:'Size the right capacity for the room based on area, sun exposure, people and appliances — and see the monthly running cost.'},
+          {title:'Renovation cost per m²', p:'A realistic investment range before the first quote, split between materials and labour, with a contingency reserve.'}
         ]
       },
       faq:{
@@ -645,8 +715,8 @@
             btn1:'💬 Chat on WhatsApp', btn2:'✉️ Send email' },
       ft:{
         brandp:'Digital solutions agency based in Belo Horizonte, Brazil. Professional video editing, e-commerce (Nuvemshop, Loja Integrada, Tray), custom SaaS, consulting and website creation across Brazil.',
-        nav:{ title:'Navigation', links:['Home','About','Services','Portfolio','Calculators'] },
-        srv:{ title:'Services', links:['Video Editing','E-commerce','Custom SaaS','Digital Consulting','Website Creation'] },
+        nav:{ title:'Navigation', links:['Home','About','Portfolio','Services','Calculators'] },
+        srv:{ title:'Services', links:['Website Creation','Custom SaaS','Video Editing','E-commerce','Digital Consulting'] },
         contact:{ title:'Contact', city:'Belo Horizonte, MG – Brazil', remote:'Remote service for all of Brazil' },
         copyright:'© 2026 MAPA Soluções Digitais. All rights reserved.',
         cnpj:'CNPJ: 38.295.265/0001-37 · Belo Horizonte, MG · Remote service for all of Brazil'
@@ -669,8 +739,9 @@
           {title:'Sitios Personalizados', p:'Optimizados para SEO, GEO y con todas las buenas prácticas de Google.'}
         ]
       },
-      stats:['Clientes satisfechos','Proyectos entregados','Compromiso con plazos','Años de experiencia'],
+      stats:['Cada día a tu disposición','Burocracia para empezar','Compromiso con plazos','Años de experiencia'],
       sobre:{
+        shotAlt:'Una reunión alrededor de una mesa de madera en una sala con pared de ladrillo oscuro, con una presentación de MAPA Soluções Digitais proyectada en la pantalla al fondo.',
         tag:'Quiénes somos',
         h2:'El equipo detrás de<br>tu crecimiento digital',
         ps:[
@@ -678,25 +749,19 @@
           'Trabajamos con <strong>creadores de contenido, comerciantes, emprendedores y empresas</strong> que quieren escalar su presencia digital, ya sea mediante edición de videos que retienen audiencia, creación de una tienda en las principales plataformas (Nuvemshop, Loja Integrada y Tray), desarrollo de un SaaS personalizado o creación de un sitio web optimizado para SEO.',
           'Nuestra misión es simple: <strong>tú te enfocas en tu negocio, nosotros nos encargamos de la tecnología.</strong>'
         ],
-        vals:[
-          {title:'Entrega Rápida', p:'Plazos cumplidos y comunicación transparente en cada etapa del proyecto.'},
-          {title:'Enfoque en Resultados', p:'Cada decisión pensada en el impacto real para tu negocio.'},
-          {title:'Calidad Garantizada', p:'Revisiones incluidas y soporte post-entrega en todos los proyectos.'},
-          {title:'Alianza Real', p:'Atención cercana, sin burocracia, con atención personalizada.'}
-        ]
       },
       srv:{
         tag:'Lo que hacemos',
         h2:'Soluciones para cada<br>etapa de <em class="grad-text">tu negocio</em>',
         sub:'Del contenido visual al sistema personalizado: tenemos el servicio adecuado para el momento adecuado de tu empresa.',
         cta:'Solicitar presupuesto →',
-        tabs:['🎬 Video','🛒 E-commerce','⚙️ SaaS','🧭 Consultoría','🌐 Sitios'],
+        tabs:['Sitios','SaaS','Video','E-commerce','Consultoría'],
         cards:[
+          {title:'Creación de Sitios Web Pequeños', desc:'Sitios institucionales, landing pages y portafolios para pequeñas empresas y autónomos: rápidos, responsivos y <strong style="color:var(--t1)">optimizados para SEO</strong> desde el primer día.'},
+          {title:'Desarrollo de SaaS a Medida', desc:'Convertimos ideas en plataformas SaaS completas. Desde la concepción hasta el deploy: sistemas web, APIs, automatizaciones y dashboards personalizados para tu operación.'},
           {title:'Edición de Video Profesional', desc:'Tú grabas, nosotros editamos y el mundo ve. Producimos videos que captan la atención y aumentan el tiempo de visualización en las principales plataformas. Desde cortes básicos hasta motion graphics completo, contenido optimizado para <strong style="color:var(--t1)">YouTube, Instagram, TikTok y LinkedIn</strong>, en formato horizontal y vertical con mezcla de audio, corrección de color y subtítulos.'},
           {title:'Configuración de E-commerce desde Cero', desc:'Montamos tu tienda virtual en <strong style="color:var(--t1)">Nuvemshop, Loja Integrada o Tray</strong> sin complicaciones. Layout, catálogo, medios de pago, envíos, integraciones y dominio. Listo para vender.'},
-          {title:'Desarrollo de SaaS a Medida', desc:'Convertimos ideas en plataformas SaaS completas. Desde la concepción hasta el deploy: sistemas web, APIs, automatizaciones y dashboards personalizados para tu operación.'},
-          {title:'Consultoría Digital', desc:'¿No sabes por dónde empezar o qué tecnología elegir? Mapeamos tu situación actual y entregamos un plan de acción claro, con prioridades y recomendaciones de herramientas — sin rodeos.'},
-          {title:'Creación de Sitios Web Pequeños', desc:'Sitios institucionales, landing pages y portafolios para pequeñas empresas y autónomos: rápidos, responsivos y <strong style="color:var(--t1)">optimizados para SEO</strong> desde el primer día.'}
+          {title:'Consultoría Digital', desc:'¿No sabes por dónde empezar o qué tecnología elegir? Mapeamos tu situación actual y entregamos un plan de acción claro, con prioridades y recomendaciones de herramientas — sin rodeos.'}
         ]
       },
       pf:{
@@ -706,6 +771,7 @@
         viewBtn:'Ver proyecto', viewProjectPrefix:'Ver proyecto: ',
         videosLabel:'Videos entregados en este proyecto',
         viewSite:'Ver sitio →',
+        openCalc:'Abrir calculadora →',
         modalCta:'Quiero un proyecto similar',
         waMsg:'¡Hola! Vi el portafolio de MAPA y quiero un proyecto parecido a: ',
         cards:[
@@ -715,7 +781,22 @@
           {title:'SaaS para Reposteras',                p:'Sistema 100% personalizado para resolver las necesidades específicas del cliente.',                badge:'SaaS'},
           {title:'Sitio Institucional para Estudio de Abogados',p:'Landing page con SEO local, blog jurídico y formulario de captación de leads.',                badge:'Sitio'},
           {title:'Canal de Drone en YouTube',p:'Edición completa de videos aéreos en 4K con color grading, animaciones y miniaturas para YouTube.',              badge:'Edición de Video'},
-          {title:'Floristería en Nuvemshop',              p:'Tienda virtual desde cero: pagos, envíos, plugins, productos, banners, SEO y GEO.',                   badge:'E-commerce'}
+          {title:'Floristería en Nuvemshop',              p:'Tienda virtual desde cero: pagos, envíos, plugins, productos, banners, SEO y GEO.',                   badge:'E-commerce'},
+          {title:'Plataforma de Cálculo Laboral',        p:'Calculadora de finiquito con preaviso proporcional, seguridad social, impuesto y FGTS.',            badge:'SaaS'},
+          {title:'Plataforma de Dimensionamiento de Climatización',p:'Calculadora de BTU que dimensiona el equipo y estima el consumo mensual.',                 badge:'SaaS'},
+          {title:'Plataforma de Estimación de Costos de Reformas',p:'Calculadora de costo de obra por m², con reserva para imprevistos y plazo.',                badge:'SaaS'}
+        ]
+      },
+      calc:{
+        tag:'Herramientas gratuitas',
+        h2:'Calculadoras que puedes<br>usar ahora mismo',
+        sub:'Tres herramientas que construimos y dejamos abiertas para cualquier persona. Son el mismo tipo de calculadora que colocamos dentro del sitio de nuestros clientes para convertir una visita en una conversación por WhatsApp.',
+        cta:'Abrir calculadora →',
+        note:'Uso libre y sin registro. Los resultados son estimaciones y no sustituyen la orientación profesional.',
+        cards:[
+          {title:'Finiquito laboral', p:'Descubre cuánto te corresponde al salir del empleo, con preaviso proporcional, FGTS y las tablas de seguridad social e impuesto de 2026.'},
+          {title:'BTU para aire acondicionado', p:'Dimensiona la capacidad correcta según metraje, sol, personas y equipos — y mira el costo mensual de energía.'},
+          {title:'Costo de reforma por m²', p:'Un rango realista de inversión antes del primer presupuesto, con división entre material y mano de obra y reserva para imprevistos.'}
         ]
       },
       faq:{
@@ -740,8 +821,8 @@
             btn1:'💬 Chatear en WhatsApp', btn2:'✉️ Enviar correo' },
       ft:{
         brandp:'Agencia de soluciones digitales en Belo Horizonte, Brasil. Edición de video profesional, e-commerce (Nuvemshop, Loja Integrada, Tray), SaaS a medida, consultoría y creación de sitios para todo Brasil.',
-        nav:{ title:'Navegación', links:['Inicio','Nosotros','Servicios','Portafolio','Calculadoras'] },
-        srv:{ title:'Servicios', links:['Edición de Video','E-commerce','SaaS a Medida','Consultoría Digital','Creación de Sitios'] },
+        nav:{ title:'Navegación', links:['Inicio','Nosotros','Portafolio','Servicios','Calculadoras'] },
+        srv:{ title:'Servicios', links:['Creación de Sitios','SaaS a Medida','Edición de Video','E-commerce','Consultoría Digital'] },
         contact:{ title:'Contacto', city:'Belo Horizonte, MG – Brasil', remote:'Atención remota para todo Brasil' },
         copyright:'© 2026 MAPA Soluções Digitais. Todos los derechos reservados.',
         cnpj:'CNPJ: 38.295.265/0001-37 · Belo Horizonte, MG · Atención remota para todo Brasil'
@@ -772,7 +853,16 @@
         results:[{v:'2k',l:'Views/month'},{v:'+30',l:'Minutes of edited content'},{v:'+10',l:'Videos in 4K'}]},
       suplementos:{badge:'E-commerce',title:'Flower Shop on Nuvemshop',
         desc:'Flower shop built from scratch on Nuvemshop: payment methods, shipping, plugins, product registration, client tutorials, banners and full customisation. SEO and GEO throughout — from file names and alt attributes to every product description.',
-        results:[{v:'3',l:'Custom plugins'},{v:'15 business days',l:'Average delivery time'},{v:'100%',l:'SEO & GEO focused'}]}
+        results:[{v:'3',l:'Custom plugins'},{v:'15 business days',l:'Average delivery time'},{v:'100%',l:'SEO & GEO focused'}]},
+      'calc-trabalhista':{badge:'SaaS',title:'Labor Law Calculation Platform',
+        desc:'A public Brazilian severance calculator built from scratch, with the calculation engine kept separate from the interface and covered by automated tests. It handles the four types of termination, applies proportional notice under Law 12.506/2011 including the projection that pushes the official leaving date forward, counts thirteenth salary and holiday in twelfths, and applies social security and income tax on separate bases — including the 2025 rebate that zeroes tax for anyone earning up to R$5,000. Indemnity items are flagged as tax-exempt, which is the most common mistake in competing calculators.',
+        results:[{v:'73',l:'Automated tests'},{v:'4',l:'Termination types'},{v:'2026',l:'Tax tables'}]},
+      'calc-climatizacao':{badge:'SaaS',title:'HVAC Sizing Platform',
+        desc:'A cooling load calculator that sizes an air conditioning unit from floor area, ceiling height, sun exposure, number of people and heat-producing appliances. The result always rounds up to a capacity that actually exists on the Brazilian market, and the same screen estimates monthly consumption in kWh and in reais, comparing inverter and conventional units.',
+        results:[{v:'11',l:'Market capacities'},{v:'6',l:'Input variables'},{v:'2',l:'Outputs: BTU and cost'}]},
+      'calc-reformas':{badge:'SaaS',title:'Renovation Cost Estimation Platform',
+        desc:'A construction cost estimator per square metre anchored in SINAPI, the official Brazilian construction cost index, with multipliers for renovation depth, finishing standard and region. Bathrooms and kitchens are treated as add-ons because they do not follow the average, and the output is a range rather than a single number — alongside the material-versus-labour split, the timeline and the contingency reserve that almost no quote includes.',
+        results:[{v:'4',l:'Renovation levels'},{v:'3',l:'Finishing standards'},{v:'SINAPI',l:'Official cost base'}]}
     },
     es:{
       imoveis:{badge:'Edición de Video',title:'Videos para Mercado Inmobiliario',
@@ -795,7 +885,16 @@
         results:[{v:'2k',l:'Views/mes'},{v:'+30',l:'Minutos de contenido editado'},{v:'+10',l:'Videos en 4K'}]},
       suplementos:{badge:'E-commerce',title:'Floristería en Nuvemshop',
         desc:'Floristería creada desde cero en Nuvemshop: configuro medios de pago, formas de envío y plugins, registro productos, armo tutoriales para el cliente, añado banners y dejo el sitio exactamente como el cliente quiere. Todo el trabajo de SEO y GEO se realiza desde el nombre de los archivos y el atributo alt de las imágenes hasta la descripción de cada producto.',
-        results:[{v:'3',l:'Plugins personalizados'},{v:'15 días hábiles',l:'Plazo de entrega promedio'},{v:'100%',l:'Enfocado en SEO y GEO'}]}
+        results:[{v:'3',l:'Plugins personalizados'},{v:'15 días hábiles',l:'Plazo de entrega promedio'},{v:'100%',l:'Enfocado en SEO y GEO'}]},
+      'calc-trabalhista':{badge:'SaaS',title:'Plataforma de Cálculo Laboral',
+        desc:'Calculadora pública de finiquito laboral brasileño construida desde cero, con el motor de cálculo separado de la interfaz y cubierto por pruebas automatizadas. Trata los cuatro tipos de desvinculación, aplica el preaviso proporcional de la Ley 12.506/2011 con la proyección que adelanta la fecha de salida, calcula aguinaldo y vacaciones por doceavos y aplica seguridad social e impuesto sobre bases separadas — incluido el reductor de 2025 que anula el impuesto de quien gana hasta R$5.000. Los conceptos indemnizatorios aparecen marcados como exentos, que es el error más común de las calculadoras de la competencia.',
+        results:[{v:'73',l:'Pruebas automatizadas'},{v:'4',l:'Tipos de desvinculación'},{v:'2026',l:'Tablas fiscales'}]},
+      'calc-climatizacao':{badge:'SaaS',title:'Plataforma de Dimensionamiento de Climatización',
+        desc:'Calculadora de carga térmica que dimensiona el equipo de aire acondicionado a partir del metraje, la altura del techo, la exposición solar, el número de personas y los equipos que generan calor. El resultado siempre se redondea hacia arriba hasta una capacidad que existe en el mercado brasileño, y la misma pantalla estima el consumo mensual en kWh y en reales, comparando inverter y convencional.',
+        results:[{v:'11',l:'Capacidades del mercado'},{v:'6',l:'Variables de cálculo'},{v:'2',l:'Salidas: BTU y consumo'}]},
+      'calc-reformas':{badge:'SaaS',title:'Plataforma de Estimación de Costos de Reformas',
+        desc:'Estimador de costo de obra por metro cuadrado anclado en el SINAPI, el índice oficial brasileño de costos de construcción, con multiplicadores por profundidad de la reforma, estándar de acabado y región. Baño y cocina se tratan como adicionales porque no siguen el promedio, y el resultado es un rango en vez de un número único — junto con la división entre material y mano de obra, el plazo y la reserva para imprevistos que casi ningún presupuesto incluye.',
+        results:[{v:'4',l:'Niveles de reforma'},{v:'3',l:'Estándares de acabado'},{v:'SINAPI',l:'Base oficial de costos'}]}
     }
   };
 
@@ -807,26 +906,129 @@
     return PF_DATA[id];
   }
 
+  /* ────────────────────────────────────────────────────
+     CAPA REAL DOS PROJETOS DE VÍDEO
+     Em vez da ilustração 3D, a capa passa a ser o frame do
+     primeiro vídeo realmente entregue no projeto. O id vem do
+     próprio PF_DATA, então a capa acompanha sozinha quando um
+     vídeo novo entra na lista — nada é fixado no HTML nem
+     baixado para o repositório: quem serve a imagem é o YouTube.
+  ──────────────────────────────────────────────────── */
+  function videoDaCapa(d) {
+    if (!d) return null;
+    // Se o projeto declarar cover:'ID', manda ele. Serve para escolher o
+    // frame mais forte em vez de aceitar o primeiro da lista, que às vezes
+    // é escuro ou tem texto cortado no enquadramento 16:9 do card.
+    if (d.cover) return { id: d.cover };
+    for (const c of (d.clients || [])) {
+      if (c.videos && c.videos.length) return c.videos[0];
+    }
+    return (d.videos && d.videos[0]) || null;
+  }
+
+  /* Duas origens possíveis de capa real, na ordem:
+     shot:'caminho.jpg'  -> print do site/sistema entregue
+     vídeo do projeto    -> frame servido pelo YouTube
+     Sem nenhuma das duas, o card mantém a ilustração de hoje. */
+  function fontesDaCapa(d) {
+    if (d.shot) return [d.shot];
+    const vid = videoDaCapa(d);
+    if (!vid) return [];
+    return ['https://img.youtube.com/vi/' + vid.id + '/maxresdefault.jpg',
+            'https://img.youtube.com/vi/' + vid.id + '/hqdefault.jpg'];
+  }
+
+  function pintarCapasReais() {
+    document.querySelectorAll('.pf-card').forEach(card => {
+      const d = getProjectData(card.dataset.id);
+      const thumb = card.querySelector('.pf-thumb');
+      if (!d || !thumb) return;
+
+      const fontes = fontesDaCapa(d);
+      if (fontes.length && !thumb.querySelector('.pf-shot')) {
+        const img = document.createElement('img');
+        img.className = 'pf-shot';
+        img.alt = '';                 // decorativa: o título do card já nomeia o projeto
+        img.loading = 'lazy';
+        img.decoding = 'async';
+        // Se a fonte falhar (print ainda não salvo, vídeo removido, rede
+        // bloqueada), tenta a próxima e, esgotadas, remove a imagem: a
+        // ilustração de hoje reaparece e o card nunca fica com buraco.
+        let etapa = 0;
+        // A ilustração é outro <img> no mesmo thumb. Com a capa real no ar
+        // ela vira peso morto: some. Se a capa falhar, volta.
+        const ilustra = [...thumb.querySelectorAll('img')].filter(x => x !== img);
+        img.addEventListener('load', () => ilustra.forEach(x => { x.style.display = 'none'; }));
+        img.addEventListener('error', () => {
+          etapa++;
+          if (etapa < fontes.length) { img.src = fontes[etapa]; return; }
+          ilustra.forEach(x => { x.style.display = ''; });
+          img.remove();
+        });
+        img.src = fontes[0];
+        thumb.insertBefore(img, thumb.firstChild);
+      }
+
+      // Sobe o número que estava escondido dentro do modal — mas só onde
+      // existe capa real. Selo é alegação; sem a prova ao lado, ele fica
+      // dentro do modal, onde o visitante já entrou no contexto do projeto.
+      const r = fontes.length ? (d.results || [])[0] : null;
+      if (r) {
+        let selo = thumb.querySelector('.pf-proof');
+        if (!selo) {
+          selo = document.createElement('span');
+          selo.className = 'pf-proof';
+          thumb.appendChild(selo);
+        }
+        selo.textContent = r.v + ' ' + r.l.toLowerCase();
+      }
+    });
+  }
+
+
+  /* ────────────────────────────────────────────────────
+     ÍCONES DOS SERVIÇOS
+     Traço monocromático herdando currentColor: acompanham o
+     estado ativo da aba e o tema claro/escuro sozinhos, coisa
+     que emoji não faz (emoji tem cor própria e desenho
+     diferente em cada sistema operacional).
+  ──────────────────────────────────────────────────── */
+  const svgWrap = d =>
+    `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"
+      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${d}</svg>`;
+
+  const SRV_ICO = {
+    // play dentro de moldura — vídeo
+    video: svgWrap('<rect x="2.5" y="4.5" width="19" height="15" rx="3"/><path d="m10 9.2 5 2.8-5 2.8V9.2Z"/>'),
+    // sacola de compras — e-commerce
+    loja: svgWrap('<path d="M4.6 8h14.8l-1.1 11a2 2 0 0 1-2 1.8H7.7a2 2 0 0 1-2-1.8L4.6 8Z"/><path d="M8.8 11V6.9a3.2 3.2 0 0 1 6.4 0V11"/>'),
+    // camadas empilhadas — plataforma sob medida
+    saas: svgWrap('<path d="m12 3 8.5 4.5L12 12 3.5 7.5 12 3Z"/><path d="m3.5 12 8.5 4.5 8.5-4.5"/><path d="m3.5 16.5 8.5 4.5 8.5-4.5"/>'),
+    // bússola — consultoria (e um aceno ao nome MAPA)
+    bussola: svgWrap('<circle cx="12" cy="12" r="9"/><path d="m15.6 8.4-2.1 5.1-5.1 2.1 2.1-5.1 5.1-2.1Z"/>'),
+    // janela de navegador — sites
+    site: svgWrap('<rect x="2.5" y="4" width="19" height="16" rx="2.5"/><path d="M2.5 9h19"/><path d="M5.9 6.5h.01M8.3 6.5h.01"/>')
+  };
 
   /* ────────────────────────────────────────────────────
      SERVIÇOS ESTÁTICOS (ícone, gradiente, chips, WA)
   ──────────────────────────────────────────────────── */
   const SRV_STATIC = [
-    {ico:'🎬', grad:'linear-gradient(135deg,#4f46e5,#7c3aed)',
-     chips:['Cortes & Jump Cuts','Color Grading','Motion Graphics','Legendas Automáticas','Formato Vertical'],
-     wa:'https://wa.me/5531989190373?text=Ol%C3%A1%2C+tenho+interesse+em+Edi%C3%A7%C3%A3o+de+V%C3%ADdeo!'},
-    {ico:'🛒', grad:'linear-gradient(135deg,#0ea5e9,#2563eb)',
-     chips:['Nuvemshop','Loja Integrada','Tray','Pagamento','Frete'],
-     wa:'https://wa.me/5531989190373?text=Ol%C3%A1%2C+tenho+interesse+em+E-commerce!'},
-    {ico:'⚙️', grad:'linear-gradient(135deg,#7c3aed,#db2777)',
+    {svg:SRV_ICO.site, grad:'linear-gradient(135deg,#2563eb,#4f46e5)',
+     chips:['Sites Institucionais','Landing Pages','SEO On-Page','Mobile First'],
+     wa:'https://wa.me/5531989190373?text=Ol%C3%A1%2C+tenho+interesse+em+Cria%C3%A7%C3%A3o+de+Site!'},
+    {svg:SRV_ICO.saas, grad:'linear-gradient(135deg,#7c3aed,#db2777)',
      chips:['Plataformas SaaS','APIs & Integrações','Automações','Sistemas Web'],
      wa:'https://wa.me/5531989190373?text=Ol%C3%A1%2C+tenho+interesse+em+SaaS+sob+medida!'},
-    {ico:'🧭', grad:'linear-gradient(135deg,#0d9488,#0891b2)',
+    {svg:SRV_ICO.video, grad:'linear-gradient(135deg,#4f46e5,#7c3aed)',
+     chips:['Cortes & Jump Cuts','Color Grading','Motion Graphics','Legendas Automáticas','Formato Vertical'],
+     wa:'https://wa.me/5531989190373?text=Ol%C3%A1%2C+tenho+interesse+em+Edi%C3%A7%C3%A3o+de+V%C3%ADdeo!'},
+    {svg:SRV_ICO.loja, grad:'linear-gradient(135deg,#0ea5e9,#2563eb)',
+     chips:['Nuvemshop','Loja Integrada','Tray','Pagamento','Frete'],
+     wa:'https://wa.me/5531989190373?text=Ol%C3%A1%2C+tenho+interesse+em+E-commerce!'},
+    {svg:SRV_ICO.bussola, grad:'linear-gradient(135deg,#0d9488,#0891b2)',
      chips:['Diagnóstico Digital','Estratégia','Ferramentas','Mentoria'],
-     wa:'https://wa.me/5531989190373?text=Ol%C3%A1%2C+tenho+interesse+em+Consultoria+Digital!'},
-    {ico:'🌐', grad:'linear-gradient(135deg,#2563eb,#4f46e5)',
-     chips:['Sites Institucionais','Landing Pages','SEO On-Page','Mobile First'],
-     wa:'https://wa.me/5531989190373?text=Ol%C3%A1%2C+tenho+interesse+em+Cria%C3%A7%C3%A3o+de+Site!'}
+     wa:'https://wa.me/5531989190373?text=Ol%C3%A1%2C+tenho+interesse+em+Consultoria+Digital!'}
   ];
 
   /* ────────────────────────────────────────────────────
@@ -844,7 +1046,8 @@
     // Build tabs
     tabsEl.innerHTML = (t.srv.tabs || []).map((label, i) =>
       `<button class="srv-tab${i === _srvIdx ? ' active' : ''}" role="tab"
-        aria-selected="${i === _srvIdx}" data-sidx="${i}">${label}</button>`
+        aria-selected="${i === _srvIdx}" data-sidx="${i}"
+        >${(SRV_STATIC[i] || {}).svg || ''}<span>${label}</span></button>`
     ).join('');
     // Build dots
     dotsEl.innerHTML = (t.srv.tabs || []).map((_, i) =>
@@ -873,7 +1076,7 @@
       panelEl.innerHTML = `
         <div class="srv-panel-card animate-in">
           <div class="srv-panel-top">
-            <div class="srv-panel-ico" style="background:${st.grad || ''}">${st.ico || ''}</div>
+            <div class="srv-panel-ico" style="background:${st.grad || ''}">${st.svg || ''}</div>
             <h3 class="srv-panel-h3">${card.title || ''}</h3>
           </div>
           <p class="srv-panel-desc">${card.desc || ''}</p>
@@ -996,17 +1199,14 @@
     });
 
     /* Sobre */
+    const shot = document.getElementById('teamShotImg');
+    if (shot && t.sobre.shotAlt) shot.alt = t.sobre.shotAlt;
     const sobreTag = document.querySelector('#sobre .tag');
     if (sobreTag) sobreTag.textContent = t.sobre.tag;
     const sobreH2 = document.querySelector('#sobre h2');
     if (sobreH2) sobreH2.innerHTML = t.sobre.h2;
     document.querySelectorAll('.sobre-copy p').forEach((p, i) => {
       if (t.sobre.ps[i]) p.innerHTML = t.sobre.ps[i];
-    });
-    document.querySelectorAll('.val-card').forEach((card, i) => {
-      if (!t.sobre.vals[i]) return;
-      card.querySelector('h3').textContent = t.sobre.vals[i].title;
-      card.querySelector('p').textContent  = t.sobre.vals[i].p;
     });
 
     /* Serviços */
@@ -1043,6 +1243,29 @@
       if (badge) badge.textContent = ci.badge;
       card.setAttribute('aria-label', t.pf.viewProjectPrefix + ci.title);
     });
+    pintarCapasReais();   // o selo de prova acompanha o idioma
+
+    /* Calculadoras */
+    if (t.calc) {
+      const calcTag = document.querySelector('#calculadoras .tag');
+      if (calcTag) calcTag.textContent = t.calc.tag;
+      const calcH2 = document.querySelector('#calculadoras h2');
+      if (calcH2) calcH2.innerHTML = t.calc.h2;
+      const calcSub = document.querySelector('#calculadoras .sub');
+      if (calcSub) calcSub.textContent = t.calc.sub;
+      document.querySelectorAll('.calc-card').forEach((card, i) => {
+        const ci = t.calc.cards[i];
+        if (!ci) return;
+        const h3 = card.querySelector('h3');
+        if (h3) h3.textContent = ci.title;
+        const pEl = card.querySelector('p');
+        if (pEl) pEl.textContent = ci.p;
+        const go = card.querySelector('.calc-go');
+        if (go) go.textContent = t.calc.cta;
+      });
+      const calcNote = document.querySelector('.calc-note');
+      if (calcNote) calcNote.textContent = t.calc.note;
+    }
 
     /* FAQ */
     const faqTag = document.querySelector('#faq .tag');

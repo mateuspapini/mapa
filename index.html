@@ -231,6 +231,13 @@
       --grad-cta:   linear-gradient(135deg,#00c8f5,#2e8bff);   /* contraste ≥ 5.6:1 com texto escuro */
       --cta-ink:    #00121f;
       --focus:      #00c8f5;
+      /* Foto flutuante da sala */
+      --shot-glow-a: rgba(0,200,245,.17);
+      --shot-glow-b: rgba(0,85,255,.15);
+      --shot-bdr:    rgba(255,255,255,.09);
+      --shot-sheen:  rgba(255,255,255,.07);
+      --shot-shadow: 0 30px 70px -30px rgba(0,0,0,.85);
+      --shot-shadow-hover: 0 38px 90px -30px rgba(0,0,0,.9), 0 0 46px -12px rgba(0,200,245,.32);
     }
 
     /* ════ TEMA CLARO ════════════════════════════════ */
@@ -242,9 +249,16 @@
       --nav-bg-solid:#f2f5fc;
       --nav-bdr:rgba(0,50,130,.13);
       --focus:#0044cc;
+      /* No claro a foto é escura: o halo esfria e a sombra faz o
+         trabalho de destacá-la do fundo, no lugar do brilho. */
+      --shot-glow-a:rgba(0,150,215,.22);
+      --shot-glow-b:rgba(0,85,255,.16);
+      --shot-bdr:rgba(0,50,130,.16);
+      --shot-sheen:rgba(255,255,255,.16);
+      --shot-shadow:0 30px 62px -28px rgba(6,26,64,.5);
+      --shot-shadow-hover:0 40px 84px -28px rgba(6,26,64,.6), 0 0 46px -14px rgba(0,140,220,.42);
     }
     html[data-theme="light"] .chip{background:rgba(0,85,255,.07);border-color:rgba(0,85,255,.18)}
-    html[data-theme="light"] .srv-tab.active{color:#fff}
 
     *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
     html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
@@ -463,61 +477,68 @@
     #sobre{padding:6rem 1.5rem;background:var(--bg)}
     .sobre-grid{
       display:grid;grid-template-columns:1fr 1fr;
-      gap:5rem;align-items:start;margin-top:2.5rem;
+      gap:4rem;align-items:center;margin-top:2.5rem;
     }
     .sobre-copy p{color:var(--t2);line-height:1.85;margin-bottom:1.2rem}
     .sobre-copy strong{color:var(--t1)}
-    .val-grid{
-      display:grid;grid-template-columns:1fr 1fr;
-      gap:1rem;margin-top:.5rem;
+
+    /* ── Foto da sala: elemento flutuante ─────────────────────
+       Duas camadas de propósito: .team-shot carrega a flutuação
+       contínua e .team-shot-frame carrega a escala do hover. Se as
+       duas transforms morassem no mesmo elemento, uma sobrescreveria
+       a outra e o hover mataria a animação. */
+    .team-shot{
+      position:relative;
+      animation:teamFloat 7s ease-in-out infinite;
     }
-    .val-card{
-      background:var(--card);
-      border:1px solid var(--c-bdr, var(--bdr));
-      border-radius:18px;padding:1.5rem;
-      position:relative;overflow:hidden;
-      transition:transform .25s,box-shadow .25s;
-    }
-    .val-card:hover{
-      transform:translateY(-4px);
-      box-shadow:0 20px 40px rgba(0,0,0,.35);
-    }
-    /* glow de fundo no canto superior direito */
-    .val-card::before{
-      content:'';position:absolute;
-      top:-30px;right:-30px;
-      width:120px;height:120px;
-      border-radius:50%;
-      background:var(--c-glow,transparent);
-      filter:blur(28px);
+    /* Halo com radial-gradient em vez de filter:blur(): mesmo efeito
+       visual, sem o custo de GPU que engasga a rolagem no celular. */
+    .team-shot::before{
+      content:'';position:absolute;z-index:0;
+      /* Horizontal em rem, não em %: a seção reserva 48px de respiro
+         de cada lado, então um halo fixo nunca ultrapassa a viewport.
+         Em % ele crescia junto com a imagem e criava rolagem lateral
+         na faixa dos 1024px. */
+      inset:-9% -2rem;
+      background:
+        radial-gradient(ellipse 55% 60% at 32% 42%, var(--shot-glow-a), transparent 70%),
+        radial-gradient(ellipse 50% 55% at 72% 62%, var(--shot-glow-b), transparent 70%);
+      opacity:.8;
+      transition:opacity .5s ease;
       pointer-events:none;
     }
-    .val-ico-wrap{
-      width:58px;height:58px;
-      border-radius:50%;
-      background:var(--c-bg, rgba(255,255,255,.06));
-      border:1px solid var(--c-bdr, rgba(255,255,255,.1));
-      box-shadow:0 0 22px var(--c-shadow,transparent);
-      display:flex;align-items:center;justify-content:center;
-      font-size:1.65rem;
-      margin-bottom:1.1rem;
+    .team-shot-frame{
+      position:relative;z-index:1;
+      border-radius:16px;overflow:hidden;
+      border:1px solid var(--shot-bdr);
+      box-shadow:var(--shot-shadow);
+      transition:transform .5s cubic-bezier(.22,.61,.36,1),box-shadow .5s ease;
     }
-    .val-card h3{
-      font-size:.97rem;font-weight:700;
-      color:var(--t1);margin-bottom:.5rem;
-      line-height:1.25;
+    .team-shot-frame img{display:block;width:100%;height:auto}
+    /* Fio de luz na borda superior — dá o acabamento de vidro */
+    .team-shot-frame::after{
+      content:'';position:absolute;inset:0;border-radius:16px;
+      box-shadow:inset 0 1px 0 var(--shot-sheen);
+      pointer-events:none;
     }
-    .val-divider{
-      width:28px;height:2px;
-      background:var(--c-accent, var(--accent));
-      border-radius:2px;margin-bottom:.7rem;
+    /* hover:hover evita o estado "grudado" no toque, onde o hover
+       permanece ativo depois do tap */
+    @media(hover:hover){
+      .team-shot:hover .team-shot-frame{
+        transform:scale(1.015);
+        box-shadow:var(--shot-shadow-hover);
+      }
+      .team-shot:hover::before{opacity:1}
     }
-    .val-card p{font-size:.8rem;color:var(--t2);line-height:1.65}
+    @keyframes teamFloat{
+      0%,100%{transform:translateY(0)}
+      50%{transform:translateY(-9px)}
+    }
 
     /* ════════════════════════════════════
        SERVIÇOS
     ════════════════════════════════════ */
-    #servicos{padding:6rem 1.5rem;background:var(--bg2)}
+    #servicos{padding:6rem 1.5rem;background:var(--bg)}
 
     /* Cabeçalho da seção: texto + decoração lado a lado */
     .srv-header{
@@ -585,7 +606,14 @@
       color:var(--t2);font-size:.78rem;font-weight:700;
       cursor:pointer;transition:all .22s;white-space:nowrap}
     .srv-tab:hover{color:var(--t1);border-color:rgba(0,200,245,.3)}
-    .srv-tab.active{background:var(--grad);border-color:transparent;color:#000}
+    /* --grad-cta em vez de --grad: o gradiente da marca deixa texto
+       escuro em 3.7:1 na ponta azul e texto claro em 2.1:1 na ponta
+       ciano — nenhum dos dois passa nos dois extremos. O -cta passa. */
+    .srv-tab.active{background:var(--grad-cta);border-color:transparent;color:var(--cta-ink)}
+    /* Ícone da aba: herda a cor do botão, então escurece sozinho
+       quando a aba fica ativa sobre o gradiente */
+    .srv-tab svg{width:15px;height:15px;flex-shrink:0;opacity:.9}
+    .srv-tab.active svg{opacity:1}
     .srv-panel-card{background:var(--card);border:1px solid var(--bdr);
       border-radius:20px;padding:2.25rem 2.5rem;position:relative;overflow:hidden;
       min-height:260px;box-shadow:0 8px 32px rgba(0,0,0,.12)}
@@ -594,7 +622,8 @@
     .srv-panel-top{display:flex;align-items:center;gap:1rem;margin-bottom:1.1rem}
     .srv-panel-ico{width:52px;height:52px;flex-shrink:0;border-radius:13px;
       display:flex;align-items:center;justify-content:center;
-      font-size:1.4rem;box-shadow:0 4px 14px rgba(0,0,0,.28)}
+      color:#fff;box-shadow:0 4px 14px rgba(0,0,0,.28)}
+    .srv-panel-ico svg{width:25px;height:25px}
     .srv-panel-h3{font-size:1.15rem;font-weight:800;line-height:1.3;margin:0}
     .srv-panel-desc{font-size:.875rem;color:var(--t2);line-height:1.78;margin-bottom:1.25rem}
     .srv-progress{margin-top:1.5rem;height:3px;background:var(--bdr);border-radius:3px;overflow:hidden}
@@ -611,7 +640,7 @@
     /* ════════════════════════════════════
        PORTFÓLIO
     ════════════════════════════════════ */
-    #portfolio{padding:6rem 1.5rem;background:var(--bg)}
+    #portfolio{padding:6rem 1.5rem;background:var(--bg2)}
 
     /* ── Calculadoras gratuitas ── */
     #calculadoras{padding:6rem 1.5rem;background:var(--bg2)}
@@ -678,6 +707,21 @@
       background:linear-gradient(to bottom,transparent 35%,rgba(0,0,0,.44));
     }
     .pf-thumb>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;display:block}
+    /* A capa real precisa vencer a ilustração, que também é um <img> dentro
+       do mesmo .pf-thumb e, por vir depois no DOM com o mesmo z-index,
+       pintaria por cima. Fica abaixo do selo (2), do CTA (3) e do badge (5). */
+    .pf-thumb>img.pf-shot{z-index:1}
+    /* Selo de prova: o número que antes só existia dentro do modal.
+       z-index 2 para ficar acima do degradê do .pf-thumb::after. */
+    .pf-proof{
+      position:absolute;left:.85rem;bottom:.8rem;z-index:2;
+      font-size:.68rem;font-weight:700;letter-spacing:.015em;
+      padding:.3rem .62rem;border-radius:99px;
+      background:rgba(4,10,22,.72);color:#eaf4ff;
+      border:1px solid rgba(255,255,255,.16);
+      backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+      pointer-events:none;
+    }
     .pf-thumb-cta{
       position:absolute;inset:0;z-index:3;
       display:flex;align-items:center;justify-content:center;gap:.5rem;
@@ -923,6 +967,11 @@
 
       /* Sobre */
       .sobre-grid{grid-template-columns:1fr;gap:2.5rem}
+      /* Mobile: amplitude e halo menores — a tela é pequena, o
+         movimento precisa ser mais discreto para não distrair */
+      .team-shot{animation-duration:8s}
+      .team-shot::before{inset:-6% -1rem;opacity:.62}
+      .team-shot-frame,.team-shot-frame::after{border-radius:12px}
 
       /* Stats */
       .stats-grid{grid-template-columns:1fr 1fr}
@@ -970,6 +1019,11 @@
       .theme-btn{margin-left:.15rem;padding:3px}
       .nav-ul{top:60px}
       nav{height:60px}
+      .team-shot{animation-name:teamFloatSm}
+    }
+    @keyframes teamFloatSm{
+      0%,100%{transform:translateY(0)}
+      50%{transform:translateY(-5px)}
     }
   
     @font-face{font-family:Inter;src:url('assets/fonts/inter-latin-var.woff2') format('woff2');font-style:normal;font-weight:400 800;font-display:swap}
@@ -986,7 +1040,12 @@
     .srv-dot::before{content:'';position:absolute;inset:18px;border-radius:50%;background:var(--bdr);transition:all .22s}
     .srv-dot.active::before{inset:14px;background:var(--accent)}
     .pf-yt{border:0;padding:0;color:inherit;text-align:left;font:inherit}
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+      /* A regra global zera a duração, mas a foto continuaria "pulando"
+         para o keyframe final. Aqui ela simplesmente não se move. */
+      .team-shot{animation:none!important}
+      .team-shot:hover .team-shot-frame{transform:none}
+    }
   
   </style>
   <script src="assets/js/site.js" defer></script>
@@ -1008,8 +1067,8 @@
     <ul class="nav-ul" id="navUl" role="menubar">
       <li role="none"><a href="#home" role="menuitem">Home</a></li>
       <li role="none"><a href="#sobre" role="menuitem">Sobre</a></li>
-      <li role="none"><a href="#servicos" role="menuitem">Serviços</a></li>
       <li role="none"><a href="#portfolio" role="menuitem">Portfólio</a></li>
+      <li role="none"><a href="#servicos" role="menuitem">Serviços</a></li>
       <li role="none"><a href="#calculadoras" role="menuitem">Calculadoras</a></li>
       <li role="none">
         <a href="https://wa.me/5531989190373?text=Ol%C3%A1%2C+vim+pelo+site+e+gostaria+de+um+or%C3%A7amento!"
@@ -1102,15 +1161,15 @@
   </section>
 
   <!-- STATS BAR -->
-  <div class="stats" role="region" aria-label="Números da MAPA Soluções Digitais">
+  <div class="stats" role="region" aria-label="Como a MAPA Soluções Digitais trabalha">
     <div class="stats-grid">
       <div>
-        <div class="stat-n grad-text" data-countup data-target="30" data-prefix="+" data-suffix="">+30</div>
-        <div class="stat-l">Clientes satisfeitos</div>
+        <div class="stat-n grad-text" data-countup data-target="24" data-prefix="" data-suffix="h">24h</div>
+        <div class="stat-l">Por dia à sua disposição</div>
       </div>
       <div>
-        <div class="stat-n grad-text" data-countup data-target="30" data-prefix="+" data-suffix="">+30</div>
-        <div class="stat-l">Projetos entregues</div>
+        <div class="stat-n grad-text">0</div>
+        <div class="stat-l">Burocracia para começar</div>
       </div>
       <div>
         <div class="stat-n grad-text" data-countup data-target="100" data-prefix="" data-suffix="%">100%</div>
@@ -1153,97 +1212,20 @@
           </p>
         </div>
 
-        <div>
-          <div class="val-grid">
-
-            <!-- Azul -->
-            <div class="val-card" style="
-              --c-accent:#4f8de7;
-              --c-bdr:rgba(79,141,231,.22);
-              --c-bg:rgba(79,141,231,.1);
-              --c-glow:rgba(79,141,231,.35);
-              --c-shadow:rgba(79,141,231,.25);">
-              <div class="val-ico-wrap">⚡</div>
-              <h3>Entrega Rápida</h3>
-              <div class="val-divider"></div>
-              <p>Prazos cumpridos e comunicação transparente em cada etapa do projeto.</p>
-            </div>
-
-            <!-- Roxo -->
-            <div class="val-card" style="
-              --c-accent:#8b5cf6;
-              --c-bdr:rgba(139,92,246,.22);
-              --c-bg:rgba(139,92,246,.1);
-              --c-glow:rgba(139,92,246,.35);
-              --c-shadow:rgba(139,92,246,.25);">
-              <div class="val-ico-wrap">🎯</div>
-              <h3>Foco em Resultado</h3>
-              <div class="val-divider"></div>
-              <p>Cada decisão pensada no impacto real para o seu negócio.</p>
-            </div>
-
-            <!-- Verde-teal -->
-            <div class="val-card" style="
-              --c-accent:#10b981;
-              --c-bdr:rgba(16,185,129,.22);
-              --c-bg:rgba(16,185,129,.1);
-              --c-glow:rgba(16,185,129,.35);
-              --c-shadow:rgba(16,185,129,.25);">
-              <div class="val-ico-wrap">🔒</div>
-              <h3>Qualidade Garantida</h3>
-              <div class="val-divider"></div>
-              <p>Revisões incluídas e suporte pós-entrega em todos os projetos.</p>
-            </div>
-
-            <!-- Âmbar -->
-            <div class="val-card" style="
-              --c-accent:#f59e0b;
-              --c-bdr:rgba(245,158,11,.22);
-              --c-bg:rgba(245,158,11,.1);
-              --c-glow:rgba(245,158,11,.35);
-              --c-shadow:rgba(245,158,11,.25);">
-              <div class="val-ico-wrap">🤝</div>
-              <h3>Parceria Real</h3>
-              <div class="val-divider"></div>
-              <p>Atendimento próximo, sem burocracia, com atenção personalizada.</p>
-            </div>
-
+        <div class="team-shot">
+          <div class="team-shot-frame">
+            <img id="teamShotImg"
+                 src="assets/img/sobre/equipe-reuniao-1200.webp"
+                 srcset="assets/img/sobre/equipe-reuniao-480.webp 480w,
+                         assets/img/sobre/equipe-reuniao-800.webp 800w,
+                         assets/img/sobre/equipe-reuniao-1200.webp 1200w"
+                 sizes="(max-width:768px) calc(100vw - 6rem), 536px"
+                 width="1536" height="1024"
+                 alt="Reunião ao redor de uma mesa de madeira em sala com parede de tijolo escuro, com uma apresentação da MAPA Soluções Digitais projetada na tela ao fundo."
+                 loading="lazy" decoding="async">
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════
-       SERVIÇOS
-  ══════════════════════════════════ -->
-  <section id="servicos" aria-label="Serviços da MAPA Soluções Digitais em Belo Horizonte">
-    <div class="inner">
-
-      <!-- Cabeçalho com decoração CSS -->
-      <div class="srv-header">
-        <div>
-          <span class="tag">O que fazemos</span>
-          <h2>Soluções para cada<br>fase do <em class="grad-text">seu negócio</em></h2>
-          <p class="sub">
-            Do conteúdo visual ao sistema personalizado: temos o serviço certo
-            para o momento certo da sua empresa.
-          </p>
-        </div>
-        <div class="srv-deco" aria-hidden="true">
-          <div class="deco-p1"></div>
-          <div class="deco-p2"></div>
-          <div class="deco-glow"></div>
-          <span class="deco-dot" style="top:12%;left:18%;animation-delay:0s"></span>
-          <span class="deco-dot" style="top:68%;left:70%;animation-delay:.9s"></span>
-          <span class="deco-dot" style="top:38%;left:85%;animation-delay:1.7s"></span>
-        </div>
-      </div>
-
-      <div class="srv-tabs" id="srvTabs" role="tablist" aria-label="Selecionar serviço"></div>
-      <div id="srvPanel" role="tabpanel" aria-live="polite"></div>
-      <div class="srv-dots" id="srvDots"></div>
-      <div class="srv-progress"><div class="srv-progress-bar" id="srvBar"></div></div>
     </div>
   </section>
 
@@ -1437,6 +1419,39 @@
         </article>
 
       </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       SERVIÇOS
+  ══════════════════════════════════ -->
+  <section id="servicos" aria-label="Serviços da MAPA Soluções Digitais em Belo Horizonte">
+    <div class="inner">
+
+      <!-- Cabeçalho com decoração CSS -->
+      <div class="srv-header">
+        <div>
+          <span class="tag">O que fazemos</span>
+          <h2>Soluções para cada<br>fase do <em class="grad-text">seu negócio</em></h2>
+          <p class="sub">
+            Do conteúdo visual ao sistema personalizado: temos o serviço certo
+            para o momento certo da sua empresa.
+          </p>
+        </div>
+        <div class="srv-deco" aria-hidden="true">
+          <div class="deco-p1"></div>
+          <div class="deco-p2"></div>
+          <div class="deco-glow"></div>
+          <span class="deco-dot" style="top:12%;left:18%;animation-delay:0s"></span>
+          <span class="deco-dot" style="top:68%;left:70%;animation-delay:.9s"></span>
+          <span class="deco-dot" style="top:38%;left:85%;animation-delay:1.7s"></span>
+        </div>
+      </div>
+
+      <div class="srv-tabs" id="srvTabs" role="tablist" aria-label="Selecionar serviço"></div>
+      <div id="srvPanel" role="tabpanel" aria-live="polite"></div>
+      <div class="srv-dots" id="srvDots"></div>
+      <div class="srv-progress"><div class="srv-progress-bar" id="srvBar"></div></div>
     </div>
   </section>
 
@@ -1677,8 +1692,8 @@
       <ul>
         <li><a href="#home">Home</a></li>
         <li><a href="#sobre">Sobre</a></li>
-        <li><a href="#servicos">Serviços</a></li>
         <li><a href="#portfolio">Portfólio</a></li>
+        <li><a href="#servicos">Serviços</a></li>
         <li><a href="#calculadoras">Calculadoras</a></li>
       </ul>
     </div>
@@ -1686,11 +1701,11 @@
     <div class="ft-col">
       <h2>Serviços</h2>
       <ul>
+        <li><a href="#servicos">Criação de Sites</a></li>
+        <li><a href="#servicos">SaaS sob Medida</a></li>
         <li><a href="#servicos">Edição de Vídeo</a></li>
         <li><a href="#servicos">E-commerce</a></li>
-        <li><a href="#servicos">SaaS sob Medida</a></li>
         <li><a href="#servicos">Consultoria Digital</a></li>
-        <li><a href="#servicos">Criação de Sites</a></li>
       </ul>
     </div>
 
