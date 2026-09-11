@@ -465,6 +465,7 @@
   const I18N = {
     pt: {
       nav:{ home:'Home', sobre:'Sobre', servicos:'Serviços', portfolio:'Portfólio',
+            calculadoras:'Calculadoras',
             cta:'Orçamento grátis →', menuLabel:'Abrir menu' },
       hero:{
         badge:'✦ Soluções Digitais Completas',
@@ -549,7 +550,7 @@
             btn1:'💬 Falar no WhatsApp', btn2:'✉️ Enviar e-mail' },
       ft:{
         brandp:'Agência de soluções digitais em Belo Horizonte, MG. Edição de vídeo profissional, e-commerce (Nuvemshop, Loja Integrada, Tray), SaaS sob medida, consultoria e criação de sites para todo o Brasil.',
-        nav:{ title:'Navegação', links:['Home','Sobre','Serviços','Portfólio'] },
+        nav:{ title:'Navegação', links:['Home','Sobre','Serviços','Portfólio','Calculadoras'] },
         srv:{ title:'Serviços', links:['Edição de Vídeo','E-commerce','SaaS sob Medida','Consultoria Digital','Criação de Sites'] },
         contact:{ title:'Contato', city:'Belo Horizonte, MG', remote:'Atendimento remoto para todo o Brasil' },
         copyright:'© 2026 MAPA Soluções Digitais. Todos os direitos reservados.',
@@ -559,6 +560,7 @@
 
     en: {
       nav:{ home:'Home', sobre:'About', servicos:'Services', portfolio:'Portfolio',
+            calculadoras:'Calculators',
             cta:'Free Quote →', menuLabel:'Open menu' },
       hero:{
         badge:'✦ Complete Digital Solutions',
@@ -643,7 +645,7 @@
             btn1:'💬 Chat on WhatsApp', btn2:'✉️ Send email' },
       ft:{
         brandp:'Digital solutions agency based in Belo Horizonte, Brazil. Professional video editing, e-commerce (Nuvemshop, Loja Integrada, Tray), custom SaaS, consulting and website creation across Brazil.',
-        nav:{ title:'Navigation', links:['Home','About','Services','Portfolio'] },
+        nav:{ title:'Navigation', links:['Home','About','Services','Portfolio','Calculators'] },
         srv:{ title:'Services', links:['Video Editing','E-commerce','Custom SaaS','Digital Consulting','Website Creation'] },
         contact:{ title:'Contact', city:'Belo Horizonte, MG – Brazil', remote:'Remote service for all of Brazil' },
         copyright:'© 2026 MAPA Soluções Digitais. All rights reserved.',
@@ -653,6 +655,7 @@
 
     es: {
       nav:{ home:'Inicio', sobre:'Nosotros', servicos:'Servicios', portfolio:'Portafolio',
+            calculadoras:'Calculadoras',
             cta:'Presupuesto gratis →', menuLabel:'Abrir menú' },
       hero:{
         badge:'✦ Soluciones Digitales Completas',
@@ -737,7 +740,7 @@
             btn1:'💬 Chatear en WhatsApp', btn2:'✉️ Enviar correo' },
       ft:{
         brandp:'Agencia de soluciones digitales en Belo Horizonte, Brasil. Edición de video profesional, e-commerce (Nuvemshop, Loja Integrada, Tray), SaaS a medida, consultoría y creación de sitios para todo Brasil.',
-        nav:{ title:'Navegación', links:['Inicio','Nosotros','Servicios','Portafolio'] },
+        nav:{ title:'Navegación', links:['Inicio','Nosotros','Servicios','Portafolio','Calculadoras'] },
         srv:{ title:'Servicios', links:['Edición de Video','E-commerce','SaaS a Medida','Consultoría Digital','Creación de Sitios'] },
         contact:{ title:'Contacto', city:'Belo Horizonte, MG – Brasil', remote:'Atención remota para todo Brasil' },
         copyright:'© 2026 MAPA Soluções Digitais. Todos los derechos reservados.',
@@ -956,12 +959,17 @@
       b.setAttribute('aria-pressed', String(on));
     });
 
-    /* Nav links */
-    const navAs = document.querySelectorAll('.nav-ul li a');
-    ['home','sobre','servicos','portfolio'].forEach((k, i) => {
-      if (navAs[i]) navAs[i].textContent = t.nav[k];
+    /* Nav links — casados por href, não por posição: assim incluir ou
+       reordenar itens do menu (ex.: Calculadoras) não desloca os rótulos. */
+    const NAV_MAP = {
+      '#home':'home', '#sobre':'sobre', '#servicos':'servicos',
+      '#portfolio':'portfolio', '#calculadoras':'calculadoras'
+    };
+    document.querySelectorAll('.nav-ul li a').forEach(a => {
+      if (a.classList.contains('nav-cta')) { a.innerHTML = t.nav.cta; return; }
+      const key = NAV_MAP[a.getAttribute('href')];
+      if (key && t.nav[key]) a.textContent = t.nav[key];
     });
-    if (navAs[4]) navAs[4].innerHTML = t.nav.cta;
     document.getElementById('hbg').setAttribute('aria-label', t.nav.menuLabel);
     if (typeof window._mapThemeLabel === 'function') window._mapThemeLabel();
 
@@ -977,7 +985,8 @@
     if (heroBtns[1]) heroBtns[1].textContent = t.hero.btn2;
     document.querySelectorAll('.hcard').forEach((c, i) => {
       if (!t.hero.cards[i]) return;
-      c.querySelector('h3').textContent = t.hero.cards[i].title;
+      const title = c.querySelector('.hcard-t, h3');
+      if (title) title.textContent = t.hero.cards[i].title;
       c.querySelector('p').textContent  = t.hero.cards[i].p;
     });
 

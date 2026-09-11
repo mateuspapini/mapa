@@ -228,7 +228,7 @@
       --nav-bg:     rgba(8,12,24,.92);                         /* fundo da barra fixa */
       --nav-bg-solid: #080c18;                                 /* menu mobile aberto (opaco) */
       --nav-bdr:    rgba(255,255,255,0.07);
-      --grad-cta:   linear-gradient(135deg,#00c8f5,#2e8bff);   /* contraste ≥ 6:1 com texto escuro */
+      --grad-cta:   linear-gradient(135deg,#00c8f5,#2e8bff);   /* contraste ≥ 5.6:1 com texto escuro */
       --cta-ink:    #00121f;
       --focus:      #00c8f5;
     }
@@ -407,17 +407,35 @@
       background:var(--card);border:1px solid var(--bdr);
       border-radius:14px;padding:1.25rem 1.4rem;
       display:flex;align-items:center;gap:1rem;
-      transition:border-color .25s;
+      color:inherit;cursor:pointer;
+      transition:border-color .25s,transform .25s,box-shadow .25s;
     }
-    .hcard:hover{border-color:rgba(0,200,245,.28)}
+    .hcard:hover,.hcard:focus-visible{
+      border-color:rgba(0,200,245,.45);
+      transform:translateX(4px);
+      box-shadow:0 10px 26px -18px rgba(0,120,200,.75);
+    }
     .hcard-ico{
       font-size:1.6rem;flex-shrink:0;
       width:44px;height:44px;
       background:var(--glow);border:1px solid rgba(0,200,245,.18);
       border-radius:10px;display:flex;align-items:center;justify-content:center;
     }
-    .hcard h3{font-size:.85rem;font-weight:700;margin-bottom:.2rem}
+    .hcard-txt{flex:1;min-width:0}
+    /* .hcard-t substitui o antigo <h3>: rótulo do link, não título do documento
+       (evita pular de h1 para h3 na hierarquia de cabeçalhos) */
+    .hcard-t{display:block;font-size:.85rem;font-weight:700;margin-bottom:.2rem;line-height:1.35}
     .hcard p{font-size:.78rem;color:var(--t2)}
+    .hcard-go{
+      flex-shrink:0;font-size:1.05rem;font-weight:700;
+      color:var(--accent-txt);opacity:0;
+      transform:translateX(-6px);
+      transition:opacity .25s,transform .25s;
+    }
+    .hcard:hover .hcard-go,.hcard:focus-visible .hcard-go{opacity:1;transform:none}
+    @media(prefers-reduced-motion:reduce){
+      .hcard-go{opacity:.65;transform:none}
+    }
 
     /* ════════════════════════════════════
        STATS BAR
@@ -594,6 +612,28 @@
        PORTFÓLIO
     ════════════════════════════════════ */
     #portfolio{padding:6rem 1.5rem;background:var(--bg)}
+
+    /* ── Calculadoras gratuitas ── */
+    #calculadoras{padding:6rem 1.5rem;background:var(--bg2)}
+    .calc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:2rem}
+    .calc-card{
+      display:flex;flex-direction:column;gap:.55rem;padding:1.5rem 1.4rem;
+      background:var(--card);border:1px solid var(--bdr);border-radius:16px;
+      text-decoration:none;color:inherit;position:relative;overflow:hidden;
+      transition:transform .25s,border-color .25s,box-shadow .25s;
+    }
+    .calc-card::before{content:"";position:absolute;inset:0 0 auto;height:3px;background:var(--grad);
+      opacity:0;transition:opacity .25s}
+    .calc-card:hover{transform:translateY(-4px);border-color:rgba(0,200,245,.35);
+      box-shadow:0 18px 44px -26px rgba(0,200,245,.5)}
+    .calc-card:hover::before{opacity:1}
+    .calc-ico{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;
+      font-size:1.35rem;background:var(--grad);margin-bottom:.35rem}
+    .calc-card h3{font-size:1rem;font-weight:700;line-height:1.35}
+    .calc-card p{font-size:.83rem;color:var(--t2);line-height:1.6;flex:1}
+    .calc-go{font-size:.8rem;font-weight:700;color:var(--accent);margin-top:.4rem}
+    .calc-note{margin-top:1.6rem;font-size:.8rem;color:var(--t3);text-align:center}
+    @media(max-width:900px){.calc-grid{grid-template-columns:1fr}}
     /* Portfólio – filtros */
     .pf-filters{display:flex;gap:.65rem;flex-wrap:wrap;margin:1.75rem 0 2rem}
     .pf-btn{
@@ -970,6 +1010,7 @@
       <li role="none"><a href="#sobre" role="menuitem">Sobre</a></li>
       <li role="none"><a href="#servicos" role="menuitem">Serviços</a></li>
       <li role="none"><a href="#portfolio" role="menuitem">Portfólio</a></li>
+      <li role="none"><a href="#calculadoras" role="menuitem">Calculadoras</a></li>
       <li role="none">
         <a href="https://wa.me/5531989190373?text=Ol%C3%A1%2C+vim+pelo+site+e+gostaria+de+um+or%C3%A7amento!"
            class="nav-cta" target="_blank" rel="noopener noreferrer" role="menuitem">
@@ -1023,35 +1064,39 @@
         </div>
       </div>
 
-      <div class="hero-cards" aria-hidden="true">
-        <div class="hcard">
-          <div class="hcard-ico">🎬</div>
-          <div>
-            <h3>Edição de Vídeo Profissional</h3>
+      <div class="hero-cards">
+        <a class="hcard" href="https://mapasolucoesdigitais.com.br/#portfolio">
+          <div class="hcard-ico" aria-hidden="true">🎬</div>
+          <div class="hcard-txt">
+            <span class="hcard-t">Edição de Vídeo Profissional</span>
             <p>Motion graphics, color grading e legendas para YouTube, Instagram e TikTok.</p>
           </div>
-        </div>
-        <div class="hcard">
-          <div class="hcard-ico">🛒</div>
-          <div>
-            <h3>E-commerce do Zero</h3>
+          <span class="hcard-go" aria-hidden="true">→</span>
+        </a>
+        <a class="hcard" href="https://mapasolucoesdigitais.com.br/#portfolio">
+          <div class="hcard-ico" aria-hidden="true">🛒</div>
+          <div class="hcard-txt">
+            <span class="hcard-t">E-commerce do Zero</span>
             <p>Nuvemshop, Loja Integrada e Tray configurados e prontos para vender.</p>
           </div>
-        </div>
-        <div class="hcard">
-          <div class="hcard-ico">⚙️</div>
-          <div>
-            <h3>SaaS sob Medida</h3>
+          <span class="hcard-go" aria-hidden="true">→</span>
+        </a>
+        <a class="hcard" href="https://mapasolucoesdigitais.com.br/#portfolio">
+          <div class="hcard-ico" aria-hidden="true">⚙️</div>
+          <div class="hcard-txt">
+            <span class="hcard-t">SaaS sob Medida</span>
             <p>Sistemas, automações e APIs personalizados para sua empresa.</p>
           </div>
-        </div>
-        <div class="hcard">
-          <div class="hcard-ico">🌐</div>
-          <div>
-            <h3>Sites Personalizados</h3>
+          <span class="hcard-go" aria-hidden="true">→</span>
+        </a>
+        <a class="hcard" href="https://mapasolucoesdigitais.com.br/#portfolio">
+          <div class="hcard-ico" aria-hidden="true">🌐</div>
+          <div class="hcard-txt">
+            <span class="hcard-t">Sites Personalizados</span>
             <p>Otimizados para SEO, GEO e com todas as boas práticas do Google.</p>
           </div>
-        </div>
+          <span class="hcard-go" aria-hidden="true">→</span>
+        </a>
       </div>
     </div>
   </section>
@@ -1340,7 +1385,99 @@
           </div>
         </article>
 
+        <article class="pf-card" data-t="saas" data-id="calc-trabalhista"
+          role="button" tabindex="0"
+          aria-label="Ver projeto: Plataforma de Cálculo Trabalhista">
+          <div class="pf-thumb" style="--thumb-grad:linear-gradient(135deg,#0284c7,#4f46e5)">
+            <img src="assets/img/portfolio/calculadora-trabalhista.webp" alt="" loading="lazy">
+            <div class="pf-thumb-cta" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+              Ver projeto
+            </div>
+            <span class="pf-badge">SaaS</span>
+          </div>
+          <div class="pf-info">
+            <h3>Plataforma de Cálculo Trabalhista</h3>
+            <p>Calculadora de rescisão com aviso proporcional, INSS, IRRF e multa do FGTS.</p>
+          </div>
+        </article>
+
+        <article class="pf-card" data-t="saas" data-id="calc-climatizacao"
+          role="button" tabindex="0"
+          aria-label="Ver projeto: Plataforma de Dimensionamento de Climatização">
+          <div class="pf-thumb" style="--thumb-grad:linear-gradient(135deg,#0891b2,#2563eb)">
+            <img src="assets/img/portfolio/calculadora-climatizacao.webp" alt="" loading="lazy">
+            <div class="pf-thumb-cta" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+              Ver projeto
+            </div>
+            <span class="pf-badge">SaaS</span>
+          </div>
+          <div class="pf-info">
+            <h3>Plataforma de Dimensionamento de Climatização</h3>
+            <p>Calculadora de BTUs que dimensiona o aparelho e estima o consumo mensal.</p>
+          </div>
+        </article>
+
+        <article class="pf-card" data-t="saas" data-id="calc-reformas"
+          role="button" tabindex="0"
+          aria-label="Ver projeto: Plataforma de Estimativa de Valores de Reformas">
+          <div class="pf-thumb" style="--thumb-grad:linear-gradient(135deg,#7c3aed,#2563eb)">
+            <img src="assets/img/portfolio/calculadora-reformas.webp" alt="" loading="lazy">
+            <div class="pf-thumb-cta" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+              Ver projeto
+            </div>
+            <span class="pf-badge">SaaS</span>
+          </div>
+          <div class="pf-info">
+            <h3>Plataforma de Estimativa de Valores de Reformas</h3>
+            <p>Calculadora de custo de obra por m², com reserva para imprevisto e prazo.</p>
+          </div>
+        </article>
+
       </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════
+       CALCULADORAS GRATUITAS
+  ══════════════════════════════════ -->
+  <section id="calculadoras" aria-label="Calculadoras gratuitas da MAPA Soluções Digitais">
+    <div class="inner">
+      <span class="tag">Ferramentas gratuitas</span>
+      <h2>Calculadoras que você<br>pode usar agora</h2>
+      <p class="sub">
+        Três ferramentas que construímos e deixamos abertas para qualquer pessoa usar.
+        São o mesmo tipo de calculadora que colocamos dentro do site dos nossos clientes
+        para transformar visita em conversa no WhatsApp.
+      </p>
+
+      <div class="calc-grid">
+        <a class="calc-card" href="/calculadora-rescisao-trabalhista/">
+          <span class="calc-ico" aria-hidden="true">⚖️</span>
+          <h3>Rescisão trabalhista</h3>
+          <p>Descubra quanto você tem a receber ao sair do emprego, com aviso prévio proporcional, FGTS e as tabelas de INSS e Imposto de Renda de 2026.</p>
+          <span class="calc-go">Abrir calculadora →</span>
+        </a>
+
+        <a class="calc-card" href="/calculadora-btu-ar-condicionado/">
+          <span class="calc-ico" aria-hidden="true">❄️</span>
+          <h3>BTU para ar-condicionado</h3>
+          <p>Dimensione a capacidade certa para o ambiente considerando metragem, sol, pessoas e aparelhos — e veja o custo mensal na conta de luz.</p>
+          <span class="calc-go">Abrir calculadora →</span>
+        </a>
+
+        <a class="calc-card" href="/calculadora-custo-de-reforma/">
+          <span class="calc-ico" aria-hidden="true">🧱</span>
+          <h3>Custo de reforma por m²</h3>
+          <p>Uma faixa realista de investimento antes do primeiro orçamento, com divisão entre material e mão de obra e reserva para imprevisto.</p>
+          <span class="calc-go">Abrir calculadora →</span>
+        </a>
+      </div>
+
+      <p class="calc-note">Uso livre e sem cadastro. Os resultados são estimativas e não substituem orientação profissional.</p>
     </div>
   </section>
 
@@ -1542,6 +1679,7 @@
         <li><a href="#sobre">Sobre</a></li>
         <li><a href="#servicos">Serviços</a></li>
         <li><a href="#portfolio">Portfólio</a></li>
+        <li><a href="#calculadoras">Calculadoras</a></li>
       </ul>
     </div>
 
