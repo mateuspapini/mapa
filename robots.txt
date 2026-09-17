@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
 
+# Arquivos de trabalho que nao devem aparecer na busca
+Disallow: /*.zip$
+
 Sitemap: https://mapasolucoesdigitais.com.br/sitemap.xml
