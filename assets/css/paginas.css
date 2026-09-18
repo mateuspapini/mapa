@@ -127,6 +127,10 @@ h2.sec .g{background:var(--grad);-webkit-background-clip:text;background-clip:te
 .grid{display:grid;gap:18px}
 .g2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
 .g3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+/* Para blocos de 6 cards: trava em 3 colunas no desktop, senão vira 4+2.
+   A regra base vem antes da media query, senão ela sobrescreve o desktop. */
+.g33{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+@media (min-width:900px){ .g33{grid-template-columns:repeat(3,1fr)} }
 .card{
   background:var(--card);border:1px solid var(--bdr);border-radius:16px;padding:26px;
 }
