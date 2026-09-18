@@ -610,7 +610,7 @@
       ft:{
         brandp:'Agência de soluções digitais em Belo Horizonte, MG. Edição de vídeo profissional, e-commerce (Nuvemshop, Loja Integrada, Tray), SaaS sob medida, consultoria e criação de sites para todo o Brasil.',
         nav:{ title:'Navegação', links:['Home','Sobre','Portfólio','Serviços','Calculadoras'] },
-        srv:{ title:'Serviços', links:['Criação de Sites','SaaS sob Medida','Edição de Vídeo','E-commerce','Consultoria Digital'] },
+        srv:{ title:'Serviços', links:['Lançamento Imobiliário','Calculadoras sob Medida','Criação de Sites','SaaS sob Medida','Edição de Vídeo','E-commerce','Consultoria Digital'] },
         contact:{ title:'Contato', city:'Belo Horizonte, MG', remote:'Atendimento remoto para todo o Brasil' },
         copyright:'© 2026 MAPA Soluções Digitais. Todos os direitos reservados.',
         cnpj:'CNPJ: 38.295.265/0001-37 · Belo Horizonte, MG · Atendimento para todo o Brasil'
@@ -716,7 +716,7 @@
       ft:{
         brandp:'Digital solutions agency based in Belo Horizonte, Brazil. Professional video editing, e-commerce (Nuvemshop, Loja Integrada, Tray), custom SaaS, consulting and website creation across Brazil.',
         nav:{ title:'Navigation', links:['Home','About','Portfolio','Services','Calculators'] },
-        srv:{ title:'Services', links:['Website Creation','Custom SaaS','Video Editing','E-commerce','Digital Consulting'] },
+        srv:{ title:'Services', links:['Real Estate Launch','Custom Calculators','Website Creation','Custom SaaS','Video Editing','E-commerce','Digital Consulting'] },
         contact:{ title:'Contact', city:'Belo Horizonte, MG – Brazil', remote:'Remote service for all of Brazil' },
         copyright:'© 2026 MAPA Soluções Digitais. All rights reserved.',
         cnpj:'CNPJ: 38.295.265/0001-37 · Belo Horizonte, MG · Remote service for all of Brazil'
@@ -822,7 +822,7 @@
       ft:{
         brandp:'Agencia de soluciones digitales en Belo Horizonte, Brasil. Edición de video profesional, e-commerce (Nuvemshop, Loja Integrada, Tray), SaaS a medida, consultoría y creación de sitios para todo Brasil.',
         nav:{ title:'Navegación', links:['Inicio','Nosotros','Portafolio','Servicios','Calculadoras'] },
-        srv:{ title:'Servicios', links:['Creación de Sitios','SaaS a Medida','Edición de Video','E-commerce','Consultoría Digital'] },
+        srv:{ title:'Servicios', links:['Lanzamiento Inmobiliario','Calculadoras a Medida','Creación de Sitios','SaaS a Medida','Edición de Video','E-commerce','Consultoría Digital'] },
         contact:{ title:'Contacto', city:'Belo Horizonte, MG – Brasil', remote:'Atención remota para todo Brasil' },
         copyright:'© 2026 MAPA Soluções Digitais. Todos los derechos reservados.',
         cnpj:'CNPJ: 38.295.265/0001-37 · Belo Horizonte, MG · Atención remota para todo Brasil'
@@ -1294,6 +1294,12 @@
     if (ctaBtns[1]) ctaBtns[1].innerHTML = t.cta.btn2;
 
     /* Footer */
+    /* ATENCAO: os links do rodape sao traduzidos POR POSICAO. Se voce
+       adicionar ou remover um <li> nas colunas do rodape do index.html,
+       adicione ou remova o item correspondente em ft.nav.links e
+       ft.srv.links nos TRES idiomas, na mesma ordem. Se as listas ficarem
+       com tamanhos diferentes, os <li> sobrando mantem o texto antigo e o
+       rodape aparece duplicado. */
     const ftBrandP = document.querySelector('.ft-brand p');
     if (ftBrandP) ftBrandP.textContent = t.ft.brandp;
     const ftCols = document.querySelectorAll('.ft-col');
