@@ -1,0 +1,208 @@
+/* ═══════════════════════════════════════════════════════════
+   MAPA Soluções Digitais — folha de estilo das páginas de nicho
+   Usada por /incorporadoras/, /advocacia/ etc.
+   NÃO é usada pela home (index.html), que tem CSS próprio inline.
+   Os tokens de cor são os mesmos da home, para consistência visual.
+   ═══════════════════════════════════════════════════════════ */
+
+@font-face{font-family:Inter;src:url('../fonts/inter-latin-var.woff2') format('woff2');font-style:normal;font-weight:400 800;font-display:swap}
+@font-face{font-family:Sora;src:url('../fonts/sora-latin-var.woff2') format('woff2');font-style:normal;font-weight:700 800;font-display:swap}
+
+:root{
+  --bg:#080c18; --bg2:#0f1629; --card:#141e35; --card2:#1a2540;
+  --accent:#00c8f5; --accent2:#0055ff;
+  --grad:linear-gradient(135deg,#00c8f5,#0055ff);
+  --grad-cta:linear-gradient(135deg,#00c8f5,#2e8bff);
+  --cta-ink:#00121f;
+  --t1:#f0f6ff; --t2:#8da0bc; --t3:#8799b2;
+  --bdr:rgba(255,255,255,0.07);
+  --glow:rgba(0,200,245,0.12);
+  --accent-txt:#00c8f5;
+  --nav-bg:rgba(8,12,24,.92);
+  --nav-bg-solid:#080c18;
+  --nav-bdr:rgba(255,255,255,0.07);
+  --focus:#00c8f5;
+  --shadow:0 30px 70px -30px rgba(0,0,0,.85);
+}
+html[data-theme="light"]{
+  --bg:#f2f5fc; --bg2:#e8edf8; --card:#ffffff; --card2:#f5f8ff;
+  --t1:#0a1630; --t2:#4e6080; --t3:#52637f;
+  --bdr:rgba(0,50,130,.1); --glow:rgba(0,85,255,.07);
+  --accent-txt:#0057b8;
+  --nav-bg:rgba(242,245,252,.93);
+  --nav-bg-solid:#f2f5fc;
+  --nav-bdr:rgba(0,50,130,.13);
+  --focus:#0044cc;
+  --shadow:0 30px 62px -28px rgba(6,26,64,.5);
+}
+
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+  background:var(--bg); color:var(--t1); line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3{font-family:'Sora','Inter',system-ui,sans-serif;line-height:1.2;font-weight:700}
+a{color:var(--accent-txt)}
+:focus-visible{outline:2px solid var(--focus);outline-offset:3px;border-radius:4px}
+img{max-width:100%;height:auto}
+.wrap{width:100%;max-width:1140px;margin-inline:auto;padding-inline:16px}
+
+/* ── Header ───────────────────────────────────────────── */
+header{
+  position:sticky;top:0;z-index:50;
+  background:var(--nav-bg);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--nav-bdr);
+}
+header nav{
+  max-width:1140px;margin-inline:auto;padding:12px 16px;
+  display:flex;align-items:center;gap:20px;
+}
+.logo-img{display:flex;align-items:center;flex:0 0 auto}
+.logo-img img{display:block;width:auto;height:34px}
+/* As duas versões do logo convivem no HTML; o tema decide qual aparece.
+   A regra de esconder precisa ser tão específica quanto `.logo-img img`,
+   senão o display:block acima vence e os dois logos aparecem sobrepostos. */
+.logo-img .logo-on-light{display:none}
+html[data-theme="light"] .logo-img .logo-on-dark{display:none}
+html[data-theme="light"] .logo-img .logo-on-light{display:block}
+.nav-ul{list-style:none;display:flex;align-items:center;gap:22px;margin-left:auto}
+.nav-ul a{color:var(--t2);text-decoration:none;font-size:.94rem;font-weight:500}
+.nav-ul a:hover{color:var(--t1)}
+.nav-cta{
+  background:var(--grad-cta);color:var(--cta-ink)!important;
+  padding:9px 16px;border-radius:10px;font-weight:700;white-space:nowrap;
+}
+.theme-btn{
+  background:transparent;border:1px solid var(--bdr);border-radius:10px;
+  width:38px;height:38px;display:grid;place-items:center;cursor:pointer;color:var(--t2);
+}
+.theme-btn svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
+@media (max-width:860px){
+  .nav-ul{
+    position:absolute;inset:100% 0 auto 0;flex-direction:column;align-items:stretch;
+    gap:0;background:var(--nav-bg-solid);border-bottom:1px solid var(--nav-bdr);
+    padding:8px 16px 16px;display:none;
+  }
+  .nav-ul.open{display:flex}
+  .nav-ul li{padding:10px 0;border-bottom:1px solid var(--bdr)}
+  .nav-cta{display:inline-block;text-align:center;margin-top:10px}
+  .hbg{display:grid}
+}
+.hbg{
+  display:none;background:transparent;border:1px solid var(--bdr);border-radius:10px;
+  width:38px;height:38px;place-items:center;gap:4px;cursor:pointer;padding:9px 8px;
+}
+.hbg span{display:block;width:100%;height:2px;background:var(--t2);border-radius:2px}
+
+/* ── Blocos de conteúdo ───────────────────────────────── */
+section{padding:72px 0}
+.crumbs{font-size:.85rem;color:var(--t3);padding-top:22px}
+.crumbs a{color:var(--t3);text-decoration:none}
+.crumbs a:hover{color:var(--accent-txt)}
+
+.hero{padding-top:30px}
+.chip{
+  display:inline-block;font-size:.8rem;font-weight:600;letter-spacing:.02em;
+  color:var(--accent-txt);background:var(--glow);
+  border:1px solid rgba(0,200,245,.22);border-radius:999px;padding:6px 14px;margin-bottom:22px;
+}
+html[data-theme="light"] .chip{background:rgba(0,85,255,.07);border-color:rgba(0,85,255,.18)}
+.hero h1{font-size:clamp(1.9rem,4.4vw,3.1rem);max-width:19ch;margin-bottom:20px}
+.hero h1 .g{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.lead{font-size:1.09rem;color:var(--t2);max-width:62ch}
+.btns{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
+.btn{
+  display:inline-block;padding:14px 24px;border-radius:12px;font-weight:700;
+  text-decoration:none;font-size:1rem;
+}
+.btn-1{background:var(--grad-cta);color:var(--cta-ink)}
+.btn-2{background:transparent;color:var(--t1);border:1px solid var(--bdr)}
+
+h2.sec{font-size:clamp(1.5rem,2.8vw,2.1rem);margin-bottom:14px}
+h2.sec .g{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.sub{color:var(--t2);max-width:62ch;margin-bottom:38px}
+
+.grid{display:grid;gap:18px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.card{
+  background:var(--card);border:1px solid var(--bdr);border-radius:16px;padding:26px;
+}
+.card h3{font-size:1.09rem;margin-bottom:10px}
+.card p{color:var(--t2);font-size:.96rem}
+.card .num{
+  font-family:'Sora',sans-serif;font-size:.8rem;font-weight:800;
+  color:var(--accent-txt);display:block;margin-bottom:12px;letter-spacing:.06em;
+}
+
+.alt{background:var(--bg2)}
+
+ul.ticks{list-style:none;display:grid;gap:12px}
+ul.ticks li{padding-left:30px;position:relative;color:var(--t2)}
+ul.ticks li::before{
+  content:"";position:absolute;left:0;top:.48em;width:16px;height:16px;border-radius:50%;
+  background:var(--glow);border:1px solid rgba(0,200,245,.35);
+}
+ul.ticks li strong{color:var(--t1)}
+
+/* ── Mural de logos ───────────────────────────────────── */
+.logos{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(132px,1fr));
+  gap:14px;align-items:center;
+}
+/* Os logos são JPEG/WebP quadrados com fundo branco, não PNG transparente.
+   Por isso a placa é branca nos dois temas — clarear a imagem por filtro
+   estoura o desenho e deixa as placas parecendo vazias. */
+.logos div{
+  background:#fff;border:1px solid var(--bdr);border-radius:12px;
+  height:92px;display:grid;place-items:center;padding:10px;overflow:hidden;
+}
+.logos img{
+  max-height:68px;width:auto;object-fit:contain;
+  filter:grayscale(1);opacity:.8;transition:.25s;
+}
+.logos div:hover img{filter:none;opacity:1}
+
+/* ── FAQ ──────────────────────────────────────────────── */
+details.faq{
+  background:var(--card);border:1px solid var(--bdr);border-radius:14px;
+  padding:20px 24px;margin-bottom:12px;
+}
+details.faq summary{
+  cursor:pointer;font-weight:600;font-size:1.02rem;list-style:none;
+  display:flex;justify-content:space-between;gap:16px;align-items:flex-start;
+}
+details.faq summary::-webkit-details-marker{display:none}
+details.faq summary::after{content:"+";color:var(--accent-txt);font-size:1.4rem;line-height:1}
+details.faq[open] summary::after{content:"–"}
+details.faq p{color:var(--t2);margin-top:14px;font-size:.97rem}
+
+/* ── CTA final ────────────────────────────────────────── */
+.cta-box{
+  background:var(--card);border:1px solid var(--bdr);border-radius:20px;
+  padding:clamp(28px,5vw,54px);text-align:center;box-shadow:var(--shadow);
+}
+.cta-box h2{font-size:clamp(1.5rem,3vw,2.2rem);margin-bottom:14px}
+.cta-box p{color:var(--t2);max-width:52ch;margin:0 auto 28px}
+.cta-box .btns{justify-content:center}
+
+/* ── Footer ───────────────────────────────────────────── */
+footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:54px 0 26px}
+.ft-grid{
+  max-width:1140px;margin-inline:auto;padding-inline:16px;
+  display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;gap:34px;
+}
+@media (max-width:820px){.ft-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.ft-grid{grid-template-columns:1fr}}
+.ft-brand p{color:var(--t3);font-size:.92rem;margin-top:16px;max-width:38ch}
+.ft-col h2{font-size:.86rem;letter-spacing:.09em;text-transform:uppercase;color:var(--t1);margin-bottom:16px}
+.ft-col ul{list-style:none;display:grid;gap:10px}
+.ft-col a{color:var(--t3);text-decoration:none;font-size:.93rem}
+.ft-col a:hover{color:var(--accent-txt)}
+.ft-btm{
+  max-width:1140px;margin:34px auto 0;padding:22px 16px 0;
+  border-top:1px solid var(--bdr);color:var(--t3);font-size:.85rem;
+  display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;
+}
