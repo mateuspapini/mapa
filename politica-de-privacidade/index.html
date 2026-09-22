@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Política de Privacidade | MAPA Soluções Digitais</title>
+<meta name="description" content="Como a MAPA Soluções Digitais trata dados pessoais: o que é coletado no site, por quê, com quem é compartilhado e como exercer seus direitos sob a LGPD.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://mapasolucoesdigitais.com.br/politica-de-privacidade/">
+
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/brand/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/img/brand/apple-touch-icon.png">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mapasolucoesdigitais.com.br/politica-de-privacidade/">
+<meta property="og:title" content="Política de Privacidade | MAPA Soluções Digitais">
+<meta property="og:description" content="O que a MAPA coleta no site, por quê, com quem compartilha e como você exerce seus direitos sob a LGPD.">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="MAPA Soluções Digitais">
+<meta property="og:image" content="https://mapasolucoesdigitais.com.br/assets/img/og-mapa.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<meta name="theme-color" content="#080c18">
+<link rel="preload" href="/assets/fonts/sora-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/paginas.css">
+
+<script>
+  (function(){
+    try{
+      if(localStorage.getItem('mapa_theme') === 'light'){
+        document.documentElement.setAttribute('data-theme','light');
+        var m = document.querySelector('meta[name="theme-color"]');
+        if(m) m.setAttribute('content','#f2f5fc');
+      }
+    }catch(e){}
+  })();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["LocalBusiness","ProfessionalService"],
+      "@id": "https://mapasolucoesdigitais.com.br/#org",
+      "name": "MAPA Soluções Digitais",
+      "url": "https://mapasolucoesdigitais.com.br/",
+      "telephone": "+55-31-98919-0373",
+      "email": "contato@mapasolucoesdigitais.com.br",
+      "taxID": "38.295.265/0001-37",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Belo Horizonte",
+        "addressRegion": "MG",
+        "addressCountry": "BR"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://mapasolucoesdigitais.com.br/politica-de-privacidade/#page",
+      "name": "Política de Privacidade",
+      "url": "https://mapasolucoesdigitais.com.br/politica-de-privacidade/",
+      "inLanguage": "pt-BR",
+      "datePublished": "2026-09-21",
+      "dateModified": "2026-09-21",
+      "publisher": { "@id": "https://mapasolucoesdigitais.com.br/#org" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://mapasolucoesdigitais.com.br/politica-de-privacidade/#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Início", "item": "https://mapasolucoesdigitais.com.br/" },
+        { "@type": "ListItem", "position": 2, "name": "Política de Privacidade" }
+      ]
+    }
+  ]
+}
+</script>
+
+<style>
+  /* Estilo só desta página: prosa jurídica legível.
+     Cores e fontes vêm dos tokens de /assets/css/paginas.css. */
+  .legal{max-width:76ch}
+  .legal h2{
+    font-size:clamp(1.15rem,2.2vw,1.45rem);
+    margin:44px 0 14px;
+    padding-top:26px;
+    border-top:1px solid var(--bdr);
+    color:var(--t1);
+  }
+  .legal h2:first-of-type{border-top:0;padding-top:0;margin-top:30px}
+  .legal h3{font-size:1rem;margin:26px 0 8px;color:var(--t1)}
+  .legal p{color:var(--t2);font-size:.97rem;line-height:1.8;margin-bottom:14px}
+  .legal ul{margin:0 0 16px 0;padding-left:0;list-style:none}
+  .legal li{
+    color:var(--t2);font-size:.97rem;line-height:1.8;
+    padding-left:20px;position:relative;margin-bottom:8px;
+  }
+  .legal li::before{content:'—';position:absolute;left:0;color:var(--accent-txt);opacity:.7}
+  .legal strong{color:var(--t1);font-weight:700}
+  .legal a{color:var(--accent-txt);text-decoration:underline;text-underline-offset:3px}
+
+  .resumo{
+    background:var(--card);border:1px solid var(--bdr);
+    border-left:3px solid var(--accent);
+    border-radius:12px;padding:20px 22px;margin:26px 0 8px;
+  }
+  .resumo p:last-child{margin-bottom:0}
+
+  .atualizado{font-size:.85rem;color:var(--t3);margin-top:8px}
+
+  .tabela-wrap{overflow-x:auto;margin:18px 0 22px;-webkit-overflow-scrolling:touch}
+  table.cookies{
+    width:100%;min-width:560px;border-collapse:collapse;
+    font-size:.88rem;color:var(--t2);
+  }
+  table.cookies th,table.cookies td{
+    text-align:left;padding:11px 14px;
+    border-bottom:1px solid var(--bdr);vertical-align:top;
+  }
+  table.cookies th{
+    color:var(--t1);font-weight:700;font-size:.78rem;
+    text-transform:uppercase;letter-spacing:.06em;
+    background:var(--card2);white-space:nowrap;
+  }
+  table.cookies tr:last-child td{border-bottom:0}
+  table.cookies code{
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+    font-size:.84rem;color:var(--accent-txt);
+  }
+
+  .contato-box{
+    background:var(--card);border:1px solid var(--bdr);
+    border-radius:12px;padding:22px;margin-top:26px;
+  }
+  .contato-box p:last-child{margin-bottom:0}
+</style>
+
+<script src="/assets/js/analytics.js" defer></script>
+</head>
+<body>
+
+<header>
+  <nav aria-label="Menu principal">
+    <a href="/" class="logo-img" aria-label="MAPA Soluções Digitais – Início">
+      <img class="logo-on-dark" src="/assets/img/brand/logo-mapa.png" alt="" width="191" height="40" loading="eager">
+      <img class="logo-on-light" src="/assets/img/brand/logo-mapa-light.png" alt="" width="191" height="40" loading="eager">
+    </a>
+
+    <ul class="nav-ul" id="navUl">
+      <li><a href="/">Home</a></li>
+      <li><a href="/#portfolio">Portfólio</a></li>
+      <li><a href="/#servicos">Serviços</a></li>
+      <li><a href="/#calculadoras">Calculadoras</a></li>
+      <li>
+        <a href="https://wa.me/5531989190373?text=Ol%C3%A1%2C+vim+pelo+site+e+gostaria+de+um+or%C3%A7amento!"
+           class="nav-cta" target="_blank" rel="noopener noreferrer">Orçamento grátis →</a>
+      </li>
+    </ul>
+
+    <button class="theme-btn" id="themeBtn" aria-label="Alternar tema" title="Tema claro/escuro">
+      <svg id="icoSun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg id="icoMoon" viewBox="0 0 24 24" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+
+    <button class="hbg" id="hbg" aria-label="Abrir menu" aria-expanded="false" aria-controls="navUl">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+
+<main>
+
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Você está aqui">
+      <a href="/">Início</a> › Política de Privacidade
+    </nav>
+  </div>
+
+  <section class="hero">
+    <div class="wrap">
+      <span class="chip">Transparência</span>
+      <h1>Política de <span class="g">Privacidade</span></h1>
+      <p class="lead">
+        O que a MAPA coleta neste site, por que coleta, com quem compartilha e
+        como você controla tudo isso. Escrito para ser lido, não para ser aceito no automático.
+      </p>
+      <p class="atualizado">Última atualização: 21 de setembro de 2026</p>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="legal">
+
+        <div class="resumo">
+          <p><strong>O resumo honesto:</strong> este site não tem cadastro, não tem login,
+          não tem carrinho e não vende nada online. A única coisa que coletamos por conta
+          própria é estatística de navegação — e só depois que você aceita. Se você nos
+          escrever pelo WhatsApp ou por e-mail, guardamos a conversa para poder te
+          responder e fazer um orçamento. Não vendemos dado de ninguém para ninguém.</p>
+        </div>
+
+        <h2>1. Quem é o responsável pelos seus dados</h2>
+        <p>
+          <strong>MAPA Soluções Digitais</strong><br>
+          CNPJ 38.295.265/0001-37<br>
+          Belo Horizonte, Minas Gerais, Brasil<br>
+          E-mail: <a href="mailto:contato@mapasolucoesdigitais.com.br">contato@mapasolucoesdigitais.com.br</a><br>
+          WhatsApp: <a href="https://wa.me/5531989190373" target="_blank" rel="noopener noreferrer">(31) 98919-0373</a>
+        </p>
+        <p>
+          Somos o <strong>controlador</strong> dos dados pessoais tratados neste site, nos
+          termos do artigo 5º, VI da Lei 13.709/2018 (LGPD). O contato acima também atende
+          como canal do <strong>encarregado pelo tratamento de dados pessoais</strong>
+          (artigo 41 da LGPD).
+        </p>
+
+        <h2>2. Que dados este site coleta</h2>
+
+        <h3>2.1 Dados de navegação (só com o seu aceite)</h3>
+        <p>
+          Usamos duas ferramentas de análise: <strong>Google Analytics 4</strong> e
+          <strong>Microsoft Clarity</strong>. Elas registram como as páginas são usadas —
+          quais páginas foram abertas, por quanto tempo, de onde veio a visita, qual o tipo
+          de aparelho e navegador, cidade e estado aproximados (nunca o endereço exato),
+          e quais botões foram clicados.
+        </p>
+        <p>
+          O Microsoft Clarity também grava <strong>mapas de calor e reproduções da sessão</strong>:
+          um desenho dos movimentos do cursor, dos cliques e da rolagem dentro da página.
+          Não é gravação de tela nem de câmera. O Clarity aplica mascaramento automático de
+          conteúdo sensível, e nenhum texto que você digite em campo de formulário é
+          reproduzido para nós.
+        </p>
+        <p>
+          Nada disso roda antes de você clicar em <strong>"Aceitar"</strong> no aviso de
+          cookies. Se você escolher "Só o essencial", o Clarity não carrega e o Google
+          Analytics fica em modo restrito, sem gravar cookie algum no seu navegador —
+          nesse modo ele envia apenas sinais anônimos, sem identificador, que servem só
+          para estimar totais agregados de visitas.
+        </p>
+
+        <h3>2.2 Dados que você mesmo nos envia</h3>
+        <p>
+          Quando você clica em um botão de WhatsApp ou de e-mail, a conversa acontece
+          fora deste site, no aplicativo que você já usa. A partir daí passamos a ter o que
+          você escolheu nos informar: normalmente nome, telefone ou e-mail, o nome da sua
+          empresa e a descrição do que você precisa.
+        </p>
+        <p>
+          Este site <strong>não tem formulário de contato</strong>. Não existe nenhum campo
+          aqui que envie dados para um servidor nosso.
+        </p>
+
+        <h3>2.3 O que você digita nas calculadoras</h3>
+        <p>
+          As calculadoras gratuitas de rescisão trabalhista, BTU e custo de reforma rodam
+          <strong>inteiramente dentro do seu navegador</strong>. Salário, tempo de casa,
+          metragem, valores — nada disso é enviado para nós nem para ninguém. Fecha a aba,
+          acabou.
+        </p>
+        <p>
+          A única exceção é por sua própria conta: se, depois do resultado, você clicar no
+          botão que abre o WhatsApp, o resultado vai escrito na mensagem que você envia —
+          e aí você já decidiu nos mostrar.
+        </p>
+
+        <h3>2.4 Registros técnicos da hospedagem</h3>
+        <p>
+          O site é hospedado no <strong>GitHub Pages</strong>, e as fontes de algumas
+          páginas são servidas pelo <strong>Google Fonts</strong>. Como acontece com
+          qualquer site da internet, esses serviços recebem automaticamente o endereço IP
+          da conexão para conseguir entregar os arquivos. Esse registro é feito por eles,
+          não por nós, e segue as políticas de privacidade dessas empresas. Não temos
+          acesso a esses registros.
+        </p>
+
+        <h2>3. Por que coletamos e com que base legal</h2>
+        <ul>
+          <li>
+            <strong>Estatística de navegação e gravações do Clarity</strong> — para entender
+            o que funciona no site e melhorar o que não funciona.
+            Base legal: <strong>consentimento</strong> (artigo 7º, I da LGPD), dado por você
+            no aviso de cookies e revogável a qualquer momento.
+          </li>
+          <li>
+            <strong>Contato por WhatsApp ou e-mail</strong> — para responder você, entender a
+            demanda e preparar um orçamento.
+            Base legal: <strong>procedimentos preliminares a um contrato</strong> a seu pedido
+            (artigo 7º, V) e, na continuidade do relacionamento comercial,
+            <strong>legítimo interesse</strong> (artigo 7º, IX).
+          </li>
+          <li>
+            <strong>Guarda de propostas e contratos fechados</strong> — para cumprir obrigações
+            fiscais e contábeis.
+            Base legal: <strong>cumprimento de obrigação legal</strong> (artigo 7º, II).
+          </li>
+        </ul>
+        <p>
+          Não usamos seus dados para publicidade, não fazemos perfilamento para anúncios e
+          não tomamos nenhuma decisão automatizada que afete você.
+        </p>
+
+        <h2>4. Com quem compartilhamos</h2>
+        <p>
+          Não vendemos, não alugamos e não cedemos dados pessoais. Os dados chegam a
+          terceiros apenas pelas ferramentas que operam o site:
+        </p>
+        <ul>
+          <li><strong>Google LLC</strong> — Google Analytics 4 e Google Fonts</li>
+          <li><strong>Microsoft Corporation</strong> — Microsoft Clarity</li>
+          <li><strong>GitHub, Inc.</strong> — hospedagem das páginas</li>
+          <li><strong>Hostinger</strong> — hospedagem do e-mail do domínio</li>
+          <li><strong>Meta Platforms</strong> — quando a conversa acontece pelo WhatsApp</li>
+        </ul>
+        <p>
+          Também podemos compartilhar dados quando houver <strong>ordem judicial</strong> ou
+          requisição de autoridade competente.
+        </p>
+
+        <h3>Transferência internacional</h3>
+        <p>
+          As empresas acima processam dados em servidores fora do Brasil, principalmente nos
+          Estados Unidos. Essa transferência é feita com base no seu consentimento, no caso
+          das ferramentas de análise, e nas cláusulas contratuais padrão adotadas por esses
+          fornecedores, nos termos do capítulo V da LGPD.
+        </p>
+
+        <h2>5. Por quanto tempo guardamos</h2>
+        <ul>
+          <li><strong>Google Analytics 4</strong> — dados de evento e de usuário por até 14 meses, prazo configurado na propriedade.</li>
+          <li><strong>Microsoft Clarity</strong> — reproduções de sessão por até 30 dias; métricas agregadas e mapas de calor por mais tempo, conforme a política da Microsoft.</li>
+          <li><strong>Conversas de WhatsApp e e-mail</strong> — enquanto durar o interesse comercial e por até 5 anos depois, prazo prescricional do Código Civil para cobranças.</li>
+          <li><strong>Contratos e notas fiscais</strong> — pelos prazos exigidos pela legislação fiscal, hoje de 5 anos.</li>
+          <li><strong>Sua escolha sobre cookies</strong> — 180 dias, guardada no seu próprio navegador.</li>
+        </ul>
+
+        <h2>6. Cookies e armazenamento local</h2>
+        <p>
+          Cookie é um arquivinho que um site guarda no seu navegador. Este site usa os
+          seguintes:
+        </p>
+
+        <div class="tabela-wrap">
+          <table class="cookies">
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Origem</th>
+                <th>Para que serve</th>
+                <th>Validade</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>_ga</code></td>
+                <td>Google Analytics</td>
+                <td>Distingue um visitante do outro</td>
+                <td>2 anos</td>
+              </tr>
+              <tr>
+                <td><code>_ga_DHM80SYC63</code></td>
+                <td>Google Analytics</td>
+                <td>Mantém o estado da sessão</td>
+                <td>2 anos</td>
+              </tr>
+              <tr>
+                <td><code>_clck</code></td>
+                <td>Microsoft Clarity</td>
+                <td>Liga as ações da visita a um identificador</td>
+                <td>1 ano</td>
+              </tr>
+              <tr>
+                <td><code>_clsk</code></td>
+                <td>Microsoft Clarity</td>
+                <td>Junta as páginas de uma mesma visita</td>
+                <td>1 dia</td>
+              </tr>
+              <tr>
+                <td><code>CLID</code>, <code>MUID</code>, <code>ANONCHK</code></td>
+                <td>Microsoft</td>
+                <td>Identificação técnica do projeto no Clarity</td>
+                <td>Até 1 ano</td>
+              </tr>
+              <tr>
+                <td><code>mapa_consent</code></td>
+                <td>Este site</td>
+                <td>Guarda sua escolha no aviso de cookies</td>
+                <td>180 dias*</td>
+              </tr>
+              <tr>
+                <td><code>mapa_theme</code>, <code>mapa_lang</code></td>
+                <td>Este site</td>
+                <td>Lembra o tema claro/escuro e o idioma que você escolheu</td>
+                <td>Até você limpar*</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>
+          <strong>*</strong> Os três últimos não são cookies de verdade: ficam no
+          <em>armazenamento local</em> do seu navegador, nunca são enviados para servidor
+          nenhum e existem só para o site se comportar como você deixou.
+        </p>
+        <p>
+          Para <strong>mudar sua escolha a qualquer momento</strong>, clique em
+          <a href="#" id="abrirCookies">Cookies</a> — o aviso reabre e você pode aceitar ou
+          recusar de novo. Você também pode apagar cookies pelas configurações do seu
+          navegador, e bloquear os de análise com qualquer bloqueador; o site continua
+          funcionando normalmente em todos os casos.
+        </p>
+
+        <h2>7. Seus direitos</h2>
+        <p>
+          O artigo 18 da LGPD te dá, sobre os seus dados, o direito de:
+        </p>
+        <ul>
+          <li>confirmar que existe tratamento e <strong>acessar</strong> os dados;</li>
+          <li><strong>corrigir</strong> dados incompletos, inexatos ou desatualizados;</li>
+          <li>pedir <strong>anonimização, bloqueio ou eliminação</strong> de dados desnecessários ou tratados fora da lei;</li>
+          <li>pedir a <strong>portabilidade</strong> para outro fornecedor;</li>
+          <li>pedir a <strong>eliminação</strong> dos dados tratados com base no consentimento;</li>
+          <li>saber <strong>com quem compartilhamos</strong> seus dados;</li>
+          <li>ser informado sobre a possibilidade de <strong>não consentir</strong> e o que isso acarreta;</li>
+          <li><strong>revogar o consentimento</strong> a qualquer momento.</li>
+        </ul>
+        <p>
+          Escreva para
+          <a href="mailto:contato@mapasolucoesdigitais.com.br">contato@mapasolucoesdigitais.com.br</a>
+          com o assunto <strong>"LGPD"</strong>. Respondemos em até <strong>15 dias</strong>.
+          Podemos pedir uma confirmação de identidade antes de atender — é para evitar
+          entregar dados seus para outra pessoa.
+        </p>
+        <p>
+          Se você não ficar satisfeito com a resposta, pode registrar reclamação na
+          <strong>Autoridade Nacional de Proteção de Dados (ANPD)</strong>, em
+          <a href="https://www.gov.br/anpd/" target="_blank" rel="noopener noreferrer">gov.br/anpd</a>.
+        </p>
+
+        <h2>8. Segurança</h2>
+        <p>
+          O site é servido apenas por conexão criptografada (HTTPS). Não mantemos banco de
+          dados de visitantes, não armazenamos senhas e não pedimos documento, dado
+          bancário ou número de cartão em nenhum lugar deste site. Se alguma página pedir
+          isso em nome da MAPA, não é nossa — nos avise.
+        </p>
+        <p>
+          Nenhum sistema é perfeitamente seguro. Se acontecer um incidente com risco
+          relevante aos seus direitos, comunicaremos você e a ANPD, como manda o artigo 48
+          da LGPD.
+        </p>
+
+        <h2>9. Crianças e adolescentes</h2>
+        <p>
+          Este site é dirigido a empresas e profissionais. Não coletamos intencionalmente
+          dados de menores de 18 anos. Se identificarmos que isso aconteceu sem o
+          consentimento de um responsável, apagamos o registro.
+        </p>
+
+        <h2>10. Mudanças nesta política</h2>
+        <p>
+          Quando o site mudar, esta página muda junto. A data de atualização no topo mostra
+          a versão vigente. Se a mudança for relevante — uma ferramenta nova, uma finalidade
+          nova — o aviso de cookies volta a aparecer para você decidir de novo.
+        </p>
+
+        <div class="contato-box">
+          <h3 style="margin-top:0">Ficou com alguma dúvida?</h3>
+          <p>
+            Privacidade não deveria ser assunto de letra miúda. Se alguma parte desta página
+            não ficou clara, ou se você quer exercer qualquer um dos direitos acima, é só
+            escrever.
+          </p>
+          <p>
+            <a href="mailto:contato@mapasolucoesdigitais.com.br">contato@mapasolucoesdigitais.com.br</a>
+            &nbsp;·&nbsp;
+            <a href="https://wa.me/5531989190373?text=Ol%C3%A1%2C+tenho+uma+d%C3%BAvida+sobre+a+pol%C3%ADtica+de+privacidade+do+site."
+               target="_blank" rel="noopener noreferrer">WhatsApp (31) 98919-0373</a>
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="ft-grid">
+    <div class="ft-brand">
+      <a href="/" class="logo-img" aria-label="MAPA Soluções Digitais — início">
+        <img class="logo-on-dark" src="/assets/img/brand/logo-mapa.png" alt="" width="153" height="32" decoding="async">
+        <img class="logo-on-light" src="/assets/img/brand/logo-mapa-light.png" alt="" width="153" height="32" decoding="async">
+      </a>
+      <p>
+        Agência de soluções digitais em Belo Horizonte, MG. Vídeo de lançamento, sites,
+        micro SaaS e simuladores sob medida para todo o Brasil.
+      </p>
+    </div>
+
+    <div class="ft-col">
+      <h2>Navegação</h2>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/#portfolio">Portfólio</a></li>
+        <li><a href="/#servicos">Serviços</a></li>
+        <li><a href="/#calculadoras">Calculadoras</a></li>
+      </ul>
+    </div>
+
+    <div class="ft-col">
+      <h2>Para quem</h2>
+      <ul>
+        <li><a href="/incorporadoras/">Incorporadoras</a></li>
+        <li><a href="/calculadoras-sob-medida/">Calculadoras sob medida</a></li>
+      </ul>
+    </div>
+
+    <div class="ft-col">
+      <h2>Contato</h2>
+      <ul>
+        <li><a href="https://wa.me/5531989190373" target="_blank" rel="noopener noreferrer">(31) 98919-0373</a></li>
+        <li><a href="mailto:contato@mapasolucoesdigitais.com.br">contato@mapasolucoesdigitais.com.br</a></li>
+        <li><span style="color:var(--t3)">Belo Horizonte, MG</span></li>
+        <li><span style="color:var(--t3)">Atendimento remoto para todo o Brasil</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="ft-btm">
+    <span>© 2026 MAPA Soluções Digitais · CNPJ 38.295.265/0001-37</span>
+    <span>Belo Horizonte, MG</span>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var btn = document.getElementById('themeBtn'),
+        sun = document.getElementById('icoSun'),
+        moon = document.getElementById('icoMoon'),
+        root = document.documentElement;
+
+    function paint(){
+      var light = root.getAttribute('data-theme') === 'light';
+      sun.style.display  = light ? 'none' : '';
+      moon.style.display = light ? '' : 'none';
+      var m = document.querySelector('meta[name="theme-color"]');
+      if(m) m.setAttribute('content', light ? '#f2f5fc' : '#080c18');
+    }
+    paint();
+
+    btn.addEventListener('click', function(){
+      var light = root.getAttribute('data-theme') === 'light';
+      if(light){ root.removeAttribute('data-theme'); } else { root.setAttribute('data-theme','light'); }
+      try{ localStorage.setItem('mapa_theme', light ? 'dark' : 'light'); }catch(e){}
+      paint();
+    });
+
+    var hbg = document.getElementById('hbg'),
+        ul  = document.getElementById('navUl');
+    hbg.addEventListener('click', function(){
+      var open = ul.classList.toggle('open');
+      hbg.setAttribute('aria-expanded', open ? 'true' : 'false');
+      hbg.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+    });
+
+    /* Reabre o aviso de cookies a partir do texto da seção 6 */
+    var abrir = document.getElementById('abrirCookies');
+    if (abrir) {
+      abrir.addEventListener('click', function(e){
+        e.preventDefault();
+        if (typeof window.mapaAbrirConsentimento === 'function') {
+          window.mapaAbrirConsentimento();
+        }
+      });
+    }
+  })();
+</script>
+
+</body>
+</html>
