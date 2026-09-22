@@ -2,11 +2,13 @@
    MAPA Soluções Digitais — Analytics
 
    Um arquivo só, carregado em todas as páginas do site.
-   Junta GA4 + Microsoft Clarity + consentimento de cookies (LGPD).
+   Junta GA4 + Microsoft Clarity + Google Ads + consentimento (LGPD).
 
    ┌─ PARA CONFIGURAR ────────────────────────────────────┐
-   │ Troque os dois IDs logo abaixo. É a única coisa que  │
-   │ precisa ser editada neste arquivo.                   │
+   │ Os IDs logo abaixo são a única coisa que precisa ser │
+   │ editada neste arquivo. GA4 e Clarity já estão        │
+   │ preenchidos; o do Google Ads entra quando você criar │
+   │ a conversão na conta.                                │
    └──────────────────────────────────────────────────────┘
    ══════════════════════════════════════════════════════════ */
 
@@ -21,6 +23,17 @@
   // Project ID do Microsoft Clarity — Settings → Overview. 10 caracteres, tipo 'a1b2c3d4e5'
   var CLARITY_ID = 'ym0v6xh6tq';
 
+  // ID de conversão do Google Ads — Ferramentas → Conversões → sua conversão,
+  // na caixa "Adicionar a tag ao site". Formato: AW-123456789
+  var ADS_ID = 'AW-XXXXXXXXX';
+
+  // Rótulos de conversão do Google Ads. Vêm junto do ID, no formato
+  // 'AW-123456789/AbC-D_efGhIjKlMnOp' — cole aqui SÓ a parte depois da barra.
+  var ADS_CONVERSOES = {
+    whatsapp: 'XXXXXXXXXXXXXXXXXXXXXX',   // conversão principal: clique no WhatsApp
+    email: ''                              // opcional: clique no e-mail
+  };
+
   // true  = GA4 carrega já no modo restrito (sem cookies) e só passa a usar
   //         cookies depois do "Aceitar". É o Consent Mode v2 do Google.
   // false = GA4 não carrega nada antes do aceite. Mais conservador, menos dados.
@@ -31,13 +44,24 @@
 
   /* ════════════════════════════════════════════ */
 
-  var CONSENT_KEY = 'mapa_consent';
+  // A chave carrega uma versão: o banner passou a cobrir também
+  // publicidade, e quem aceitou a versão anterior concordou com outra
+  // coisa. Subir a versão faz o aviso voltar para todo mundo — é o
+  // que torna o novo consentimento legítimo.
+  var CONSENT_KEY = 'mapa_consent_v2';
   var temGA = GA4_ID.indexOf('XXXX') === -1;
   var temClarity = CLARITY_ID.indexOf('XXXX') === -1;
+  var temAds = ADS_ID.indexOf('XXXX') === -1;
 
-  if (!temGA && !temClarity) {
+  function rotuloConversao(chave) {
+    var r = ADS_CONVERSOES[chave];
+    if (!temAds || !r || r.indexOf('XXXX') !== -1) return null;
+    return ADS_ID + '/' + r;
+  }
+
+  if (!temGA && !temClarity && !temAds) {
     if (window.console && console.info) {
-      console.info('[MAPA] analytics.js carregado, mas os IDs do GA4 e do Clarity ainda não foram preenchidos.');
+      console.info('[MAPA] analytics.js carregado, mas nenhum ID foi preenchido.');
     }
     return;
   }
@@ -70,7 +94,24 @@
   var consentimento = lerConsentimento();
 
   /* ── Consent Mode v2: o padrão é negar, sempre ─────────── */
-  if (temGA) {
+
+  // Desde junho de 2026 o ad_storage é o ÚNICO controle do que chega
+  // ao Google Ads — antes o Google Signals também servia de porta.
+  // Sem conceder aqui, não há conversão medida nem remarketing.
+  var CONCEDIDO = {
+    ad_storage: 'granted',
+    ad_user_data: 'granted',
+    ad_personalization: 'granted',
+    analytics_storage: 'granted'
+  };
+  var NEGADO = {
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: 'denied'
+  };
+
+  if (temGA || temAds) {
     gtag('consent', 'default', {
       ad_storage: 'denied',
       ad_user_data: 'denied',
@@ -82,7 +123,7 @@
     });
 
     if (consentimento === 'granted') {
-      gtag('consent', 'update', { analytics_storage: 'granted' });
+      gtag('consent', 'update', CONCEDIDO);
     }
   }
 
@@ -92,18 +133,26 @@
   var clarityCarregado = false;
 
   function carregarGA() {
-    if (gaCarregado || !temGA) return;
+    if (gaCarregado || (!temGA && !temAds)) return;
     gaCarregado = true;
+
+    // Um único gtag.js serve GA4 e Google Ads; cada um recebe seu config.
     var s = document.createElement('script');
     s.async = true;
-    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA4_ID;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + (temGA ? GA4_ID : ADS_ID);
     document.head.appendChild(s);
     gtag('js', new Date());
-    gtag('config', GA4_ID, {
-      send_page_view: true,
-      // Rótulo mais legível que a URL crua nos relatórios
-      page_title: document.title
-    });
+
+    if (temGA) {
+      gtag('config', GA4_ID, {
+        send_page_view: true,
+        // Rótulo mais legível que a URL crua nos relatórios
+        page_title: document.title
+      });
+    }
+    if (temAds) {
+      gtag('config', ADS_ID);
+    }
   }
 
   function carregarClarity() {
@@ -152,11 +201,21 @@
   }
   window.mapaEvento = evento;
 
+  /* Conversão do Google Ads. É o mesmo clique que já vira evento no GA4,
+     mas o Ads precisa do disparo com o par ID/rótulo para contabilizar. */
+  function conversao(chave, params) {
+    var destino = rotuloConversao(chave);
+    if (!destino) return;
+    var p = params || {};
+    p.send_to = destino;
+    try { if (typeof window.gtag === 'function') window.gtag('event', 'conversion', p); } catch (e) {}
+  }
+
   /* ── Banner de consentimento ───────────────────────────── */
 
   var TXT = {
     pt: {
-      msg: 'Usamos cookies de análise (Google Analytics e Microsoft Clarity) para entender como o site é usado e melhorá-lo. Nada disso é usado para publicidade nem vendido para terceiros.',
+      msg: 'Usamos cookies para entender como o site é usado (Google Analytics e Microsoft Clarity) e para medir o resultado dos nossos anúncios no Google. Não vendemos seus dados para ninguém.',
       ok: 'Aceitar',
       no: 'Só o essencial',
       link: 'Cookies',
@@ -164,7 +223,7 @@
       aria: 'Aviso de cookies'
     },
     en: {
-      msg: 'We use analytics cookies (Google Analytics and Microsoft Clarity) to understand how the site is used and improve it. None of it is used for advertising or sold to third parties.',
+      msg: 'We use cookies to understand how the site is used (Google Analytics and Microsoft Clarity) and to measure the results of our ads on Google. We never sell your data to anyone.',
       ok: 'Accept',
       no: 'Essential only',
       link: 'Cookies',
@@ -172,7 +231,7 @@
       aria: 'Cookie notice'
     },
     es: {
-      msg: 'Usamos cookies de análisis (Google Analytics y Microsoft Clarity) para entender cómo se usa el sitio y mejorarlo. Nada de eso se usa para publicidad ni se vende a terceros.',
+      msg: 'Usamos cookies para entender cómo se usa el sitio (Google Analytics y Microsoft Clarity) y para medir el resultado de nuestros anuncios en Google. No vendemos tus datos a nadie.',
       ok: 'Aceptar',
       no: 'Solo lo esencial',
       link: 'Cookies',
@@ -308,12 +367,12 @@
     fecharBanner();
 
     if (estado === 'granted') {
-      if (temGA) gtag('consent', 'update', { analytics_storage: 'granted' });
+      if (temGA || temAds) gtag('consent', 'update', CONCEDIDO);
       carregarGA();
       carregarClarity();
       evento('consentimento_cookies', { escolha: 'aceitou' });
     } else {
-      if (temGA) gtag('consent', 'update', { analytics_storage: 'denied' });
+      if (temGA || temAds) gtag('consent', 'update', NEGADO);
       evento('consentimento_cookies', { escolha: 'recusou' });
     }
   }
@@ -388,6 +447,7 @@
 
       if (href.indexOf('wa.me') !== -1 || href.indexOf('api.whatsapp.com') !== -1) {
         evento('contato_whatsapp', { local: ondeEstou(link), pagina: pagina() });
+        conversao('whatsapp');
         try {
           if (typeof window.clarity === 'function') {
             window.clarity('set', 'contato', 'whatsapp');
@@ -399,6 +459,7 @@
 
       if (href.indexOf('mailto:') === 0) {
         evento('contato_email', { local: ondeEstou(link), pagina: pagina() });
+        conversao('email');
         return;
       }
 

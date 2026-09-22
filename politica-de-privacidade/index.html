@@ -196,10 +196,11 @@
 
         <div class="resumo">
           <p><strong>O resumo honesto:</strong> este site não tem cadastro, não tem login,
-          não tem carrinho e não vende nada online. A única coisa que coletamos por conta
-          própria é estatística de navegação — e só depois que você aceita. Se você nos
-          escrever pelo WhatsApp ou por e-mail, guardamos a conversa para poder te
-          responder e fazer um orçamento. Não vendemos dado de ninguém para ninguém.</p>
+          não tem carrinho e não vende nada online. O que coletamos por conta própria é
+          estatística de navegação e a medição dos nossos anúncios no Google — as duas
+          coisas só depois que você aceita. Se você nos escrever pelo WhatsApp ou por
+          e-mail, guardamos a conversa para poder te responder e fazer um orçamento. Não
+          vendemos dado de ninguém para ninguém.</p>
         </div>
 
         <h2>1. Quem é o responsável pelos seus dados</h2>
@@ -222,7 +223,8 @@
         <h3>2.1 Dados de navegação (só com o seu aceite)</h3>
         <p>
           Usamos duas ferramentas de análise: <strong>Google Analytics 4</strong> e
-          <strong>Microsoft Clarity</strong>. Elas registram como as páginas são usadas —
+          <strong>Microsoft Clarity</strong>, e a medição do <strong>Google Ads</strong>
+          descrita no item 2.4. Elas registram como as páginas são usadas —
           quais páginas foram abertas, por quanto tempo, de onde veio a visita, qual o tipo
           de aparelho e navegador, cidade e estado aproximados (nunca o endereço exato),
           e quais botões foram clicados.
@@ -267,7 +269,28 @@
           e aí você já decidiu nos mostrar.
         </p>
 
-        <h3>2.4 Registros técnicos da hospedagem</h3>
+        <h3>2.4 Anúncios no Google</h3>
+        <p>
+          Anunciamos os serviços da MAPA no <strong>Google Ads</strong>. Se você chegou
+          aqui por um anúncio, o Google registra que aquele clique levou a esta visita —
+          e, se você clicar para falar conosco, registra também que aquele anúncio gerou
+          um contato. É assim que sabemos quais anúncios valem o dinheiro investido e
+          quais devem ser desligados.
+        </p>
+        <p>
+          Essa medição também permite <strong>remarketing</strong>: mostrar um anúncio da
+          MAPA para quem já visitou o site, em outros sites e no YouTube. Não sabemos quem
+          você é nesse processo — o Google trabalha com identificadores próprios, não com
+          seu nome.
+        </p>
+        <p>
+          Tudo isso depende do seu <strong>"Aceitar"</strong> no aviso de cookies. Se você
+          escolher "Só o essencial", nenhum dado de publicidade é enviado ao Google: você
+          pode até ver um anúncio nosso, mas ele não terá relação nenhuma com sua visita a
+          este site.
+        </p>
+
+        <h3>2.5 Registros técnicos da hospedagem</h3>
         <p>
           O site é hospedado no <strong>GitHub Pages</strong>, e as fontes de algumas
           páginas são servidas pelo <strong>Google Fonts</strong>. Como acontece com
@@ -293,14 +316,22 @@
             <strong>legítimo interesse</strong> (artigo 7º, IX).
           </li>
           <li>
+            <strong>Medição de anúncios e remarketing no Google Ads</strong> — para saber
+            quais anúncios geram contato e para reapresentar a MAPA a quem já visitou o site.
+            Base legal: <strong>consentimento</strong> (artigo 7º, I), dado no aviso de
+            cookies e revogável a qualquer momento.
+          </li>
+          <li>
             <strong>Guarda de propostas e contratos fechados</strong> — para cumprir obrigações
             fiscais e contábeis.
             Base legal: <strong>cumprimento de obrigação legal</strong> (artigo 7º, II).
           </li>
         </ul>
         <p>
-          Não usamos seus dados para publicidade, não fazemos perfilamento para anúncios e
-          não tomamos nenhuma decisão automatizada que afete você.
+          Não vendemos seus dados, não montamos perfil sobre você para terceiros e não
+          tomamos nenhuma decisão automatizada que produza efeito jurídico ou afete seus
+          interesses. A publicidade acima se limita a medir resultado de anúncio e a
+          reapresentar a MAPA para quem já esteve aqui.
         </p>
 
         <h2>4. Com quem compartilhamos</h2>
@@ -309,7 +340,7 @@
           terceiros apenas pelas ferramentas que operam o site:
         </p>
         <ul>
-          <li><strong>Google LLC</strong> — Google Analytics 4 e Google Fonts</li>
+          <li><strong>Google LLC</strong> — Google Analytics 4, Google Ads e Google Fonts</li>
           <li><strong>Microsoft Corporation</strong> — Microsoft Clarity</li>
           <li><strong>GitHub, Inc.</strong> — hospedagem das páginas</li>
           <li><strong>Hostinger</strong> — hospedagem do e-mail do domínio</li>
@@ -332,6 +363,7 @@
         <ul>
           <li><strong>Google Analytics 4</strong> — dados de evento e de usuário por até 14 meses, prazo configurado na propriedade.</li>
           <li><strong>Microsoft Clarity</strong> — reproduções de sessão por até 30 dias; métricas agregadas e mapas de calor por mais tempo, conforme a política da Microsoft.</li>
+          <li><strong>Google Ads</strong> — listas de remarketing por até 540 dias; dados de conversão conforme a política do Google.</li>
           <li><strong>Conversas de WhatsApp e e-mail</strong> — enquanto durar o interesse comercial e por até 5 anos depois, prazo prescricional do Código Civil para cobranças.</li>
           <li><strong>Contratos e notas fiscais</strong> — pelos prazos exigidos pela legislação fiscal, hoje de 5 anos.</li>
           <li><strong>Sua escolha sobre cookies</strong> — 180 dias, guardada no seu próprio navegador.</li>
@@ -385,7 +417,13 @@
                 <td>Até 1 ano</td>
               </tr>
               <tr>
-                <td><code>mapa_consent</code></td>
+                <td><code>_gcl_au</code></td>
+                <td>Google Ads</td>
+                <td>Liga o clique no anúncio ao contato que veio dele</td>
+                <td>90 dias</td>
+              </tr>
+              <tr>
+                <td><code>mapa_consent_v2</code></td>
                 <td>Este site</td>
                 <td>Guarda sua escolha no aviso de cookies</td>
                 <td>180 dias*</td>
