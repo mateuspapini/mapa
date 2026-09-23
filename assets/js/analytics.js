@@ -25,13 +25,13 @@
 
   // ID de conversão do Google Ads — Ferramentas → Conversões → sua conversão,
   // na caixa "Adicionar a tag ao site". Formato: AW-123456789
-  var ADS_ID = 'AW-XXXXXXXXX';
+  var ADS_ID = 'AW-18466762656';
 
   // Rótulos de conversão do Google Ads. Vêm junto do ID, no formato
   // 'AW-123456789/AbC-D_efGhIjKlMnOp' — cole aqui SÓ a parte depois da barra.
   var ADS_CONVERSOES = {
-    whatsapp: 'XXXXXXXXXXXXXXXXXXXXXX',   // conversão principal: clique no WhatsApp
-    email: ''                              // opcional: clique no e-mail
+    whatsapp: '1jU0CMWU1YAdEKDf0eVE',   // conversão principal: clique no WhatsApp
+    email: 'mghRCMiU1YAdEKDf0eVE'          // opcional: clique no e-mail
   };
 
   // true  = GA4 carrega já no modo restrito (sem cookies) e só passa a usar
