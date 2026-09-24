@@ -25,19 +25,20 @@
 <meta property="og:image" content="https://mapasolucoesdigitais.com.br/assets/img/og-mapa.jpg">
 <meta name="twitter:card" content="summary_large_image">
 
-<meta name="theme-color" content="#080c18">
+<meta name="theme-color" content="#0f1115">
 <link rel="preload" href="/assets/fonts/sora-latin-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/css/paginas.css">
 
 <script>
-  (function(){
-    try{
-      if(localStorage.getItem('mapa_theme') === 'light'){
-        document.documentElement.setAttribute('data-theme','light');
+  (function() {
+    try {
+      if (localStorage.getItem("mapa_theme") === "light") {
+        document.documentElement.setAttribute("data-theme", "light");
         var m = document.querySelector('meta[name="theme-color"]');
-        if(m) m.setAttribute('content','#f2f5fc');
+        if (m) m.setAttribute("content", "#f5f6f8");
       }
-    }catch(e){}
+    } catch (e) {
+    }
   })();
 </script>
 
@@ -108,7 +109,7 @@
         {
           "@type": "Question",
           "name": "Quantas rodadas de ajuste estão incluídas?",
-          "acceptedAnswer": { "@type": "Answer", "text": "O número de rodadas é definido junto com o escopo antes de começar, e fica escrito na proposta. A ideia é que você saiba exatamente onde está o limite antes de aprovar, não depois." }
+          "acceptedAnswer": { "@type": "Answer", "text": "O número de rodadas é definido junto com o escopo antes de começar, e fica escrito na proposta. Assim você sabe exatamente onde está o limite antes de aprovar." }
         },
         {
           "@type": "Question",
@@ -127,50 +128,100 @@
 </script>
 
 <style>
-  /* Ajustes só desta página */
-  .hero .lead{font-size:1.12rem}
-  .selo{
-    display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:26px;
-    font-size:.86rem;color:var(--t3);
+  .hero .lead {
+    font-size: 1.12rem;
   }
-  .selo span{display:inline-flex;align-items:center;gap:7px}
-  .selo span::before{
-    content:"";width:7px;height:7px;border-radius:50%;
-    background:var(--accent);flex-shrink:0;
+  .selo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+    margin-top: 26px;
+    font-size: .86rem;
+    color: var(--t3);
   }
-  .numeros{
-    display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-    gap:18px;margin-bottom:36px;
+  .selo span {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
   }
-  .numeros div{
-    background:var(--card);border:1px solid var(--bdr);
-    border-radius:16px;padding:22px;text-align:center;
+  .selo span::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    background: var(--accent);
+    flex-shrink: 0;
   }
-  .numeros b{
-    display:block;font-family:'Sora',sans-serif;font-weight:800;
-    font-size:clamp(1.6rem,3.4vw,2.1rem);
-    background:var(--grad);-webkit-background-clip:text;background-clip:text;
-    -webkit-text-fill-color:transparent;margin-bottom:4px;
+  .numeros {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 18px;
+    margin-bottom: 36px;
   }
-  .numeros small{color:var(--t3);font-size:.85rem;line-height:1.5;display:block}
-  .passos{counter-reset:passo;display:grid;gap:16px}
-  .passos li{
-    counter-increment:passo;list-style:none;position:relative;
-    background:var(--card);border:1px solid var(--bdr);border-radius:16px;
-    padding:22px 24px 22px 68px;
+  .numeros div {
+    background: var(--card);
+    border: 1px solid var(--bdr);
+    border-radius: var(--r);
+    padding: 22px;
+    text-align: center;
   }
-  .passos li::before{
-    content:counter(passo);position:absolute;left:22px;top:22px;
-    width:30px;height:30px;border-radius:9px;
-    background:var(--glow);border:1px solid rgba(0,200,245,.3);
-    display:grid;place-items:center;
-    font-family:'Sora',sans-serif;font-weight:800;font-size:.9rem;
-    color:var(--accent-txt);
+  .numeros b {
+    display: block;
+    font-family: "Sora", sans-serif;
+    font-weight: 800;
+    font-size: clamp(1.6rem, 3.4vw, 2.1rem);
+    color: var(--accent-txt);
+    margin-bottom: 4px;
   }
-  .passos h3{font-size:1.02rem;margin-bottom:6px}
-  .passos p{color:var(--t2);font-size:.95rem}
-  .aviso-preco{
-    font-size:.88rem;color:var(--t3);margin-top:18px;line-height:1.7;
+  .numeros small {
+    color: var(--t3);
+    font-size: .85rem;
+    line-height: 1.5;
+    display: block;
+  }
+  .passos {
+    counter-reset: passo;
+    display: grid;
+    gap: 16px;
+  }
+  .passos li {
+    counter-increment: passo;
+    list-style: none;
+    position: relative;
+    background: var(--card);
+    border: 1px solid var(--bdr);
+    border-radius: var(--r);
+    padding: 22px 24px 22px 68px;
+  }
+  .passos li::before {
+    content: counter(passo);
+    position: absolute;
+    left: 22px;
+    top: 22px;
+    width: 30px;
+    height: 30px;
+    border-radius: var(--r-sm);
+    background: var(--glow);
+    border: 1px solid var(--tint-bdr);
+    display: grid;
+    place-items: center;
+    font-family: "Sora", sans-serif;
+    font-weight: 800;
+    font-size: .9rem;
+    color: var(--accent-txt);
+  }
+  .passos h3 {
+    font-size: 1.02rem;
+    margin-bottom: 6px;
+  }
+  .passos p {
+    color: var(--t2);
+    font-size: .95rem;
+  }
+  .aviso-preco {
+    font-size: .88rem;
+    color: var(--t3);
+    margin-top: 18px;
+    line-height: 1.7;
   }
 </style>
 
@@ -180,7 +231,7 @@
 
 <header>
   <nav aria-label="Menu principal">
-    <a href="/" class="logo-img" aria-label="MAPA Soluções Digitais – Início">
+    <a href="/" class="logo-img" aria-label="MAPA Soluções Digitais, início">
       <img class="logo-on-dark" src="/assets/img/brand/logo-mapa.png" alt="" width="191" height="40" loading="eager">
       <img class="logo-on-light" src="/assets/img/brand/logo-mapa-light.png" alt="" width="191" height="40" loading="eager">
     </a>
@@ -197,8 +248,8 @@
     </ul>
 
     <button class="theme-btn" id="themeBtn" aria-label="Alternar tema" title="Tema claro/escuro">
-      <svg id="icoSun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-      <svg id="icoMoon" viewBox="0 0 24 24" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" id="icoSun"><path d="M12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zM11 1h2v3.5h-2zM11 19.5h2V23h-2zM1 11h3.5v2H1zM19.5 11H23v2h-3.5zM4.2 5.6l1.4-1.4 2.5 2.5-1.4 1.4zM16.4 17.8l1.4-1.4 2.5 2.5-1.4 1.4zM17.8 4.2l1.4 1.4-2.5 2.5-1.4-1.4zM5.6 19.8l-1.4-1.4 2.5-2.5 1.4 1.4z"/></svg>
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" id="icoMoon" style="display:none"><path d="M20.5 14.3A8.8 8.8 0 0 1 9.7 3.5 8.8 8.8 0 1 0 20.5 14.3z"/></svg>
     </button>
 
     <button class="hbg" id="hbg" aria-label="Abrir menu" aria-expanded="false" aria-controls="navUl">
@@ -215,13 +266,12 @@
     </nav>
   </div>
 
-  <!-- ══ HERO ══ -->
   <section class="hero">
     <div class="wrap">
       <span class="chip">Edição de vídeo para empresas</span>
       <h1>Seu material bruto vira <span class="g">vídeo pronto para publicar</span></h1>
       <p class="lead">
-        Corte, color grading, motion graphics, narração e legendas — entregue já nos
+        Corte, color grading, motion graphics, narração e legendas, entregues já nos
         formatos que você vai usar: horizontal para YouTube e site, vertical para Reels,
         Stories e TikTok. Você manda o link do material, a gente devolve o vídeo.
       </p>
@@ -239,12 +289,11 @@
     </div>
   </section>
 
-  <!-- ══ PROVA ══ -->
   <section class="alt" id="trabalhos">
     <div class="wrap">
       <h2 class="sec">Quem já está <span class="g">no ar</span></h2>
       <p class="sub">
-        A maior parte do que a MAPA edita hoje é vídeo de lançamento imobiliário —
+        A maior parte do que a MAPA edita hoje é vídeo de lançamento imobiliário:
         material que precisa sair rápido, aguentar veiculação paga e funcionar em
         horizontal e em vertical ao mesmo tempo. É o tipo de prazo que ensina a editar.
       </p>
@@ -278,19 +327,18 @@
     </div>
   </section>
 
-  <!-- ══ O QUE ENTRA ══ -->
   <section>
     <div class="wrap">
       <h2 class="sec">O que entra <span class="g">em cada entrega</span></h2>
       <p class="sub">
-        Não é uma lista de opcionais para encarecer o orçamento depois. É o que sai por
+        Tudo abaixo já está no orçamento e sai por
         padrão em todo vídeo, salvo quando o projeto pedir o contrário.
       </p>
 
       <div class="grid g33">
         <div class="card">
           <h3>Corte e ritmo</h3>
-          <p>Seleção do material aproveitável, jump cuts e ritmo pensado para a plataforma — o que prende no YouTube não é o que prende no Reels.</p>
+          <p>Seleção do material aproveitável, jump cuts e ritmo ajustado para cada plataforma, porque YouTube e Reels pedem tempos diferentes.</p>
         </div>
         <div class="card">
           <h3>Color grading</h3>
@@ -306,17 +354,16 @@
         </div>
         <div class="card">
           <h3>Legendas embutidas</h3>
-          <p>A maior parte da audiência assiste sem som. A legenda sai queimada no vídeo, sincronizada e revisada — não é transcrição automática solta.</p>
+          <p>A maior parte da audiência assiste sem som. A legenda sai queimada no vídeo, sincronizada e revisada por uma pessoa.</p>
         </div>
         <div class="card">
           <h3>Dois formatos</h3>
-          <p>Horizontal para YouTube e site e vertical 9:16 para Reels, Stories e TikTok — os dois saem da mesma edição, não são cobrados como dois trabalhos.</p>
+          <p>Horizontal para YouTube e site e vertical 9:16 para Reels, Stories e TikTok. Os dois formatos saem da mesma edição e entram no mesmo orçamento.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ══ COMO FUNCIONA ══ -->
   <section class="alt">
     <div class="wrap">
       <h2 class="sec">Como <span class="g">funciona</span></h2>
@@ -335,7 +382,7 @@
         </li>
         <li>
           <h3>Manda o material e acompanha</h3>
-          <p>Link do Drive, WeTransfer ou a nuvem que você já usa. Você recebe uma versão para revisar antes da final — o ajuste acontece no rascunho, não depois de pronto.</p>
+          <p>Link do Drive, WeTransfer ou a nuvem que você já usa. Você recebe uma versão para revisar antes da final, e os ajustes são feitos nessa etapa.</p>
         </li>
         <li>
           <h3>Recebe os arquivos finais</h3>
@@ -345,7 +392,6 @@
     </div>
   </section>
 
-  <!-- ══ FAQ ══ -->
   <section>
     <div class="wrap">
       <h2 class="sec">Perguntas <span class="g">frequentes</span></h2>
@@ -363,12 +409,12 @@
 
       <details class="faq">
         <summary>O vídeo já vem no formato de anúncio?</summary>
-        <p>Sim. A entrega padrão inclui a versão horizontal para YouTube e site e a versão vertical 9:16 para Reels, Stories e TikTok, com legenda embutida — porque a maioria assiste sem som.</p>
+        <p>Sim. A entrega padrão inclui a versão horizontal para YouTube e site e a versão vertical 9:16 para Reels, Stories e TikTok, com legenda embutida, porque a maioria assiste sem som.</p>
       </details>
 
       <details class="faq">
         <summary>Quantas rodadas de ajuste estão incluídas?</summary>
-        <p>O número de rodadas é definido junto com o escopo antes de começar e fica escrito na proposta. A ideia é você saber exatamente onde está o limite antes de aprovar, não depois.</p>
+        <p>O número de rodadas é definido junto com o escopo antes de começar e fica escrito na proposta. Assim você sabe exatamente onde está o limite antes de aprovar.</p>
       </details>
 
       <details class="faq">
@@ -378,19 +424,18 @@
 
       <details class="faq">
         <summary>Quanto custa?</summary>
-        <p>Depende da duração, da quantidade de material bruto e do nível de motion graphics — um corte de 40 segundos para Reels e um vídeo de lançamento de 3 minutos não são o mesmo trabalho. Por isso o orçamento sai depois de uma conversa rápida, com escopo e valor fechados antes de qualquer coisa começar.</p>
+        <p>Depende da duração, da quantidade de material bruto e do nível de motion graphics. Um corte de 40 segundos para Reels e um vídeo de lançamento de 3 minutos pedem esforços bem diferentes. Por isso o orçamento sai depois de uma conversa rápida, com escopo e valor fechados antes de qualquer coisa começar.</p>
       </details>
     </div>
   </section>
 
-  <!-- ══ CTA ══ -->
   <section class="alt">
     <div class="wrap">
       <div class="cta-box">
         <h2 class="sec">Conta o que você precisa editar</h2>
         <p class="sub" style="margin-inline:auto">
           Manda uma mensagem dizendo que tipo de vídeo é e quanto material você tem.
-          A resposta vem em até 24 horas, com orçamento fechado — e sem custo para pedir.
+          A resposta vem em até 24 horas, com orçamento fechado e sem custo para pedir.
         </p>
         <div class="btns" style="justify-content:center">
           <a class="btn btn-1"
@@ -411,7 +456,7 @@
 <footer>
   <div class="ft-grid">
     <div class="ft-brand">
-      <a href="/" class="logo-img" aria-label="MAPA Soluções Digitais — início">
+      <a href="/" class="logo-img" aria-label="MAPA Soluções Digitais, início">
         <img class="logo-on-dark" src="/assets/img/brand/logo-mapa.png" alt="" width="153" height="32" decoding="async">
         <img class="logo-on-light" src="/assets/img/brand/logo-mapa-light.png" alt="" width="153" height="32" decoding="async">
       </a>
@@ -457,34 +502,34 @@
 </footer>
 
 <script>
-  (function(){
-    var btn = document.getElementById('themeBtn'),
-        sun = document.getElementById('icoSun'),
-        moon = document.getElementById('icoMoon'),
-        root = document.documentElement;
-
-    function paint(){
-      var light = root.getAttribute('data-theme') === 'light';
-      sun.style.display  = light ? 'none' : '';
-      moon.style.display = light ? '' : 'none';
+  (function() {
+    var btn = document.getElementById("themeBtn"), sun = document.getElementById("icoSun"), moon = document.getElementById("icoMoon"), root = document.documentElement;
+    function paint() {
+      var light = root.getAttribute("data-theme") === "light";
+      sun.style.display = light ? "none" : "";
+      moon.style.display = light ? "" : "none";
       var m = document.querySelector('meta[name="theme-color"]');
-      if(m) m.setAttribute('content', light ? '#f2f5fc' : '#080c18');
+      if (m) m.setAttribute("content", light ? "#f5f6f8" : "#0f1115");
     }
     paint();
-
-    btn.addEventListener('click', function(){
-      var light = root.getAttribute('data-theme') === 'light';
-      if(light){ root.removeAttribute('data-theme'); } else { root.setAttribute('data-theme','light'); }
-      try{ localStorage.setItem('mapa_theme', light ? 'dark' : 'light'); }catch(e){}
+    btn.addEventListener("click", function() {
+      var light = root.getAttribute("data-theme") === "light";
+      if (light) {
+        root.removeAttribute("data-theme");
+      } else {
+        root.setAttribute("data-theme", "light");
+      }
+      try {
+        localStorage.setItem("mapa_theme", light ? "dark" : "light");
+      } catch (e) {
+      }
       paint();
     });
-
-    var hbg = document.getElementById('hbg'),
-        ul  = document.getElementById('navUl');
-    hbg.addEventListener('click', function(){
-      var open = ul.classList.toggle('open');
-      hbg.setAttribute('aria-expanded', open ? 'true' : 'false');
-      hbg.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+    var hbg = document.getElementById("hbg"), ul = document.getElementById("navUl");
+    hbg.addEventListener("click", function() {
+      var open = ul.classList.toggle("open");
+      hbg.setAttribute("aria-expanded", open ? "true" : "false");
+      hbg.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
     });
   })();
 </script>

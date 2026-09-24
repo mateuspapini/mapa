@@ -21,19 +21,20 @@
 <meta property="og:image" content="https://mapasolucoesdigitais.com.br/assets/img/og-mapa.jpg">
 <meta name="twitter:card" content="summary_large_image">
 
-<meta name="theme-color" content="#080c18">
+<meta name="theme-color" content="#0f1115">
 <link rel="preload" href="/assets/fonts/sora-latin-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/css/paginas.css">
 
 <script>
-  (function(){
-    try{
-      if(localStorage.getItem('mapa_theme') === 'light'){
-        document.documentElement.setAttribute('data-theme','light');
+  (function() {
+    try {
+      if (localStorage.getItem("mapa_theme") === "light") {
+        document.documentElement.setAttribute("data-theme", "light");
         var m = document.querySelector('meta[name="theme-color"]');
-        if(m) m.setAttribute('content','#f2f5fc');
+        if (m) m.setAttribute("content", "#f5f6f8");
       }
-    }catch(e){}
+    } catch (e) {
+    }
   })();
 </script>
 
@@ -79,62 +80,130 @@
 </script>
 
 <style>
-  /* Estilo só desta página: prosa jurídica legível.
-     Cores e fontes vêm dos tokens de /assets/css/paginas.css. */
-  .legal{max-width:76ch}
-  .legal h2{
-    font-size:clamp(1.15rem,2.2vw,1.45rem);
-    margin:44px 0 14px;
-    padding-top:26px;
-    border-top:1px solid var(--bdr);
-    color:var(--t1);
+  .legal {
+    max-width: 76ch;
   }
-  .legal h2:first-of-type{border-top:0;padding-top:0;margin-top:30px}
-  .legal h3{font-size:1rem;margin:26px 0 8px;color:var(--t1)}
-  .legal p{color:var(--t2);font-size:.97rem;line-height:1.8;margin-bottom:14px}
-  .legal ul{margin:0 0 16px 0;padding-left:0;list-style:none}
-  .legal li{
-    color:var(--t2);font-size:.97rem;line-height:1.8;
-    padding-left:20px;position:relative;margin-bottom:8px;
+  .legal h2 {
+    font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+    margin: 44px 0 14px;
+    padding-top: 26px;
+    border-top: 1px solid var(--bdr);
+    color: var(--t1);
   }
-  .legal li::before{content:'—';position:absolute;left:0;color:var(--accent-txt);opacity:.7}
-  .legal strong{color:var(--t1);font-weight:700}
-  .legal a{color:var(--accent-txt);text-decoration:underline;text-underline-offset:3px}
-
-  .resumo{
-    background:var(--card);border:1px solid var(--bdr);
-    border-left:3px solid var(--accent);
-    border-radius:12px;padding:20px 22px;margin:26px 0 8px;
+  .legal h2:first-of-type {
+    border-top: 0;
+    padding-top: 0;
+    margin-top: 30px;
   }
-  .resumo p:last-child{margin-bottom:0}
-
-  .atualizado{font-size:.85rem;color:var(--t3);margin-top:8px}
-
-  .tabela-wrap{overflow-x:auto;margin:18px 0 22px;-webkit-overflow-scrolling:touch}
-  table.cookies{
-    width:100%;min-width:560px;border-collapse:collapse;
-    font-size:.88rem;color:var(--t2);
+  .legal h3 {
+    font-size: 1rem;
+    margin: 26px 0 8px;
+    color: var(--t1);
   }
-  table.cookies th,table.cookies td{
-    text-align:left;padding:11px 14px;
-    border-bottom:1px solid var(--bdr);vertical-align:top;
+  .legal p {
+    color: var(--t2);
+    font-size: .97rem;
+    line-height: 1.8;
+    margin-bottom: 14px;
   }
-  table.cookies th{
-    color:var(--t1);font-weight:700;font-size:.78rem;
-    text-transform:uppercase;letter-spacing:.06em;
-    background:var(--card2);white-space:nowrap;
+  .legal ul {
+    margin: 0 0 16px 0;
+    padding-left: 0;
+    list-style: none;
   }
-  table.cookies tr:last-child td{border-bottom:0}
-  table.cookies code{
-    font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
-    font-size:.84rem;color:var(--accent-txt);
+  .legal li {
+    color: var(--t2);
+    font-size: .97rem;
+    line-height: 1.8;
+    padding-left: 20px;
+    position: relative;
+    margin-bottom: 8px;
   }
-
-  .contato-box{
-    background:var(--card);border:1px solid var(--bdr);
-    border-radius:12px;padding:22px;margin-top:26px;
+  .legal li::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    top: .62em;
+    background: var(--accent-txt);
+    position: absolute;
+    left: 2px;
+    opacity: .8;
   }
-  .contato-box p:last-child{margin-bottom:0}
+  .legal strong {
+    color: var(--t1);
+    font-weight: 700;
+  }
+  .legal a {
+    color: var(--accent-txt);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .resumo {
+    background: var(--card);
+    border: 1px solid var(--bdr);
+    border-left: 3px solid var(--accent);
+    border-radius: var(--r);
+    padding: 20px 22px;
+    margin: 26px 0 8px;
+  }
+  .resumo p:last-child {
+    margin-bottom: 0;
+  }
+  .atualizado {
+    font-size: .85rem;
+    color: var(--t3);
+    margin-top: 8px;
+  }
+  .tabela-wrap {
+    overflow-x: auto;
+    margin: 18px 0 22px;
+    -webkit-overflow-scrolling: touch;
+  }
+  table.cookies {
+    width: 100%;
+    min-width: 560px;
+    border-collapse: collapse;
+    font-size: .88rem;
+    color: var(--t2);
+  }
+  table.cookies th,
+  table.cookies td {
+    text-align: left;
+    padding: 11px 14px;
+    border-bottom: 1px solid var(--bdr);
+    vertical-align: top;
+  }
+  table.cookies th {
+    color: var(--t1);
+    font-weight: 700;
+    font-size: .78rem;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    background: var(--card2);
+    white-space: nowrap;
+  }
+  table.cookies tr:last-child td {
+    border-bottom: 0;
+  }
+  table.cookies code {
+    font-family:
+      ui-monospace,
+      SFMono-Regular,
+      Menlo,
+      monospace;
+    font-size: .84rem;
+    color: var(--accent-txt);
+  }
+  .contato-box {
+    background: var(--card);
+    border: 1px solid var(--bdr);
+    border-radius: var(--r);
+    padding: 22px;
+    margin-top: 26px;
+  }
+  .contato-box p:last-child {
+    margin-bottom: 0;
+  }
 </style>
 
 <script src="/assets/js/analytics.js" defer></script>
@@ -143,7 +212,7 @@
 
 <header>
   <nav aria-label="Menu principal">
-    <a href="/" class="logo-img" aria-label="MAPA Soluções Digitais – Início">
+    <a href="/" class="logo-img" aria-label="MAPA Soluções Digitais, início">
       <img class="logo-on-dark" src="/assets/img/brand/logo-mapa.png" alt="" width="191" height="40" loading="eager">
       <img class="logo-on-light" src="/assets/img/brand/logo-mapa-light.png" alt="" width="191" height="40" loading="eager">
     </a>
@@ -160,8 +229,8 @@
     </ul>
 
     <button class="theme-btn" id="themeBtn" aria-label="Alternar tema" title="Tema claro/escuro">
-      <svg id="icoSun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-      <svg id="icoMoon" viewBox="0 0 24 24" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" id="icoSun"><path d="M12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zM11 1h2v3.5h-2zM11 19.5h2V23h-2zM1 11h3.5v2H1zM19.5 11H23v2h-3.5zM4.2 5.6l1.4-1.4 2.5 2.5-1.4 1.4zM16.4 17.8l1.4-1.4 2.5 2.5-1.4 1.4zM17.8 4.2l1.4 1.4-2.5 2.5-1.4-1.4zM5.6 19.8l-1.4-1.4 2.5-2.5 1.4 1.4z"/></svg>
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" id="icoMoon" style="display:none"><path d="M20.5 14.3A8.8 8.8 0 0 1 9.7 3.5 8.8 8.8 0 1 0 20.5 14.3z"/></svg>
     </button>
 
     <button class="hbg" id="hbg" aria-label="Abrir menu" aria-expanded="false" aria-controls="navUl">
@@ -184,7 +253,7 @@
       <h1>Política de <span class="g">Privacidade</span></h1>
       <p class="lead">
         O que a MAPA coleta neste site, por que coleta, com quem compartilha e
-        como você controla tudo isso. Escrito para ser lido, não para ser aceito no automático.
+        como você controla tudo isso. Escrito em linguagem direta, para ser lido de verdade.
       </p>
       <p class="atualizado">Última atualização: 21 de setembro de 2026</p>
     </div>
@@ -197,7 +266,7 @@
         <div class="resumo">
           <p><strong>O resumo honesto:</strong> este site não tem cadastro, não tem login,
           não tem carrinho e não vende nada online. O que coletamos por conta própria é
-          estatística de navegação e a medição dos nossos anúncios no Google — as duas
+          estatística de navegação e a medição dos nossos anúncios no Google, as duas
           coisas só depois que você aceita. Se você nos escrever pelo WhatsApp ou por
           e-mail, guardamos a conversa para poder te responder e fazer um orçamento. Não
           vendemos dado de ninguém para ninguém.</p>
@@ -224,7 +293,7 @@
         <p>
           Usamos duas ferramentas de análise: <strong>Google Analytics 4</strong> e
           <strong>Microsoft Clarity</strong>, e a medição do <strong>Google Ads</strong>
-          descrita no item 2.4. Elas registram como as páginas são usadas —
+          descrita no item 2.4. Elas registram como as páginas são usadas:
           quais páginas foram abertas, por quanto tempo, de onde veio a visita, qual o tipo
           de aparelho e navegador, cidade e estado aproximados (nunca o endereço exato),
           e quais botões foram clicados.
@@ -232,15 +301,15 @@
         <p>
           O Microsoft Clarity também grava <strong>mapas de calor e reproduções da sessão</strong>:
           um desenho dos movimentos do cursor, dos cliques e da rolagem dentro da página.
-          Não é gravação de tela nem de câmera. O Clarity aplica mascaramento automático de
+          Ele registra apenas esses movimentos, sem filmar tela ou câmera. O Clarity aplica mascaramento automático de
           conteúdo sensível, e nenhum texto que você digite em campo de formulário é
           reproduzido para nós.
         </p>
         <p>
           Nada disso roda antes de você clicar em <strong>"Aceitar"</strong> no aviso de
           cookies. Se você escolher "Só o essencial", o Clarity não carrega e o Google
-          Analytics fica em modo restrito, sem gravar cookie algum no seu navegador —
-          nesse modo ele envia apenas sinais anônimos, sem identificador, que servem só
+          Analytics fica em modo restrito, sem gravar cookie algum no seu navegador.
+          Nesse modo ele envia apenas sinais anônimos, sem identificador, que servem só
           para estimar totais agregados de visitas.
         </p>
 
@@ -260,19 +329,19 @@
         <p>
           As calculadoras gratuitas de rescisão trabalhista, BTU e custo de reforma rodam
           <strong>inteiramente dentro do seu navegador</strong>. Salário, tempo de casa,
-          metragem, valores — nada disso é enviado para nós nem para ninguém. Fecha a aba,
+          metragem, valores: nada disso é enviado para nós nem para ninguém. Fecha a aba,
           acabou.
         </p>
         <p>
           A única exceção é por sua própria conta: se, depois do resultado, você clicar no
-          botão que abre o WhatsApp, o resultado vai escrito na mensagem que você envia —
+          botão que abre o WhatsApp, o resultado vai escrito na mensagem que você envia,
           e aí você já decidiu nos mostrar.
         </p>
 
         <h3>2.4 Anúncios no Google</h3>
         <p>
           Anunciamos os serviços da MAPA no <strong>Google Ads</strong>. Se você chegou
-          aqui por um anúncio, o Google registra que aquele clique levou a esta visita —
+          aqui por um anúncio, o Google registra que aquele clique levou a esta visita
           e, se você clicar para falar conosco, registra também que aquele anúncio gerou
           um contato. É assim que sabemos quais anúncios valem o dinheiro investido e
           quais devem ser desligados.
@@ -280,7 +349,7 @@
         <p>
           Essa medição também permite <strong>remarketing</strong>: mostrar um anúncio da
           MAPA para quem já visitou o site, em outros sites e no YouTube. Não sabemos quem
-          você é nesse processo — o Google trabalha com identificadores próprios, não com
+          você é nesse processo. O Google trabalha com identificadores próprios, sem usar o
           seu nome.
         </p>
         <p>
@@ -303,26 +372,26 @@
         <h2>3. Por que coletamos e com que base legal</h2>
         <ul>
           <li>
-            <strong>Estatística de navegação e gravações do Clarity</strong> — para entender
+            <strong>Estatística de navegação e gravações do Clarity</strong>: para entender
             o que funciona no site e melhorar o que não funciona.
             Base legal: <strong>consentimento</strong> (artigo 7º, I da LGPD), dado por você
             no aviso de cookies e revogável a qualquer momento.
           </li>
           <li>
-            <strong>Contato por WhatsApp ou e-mail</strong> — para responder você, entender a
+            <strong>Contato por WhatsApp ou e-mail</strong>: para responder você, entender a
             demanda e preparar um orçamento.
             Base legal: <strong>procedimentos preliminares a um contrato</strong> a seu pedido
             (artigo 7º, V) e, na continuidade do relacionamento comercial,
             <strong>legítimo interesse</strong> (artigo 7º, IX).
           </li>
           <li>
-            <strong>Medição de anúncios e remarketing no Google Ads</strong> — para saber
+            <strong>Medição de anúncios e remarketing no Google Ads</strong>: para saber
             quais anúncios geram contato e para reapresentar a MAPA a quem já visitou o site.
             Base legal: <strong>consentimento</strong> (artigo 7º, I), dado no aviso de
             cookies e revogável a qualquer momento.
           </li>
           <li>
-            <strong>Guarda de propostas e contratos fechados</strong> — para cumprir obrigações
+            <strong>Guarda de propostas e contratos fechados</strong>: para cumprir obrigações
             fiscais e contábeis.
             Base legal: <strong>cumprimento de obrigação legal</strong> (artigo 7º, II).
           </li>
@@ -340,11 +409,11 @@
           terceiros apenas pelas ferramentas que operam o site:
         </p>
         <ul>
-          <li><strong>Google LLC</strong> — Google Analytics 4, Google Ads e Google Fonts</li>
-          <li><strong>Microsoft Corporation</strong> — Microsoft Clarity</li>
-          <li><strong>GitHub, Inc.</strong> — hospedagem das páginas</li>
-          <li><strong>Hostinger</strong> — hospedagem do e-mail do domínio</li>
-          <li><strong>Meta Platforms</strong> — quando a conversa acontece pelo WhatsApp</li>
+          <li><strong>Google LLC</strong>: Google Analytics 4, Google Ads e Google Fonts</li>
+          <li><strong>Microsoft Corporation</strong>: Microsoft Clarity</li>
+          <li><strong>GitHub, Inc.</strong>: hospedagem das páginas</li>
+          <li><strong>Hostinger</strong>: hospedagem do e-mail do domínio</li>
+          <li><strong>Meta Platforms</strong>: quando a conversa acontece pelo WhatsApp</li>
         </ul>
         <p>
           Também podemos compartilhar dados quando houver <strong>ordem judicial</strong> ou
@@ -361,12 +430,12 @@
 
         <h2>5. Por quanto tempo guardamos</h2>
         <ul>
-          <li><strong>Google Analytics 4</strong> — dados de evento e de usuário por até 14 meses, prazo configurado na propriedade.</li>
-          <li><strong>Microsoft Clarity</strong> — reproduções de sessão por até 30 dias; métricas agregadas e mapas de calor por mais tempo, conforme a política da Microsoft.</li>
-          <li><strong>Google Ads</strong> — listas de remarketing por até 540 dias; dados de conversão conforme a política do Google.</li>
-          <li><strong>Conversas de WhatsApp e e-mail</strong> — enquanto durar o interesse comercial e por até 5 anos depois, prazo prescricional do Código Civil para cobranças.</li>
-          <li><strong>Contratos e notas fiscais</strong> — pelos prazos exigidos pela legislação fiscal, hoje de 5 anos.</li>
-          <li><strong>Sua escolha sobre cookies</strong> — 180 dias, guardada no seu próprio navegador.</li>
+          <li><strong>Google Analytics 4</strong>: dados de evento e de usuário por até 14 meses, prazo configurado na propriedade.</li>
+          <li><strong>Microsoft Clarity</strong>: reproduções de sessão por até 30 dias; métricas agregadas e mapas de calor por mais tempo, conforme a política da Microsoft.</li>
+          <li><strong>Google Ads</strong>: listas de remarketing por até 540 dias; dados de conversão conforme a política do Google.</li>
+          <li><strong>Conversas de WhatsApp e e-mail</strong>: enquanto durar o interesse comercial e por até 5 anos depois, prazo prescricional do Código Civil para cobranças.</li>
+          <li><strong>Contratos e notas fiscais</strong>: pelos prazos exigidos pela legislação fiscal, hoje de 5 anos.</li>
+          <li><strong>Sua escolha sobre cookies</strong>: 180 dias, guardada no seu próprio navegador.</li>
         </ul>
 
         <h2>6. Cookies e armazenamento local</h2>
@@ -445,7 +514,7 @@
         </p>
         <p>
           Para <strong>mudar sua escolha a qualquer momento</strong>, clique em
-          <a href="#" id="abrirCookies">Cookies</a> — o aviso reabre e você pode aceitar ou
+          <a href="#" id="abrirCookies">Cookies</a> e o aviso reabre e você pode aceitar ou
           recusar de novo. Você também pode apagar cookies pelas configurações do seu
           navegador, e bloquear os de análise com qualquer bloqueador; o site continua
           funcionando normalmente em todos os casos.
@@ -469,7 +538,7 @@
           Escreva para
           <a href="mailto:contato@mapasolucoesdigitais.com.br">contato@mapasolucoesdigitais.com.br</a>
           com o assunto <strong>"LGPD"</strong>. Respondemos em até <strong>15 dias</strong>.
-          Podemos pedir uma confirmação de identidade antes de atender — é para evitar
+          Podemos pedir uma confirmação de identidade antes de atender, para evitar
           entregar dados seus para outra pessoa.
         </p>
         <p>
@@ -483,7 +552,7 @@
           O site é servido apenas por conexão criptografada (HTTPS). Não mantemos banco de
           dados de visitantes, não armazenamos senhas e não pedimos documento, dado
           bancário ou número de cartão em nenhum lugar deste site. Se alguma página pedir
-          isso em nome da MAPA, não é nossa — nos avise.
+          isso em nome da MAPA, desconfie e nos avise.
         </p>
         <p>
           Nenhum sistema é perfeitamente seguro. Se acontecer um incidente com risco
@@ -501,8 +570,8 @@
         <h2>10. Mudanças nesta política</h2>
         <p>
           Quando o site mudar, esta página muda junto. A data de atualização no topo mostra
-          a versão vigente. Se a mudança for relevante — uma ferramenta nova, uma finalidade
-          nova — o aviso de cookies volta a aparecer para você decidir de novo.
+          a versão vigente. Se a mudança for relevante (uma ferramenta nova, uma finalidade
+          nova), o aviso de cookies volta a aparecer para você decidir de novo.
         </p>
 
         <div class="contato-box">
@@ -529,7 +598,7 @@
 <footer>
   <div class="ft-grid">
     <div class="ft-brand">
-      <a href="/" class="logo-img" aria-label="MAPA Soluções Digitais — início">
+      <a href="/" class="logo-img" aria-label="MAPA Soluções Digitais, início">
         <img class="logo-on-dark" src="/assets/img/brand/logo-mapa.png" alt="" width="153" height="32" decoding="async">
         <img class="logo-on-light" src="/assets/img/brand/logo-mapa-light.png" alt="" width="153" height="32" decoding="async">
       </a>
@@ -575,42 +644,40 @@
 </footer>
 
 <script>
-  (function(){
-    var btn = document.getElementById('themeBtn'),
-        sun = document.getElementById('icoSun'),
-        moon = document.getElementById('icoMoon'),
-        root = document.documentElement;
-
-    function paint(){
-      var light = root.getAttribute('data-theme') === 'light';
-      sun.style.display  = light ? 'none' : '';
-      moon.style.display = light ? '' : 'none';
+  (function() {
+    var btn = document.getElementById("themeBtn"), sun = document.getElementById("icoSun"), moon = document.getElementById("icoMoon"), root = document.documentElement;
+    function paint() {
+      var light = root.getAttribute("data-theme") === "light";
+      sun.style.display = light ? "none" : "";
+      moon.style.display = light ? "" : "none";
       var m = document.querySelector('meta[name="theme-color"]');
-      if(m) m.setAttribute('content', light ? '#f2f5fc' : '#080c18');
+      if (m) m.setAttribute("content", light ? "#f5f6f8" : "#0f1115");
     }
     paint();
-
-    btn.addEventListener('click', function(){
-      var light = root.getAttribute('data-theme') === 'light';
-      if(light){ root.removeAttribute('data-theme'); } else { root.setAttribute('data-theme','light'); }
-      try{ localStorage.setItem('mapa_theme', light ? 'dark' : 'light'); }catch(e){}
+    btn.addEventListener("click", function() {
+      var light = root.getAttribute("data-theme") === "light";
+      if (light) {
+        root.removeAttribute("data-theme");
+      } else {
+        root.setAttribute("data-theme", "light");
+      }
+      try {
+        localStorage.setItem("mapa_theme", light ? "dark" : "light");
+      } catch (e) {
+      }
       paint();
     });
-
-    var hbg = document.getElementById('hbg'),
-        ul  = document.getElementById('navUl');
-    hbg.addEventListener('click', function(){
-      var open = ul.classList.toggle('open');
-      hbg.setAttribute('aria-expanded', open ? 'true' : 'false');
-      hbg.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+    var hbg = document.getElementById("hbg"), ul = document.getElementById("navUl");
+    hbg.addEventListener("click", function() {
+      var open = ul.classList.toggle("open");
+      hbg.setAttribute("aria-expanded", open ? "true" : "false");
+      hbg.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
     });
-
-    /* Reabre o aviso de cookies a partir do texto da seção 6 */
-    var abrir = document.getElementById('abrirCookies');
+    var abrir = document.getElementById("abrirCookies");
     if (abrir) {
-      abrir.addEventListener('click', function(e){
+      abrir.addEventListener("click", function(e) {
         e.preventDefault();
-        if (typeof window.mapaAbrirConsentimento === 'function') {
+        if (typeof window.mapaAbrirConsentimento === "function") {
           window.mapaAbrirConsentimento();
         }
       });
