@@ -296,6 +296,32 @@
         { v: "SINAPI", l: "Base oficial de custo" }
       ],
       videos: []
+    },
+    "agregador-links": {
+      badge: "Site",
+      title: "Agregador de Links Customizado",
+      url: "https://links.ikebanaflores.com.br/",
+      desc: "Agregador de links no estilo Linktree e Beacons, só que construído do zero para a Ikebana Flores, floricultura que existe desde 1988. Quase todo cliente que chega pelo Instagram, TikTok ou YouTube passa por essa página antes de comprar, e as ferramentas prontas entregam sempre a mesma cara genérica. Aqui a página tem domínio próprio, banners e cores da marca, prévia caprichada quando o link é compartilhado e tema claro e escuro. Cada botão leva direto ao que importa: o WhatsApp das atendentes, a loja online ou um produto em destaque. Todos os cliques saem com UTM e passam pelo Google Tag Manager, para comparar as redes e ver o que converte de verdade. Tudo isso com custo mensal zero e o layout com a cara do cliente, não da plataforma.",
+      tags: ["Domínio próprio", "Identidade da marca", "UTMs", "Google Tag Manager", "WhatsApp direto", "Tema claro/escuro", "Custo zero", "Construído com IA"],
+      results: [
+        { v: "R$ 0", l: "Custo mensal" },
+        { v: "1 toque", l: "Até o WhatsApp ou a loja" },
+        { v: "100%", l: "Cliques rastreados com UTM" }
+      ],
+      videos: []
+    },
+    "site-windows-xp": {
+      badge: "Site",
+      title: "Site Inspirado no Windows XP",
+      url: "https://jornadacronologicadosgames.com.br/",
+      desc: "Site totalmente inspirado no Windows XP para o quadro Jornada Cronológica Através da História dos Games, do Canal do Rogrão: reviews de jogos antigos ano a ano, a partir de 1985. O visitante abre o site e cai dentro de um computador de 2002, com tela de inicialização, papéis de parede, ícones e sons reais do sistema, menu Iniciar, janelas que abrem, movem e minimizam, tela azul e até um Campo Minado totalmente jogável. Cada seção virou algo do sistema: a Jornada é uma janela do Explorer com pastas por ano, o Hall of Fame é uma lista de ranking, cada jogo abre em uma janela de Propriedades com abas e o recomendador é o painel de Pesquisar. São quatro temas (Luna Azul, Verde-oliva, Prata e Clássico) e vinte papéis de parede originais com upscale por rede neural (Real-ESRGAN) para Full HD, em português e inglês. Muito além de um site convencional: uma experiência com propósito e nostalgia.",
+      tags: ["Windows XP", "Campo Minado jogável", "4 temas", "20 wallpapers Full HD", "Real-ESRGAN", "Sons originais", "PT-BR e EN", "Janelas e menu Iniciar"],
+      results: [
+        { v: "4", l: "Temas visuais" },
+        { v: "20", l: "Wallpapers em Full HD" },
+        { v: "2", l: "Idiomas: PT-BR e EN" }
+      ],
+      videos: []
     }
   };
   const pfBtns = document.querySelectorAll(".pf-btn");
@@ -499,7 +525,9 @@
           { title: "Floricultura na Nuvemshop", p: "Loja virtual do zero: pagamento, envio, plugins, produtos, banners, SEO e GEO.", badge: "E-commerce" },
           { title: "Plataforma de Cálculo Trabalhista", p: "Calculadora de rescisão com aviso proporcional, INSS, IRRF e multa do FGTS.", badge: "SaaS" },
           { title: "Plataforma de Dimensionamento de Climatização", p: "Calculadora de BTUs que dimensiona o aparelho e estima o consumo mensal.", badge: "SaaS" },
-          { title: "Plataforma de Estimativa de Valores de Reformas", p: "Calculadora de custo de obra por m², com reserva para imprevisto e prazo.", badge: "SaaS" }
+          { title: "Plataforma de Estimativa de Valores de Reformas", p: "Calculadora de custo de obra por m², com reserva para imprevisto e prazo.", badge: "SaaS" },
+          { title: "Agregador de Links Customizado", p: "Alternativa ao Linktree com domínio próprio, visual da marca, UTMs e custo mensal zero.", badge: "Site" },
+          { title: "Site Inspirado no Windows XP", p: "Um computador de 2002 no navegador: janelas, menu Iniciar, temas, sons e até Campo Minado.", badge: "Site" }
         ]
       },
       calc: {
@@ -629,7 +657,9 @@
           { title: "Flower Shop on Nuvemshop", p: "Online store from scratch: payments, shipping, plugins, products, banners, SEO & GEO.", badge: "E-commerce" },
           { title: "Labor Law Calculation Platform", p: "Severance calculator with proportional notice, social security, income tax and FGTS penalty.", badge: "SaaS" },
           { title: "HVAC Sizing Platform", p: "BTU calculator that sizes the unit and estimates monthly running cost.", badge: "SaaS" },
-          { title: "Renovation Cost Estimation Platform", p: "Construction cost calculator per m², with contingency reserve and timeline.", badge: "SaaS" }
+          { title: "Renovation Cost Estimation Platform", p: "Construction cost calculator per m², with contingency reserve and timeline.", badge: "SaaS" },
+          { title: "Custom Link-in-Bio Page", p: "A Linktree alternative with its own domain, brand visuals, UTMs and zero monthly cost.", badge: "Site" },
+          { title: "Windows XP-Inspired Website", p: "A 2002 computer in the browser: windows, Start menu, themes, sounds and even Minesweeper.", badge: "Site" }
         ]
       },
       calc: {
@@ -759,7 +789,9 @@
           { title: "Floristería en Nuvemshop", p: "Tienda virtual desde cero: pagos, envíos, plugins, productos, banners, SEO y GEO.", badge: "E-commerce" },
           { title: "Plataforma de Cálculo Laboral", p: "Calculadora de finiquito con preaviso proporcional, seguridad social, impuesto y FGTS.", badge: "SaaS" },
           { title: "Plataforma de Dimensionamiento de Climatización", p: "Calculadora de BTU que dimensiona el equipo y estima el consumo mensual.", badge: "SaaS" },
-          { title: "Plataforma de Estimación de Costos de Reformas", p: "Calculadora de costo de obra por m², con reserva para imprevistos y plazo.", badge: "SaaS" }
+          { title: "Plataforma de Estimación de Costos de Reformas", p: "Calculadora de costo de obra por m², con reserva para imprevistos y plazo.", badge: "SaaS" },
+          { title: "Agregador de Links Personalizado", p: "Alternativa a Linktree con dominio propio, identidad de la marca, UTMs y costo mensual cero.", badge: "Sitio" },
+          { title: "Sitio Inspirado en Windows XP", p: "Una computadora de 2002 en el navegador: ventanas, menú Inicio, temas, sonidos y hasta Buscaminas.", badge: "Sitio" }
         ]
       },
       calc: {
@@ -882,6 +914,20 @@
         title: "Renovation Cost Estimation Platform",
         desc: "A construction cost estimator per square metre anchored in SINAPI, the official Brazilian construction cost index, with multipliers for renovation depth, finishing standard and region. Bathrooms and kitchens are treated as add-ons because they do not follow the average, and the output is a price range with the material and labour split, the timeline and the contingency reserve that almost no quote includes.",
         results: [{ v: "4", l: "Renovation levels" }, { v: "3", l: "Finishing standards" }, { v: "SINAPI", l: "Official cost base" }]
+      },
+      "agregador-links": {
+        badge: "Site",
+        title: "Custom Link-in-Bio Page",
+        desc: "A link-in-bio page in the spirit of Linktree and Beacons, but built from scratch for Ikebana Flores, a flower shop founded in 1988. Almost every customer arriving from Instagram, TikTok or YouTube passes through this page before buying, and off-the-shelf tools always deliver the same generic look. Here the page has its own domain, brand banners and colours, a polished preview when the link is shared, and light and dark themes. Every button goes straight to what matters: the sales team on WhatsApp, the online store or a featured product. Every click carries UTM parameters and runs through Google Tag Manager, so the networks can be compared and what really converts becomes visible. All of this at zero monthly cost, with a layout that looks like the client, not the platform.",
+        tags: ["Own domain", "Brand identity", "UTMs", "Google Tag Manager", "Direct to WhatsApp", "Light/dark theme", "Zero cost", "Built with AI"],
+        results: [{ v: "R$ 0", l: "Monthly cost" }, { v: "1 tap", l: "To WhatsApp or the store" }, { v: "100%", l: "Clicks tracked with UTM" }]
+      },
+      "site-windows-xp": {
+        badge: "Site",
+        title: "Windows XP-Inspired Website",
+        desc: "A website fully inspired by Windows XP for the Chronological Journey Through Video Game History series of Canal do Rogrão: reviews of old games year by year, starting in 1985. Visitors open the site and land inside a 2002 computer, with a boot screen, wallpapers, icons and real system sounds, a Start menu, windows that open, move and minimise, a blue screen and even a fully playable Minesweeper. Every section became part of the system: the Journey is an Explorer window with folders per year, the Hall of Fame is a ranking list, each game opens in a Properties window with tabs and the recommender is the Search panel. Four themes (Luna Blue, Olive Green, Silver and Classic) and twenty original wallpapers upscaled by neural network (Real-ESRGAN) to Full HD, in Portuguese and English. Far beyond a conventional website: an experience with purpose and nostalgia.",
+        tags: ["Windows XP", "Playable Minesweeper", "4 themes", "20 Full HD wallpapers", "Real-ESRGAN", "Original sounds", "PT-BR and EN", "Windows and Start menu"],
+        results: [{ v: "4", l: "Visual themes" }, { v: "20", l: "Full HD wallpapers" }, { v: "2", l: "Languages: PT-BR and EN" }]
       }
     },
     es: {
@@ -944,6 +990,20 @@
         title: "Plataforma de Estimación de Costos de Reformas",
         desc: "Estimador de costo de obra por metro cuadrado anclado en el SINAPI, el índice oficial brasileño de costos de construcción, con multiplicadores por profundidad de la reforma, estándar de acabado y región. Baño y cocina se tratan como adicionales porque no siguen el promedio, y el resultado es un rango de valores con la división entre material y mano de obra, el plazo y la reserva para imprevistos que casi ningún presupuesto incluye.",
         results: [{ v: "4", l: "Niveles de reforma" }, { v: "3", l: "Estándares de acabado" }, { v: "SINAPI", l: "Base oficial de costos" }]
+      },
+      "agregador-links": {
+        badge: "Sitio",
+        title: "Agregador de Links Personalizado",
+        desc: "Agregador de links al estilo Linktree y Beacons, pero construido desde cero para Ikebana Flores, floristería fundada en 1988. Casi todo cliente que llega por Instagram, TikTok o YouTube pasa por esta página antes de comprar, y las herramientas listas entregan siempre la misma cara genérica. Aquí la página tiene dominio propio, banners y colores de la marca, una vista previa cuidada al compartir el link y tema claro y oscuro. Cada botón lleva directo a lo que importa: el WhatsApp de las vendedoras, la tienda online o un producto destacado. Todos los clics salen con UTM y pasan por Google Tag Manager, para comparar las redes y ver qué convierte de verdad. Todo con costo mensual cero y un diseño con la identidad del cliente, no de la plataforma.",
+        tags: ["Dominio propio", "Identidad de marca", "UTMs", "Google Tag Manager", "Directo a WhatsApp", "Tema claro/oscuro", "Costo cero", "Construido con IA"],
+        results: [{ v: "R$ 0", l: "Costo mensual" }, { v: "1 toque", l: "Hasta WhatsApp o la tienda" }, { v: "100%", l: "Clics rastreados con UTM" }]
+      },
+      "site-windows-xp": {
+        badge: "Sitio",
+        title: "Sitio Inspirado en Windows XP",
+        desc: "Sitio totalmente inspirado en Windows XP para la serie Jornada Cronológica a Través de la Historia de los Videojuegos, del Canal do Rogrão: reseñas de juegos antiguos año a año, a partir de 1985. El visitante abre el sitio y cae dentro de una computadora de 2002, con pantalla de inicio, fondos de pantalla, íconos y sonidos reales del sistema, menú Inicio, ventanas que se abren, mueven y minimizan, pantalla azul y hasta un Buscaminas totalmente jugable. Cada sección se convirtió en algo del sistema: la Jornada es una ventana del Explorador con carpetas por año, el Hall of Fame es una lista de ranking, cada juego se abre en una ventana de Propiedades con pestañas y el recomendador es el panel de Buscar. Cuatro temas (Luna Azul, Verde Oliva, Plata y Clásico) y veinte fondos de pantalla originales escalados por red neuronal (Real-ESRGAN) a Full HD, en portugués e inglés. Mucho más que un sitio convencional: una experiencia con propósito y nostalgia.",
+        tags: ["Windows XP", "Buscaminas jugable", "4 temas", "20 fondos Full HD", "Real-ESRGAN", "Sonidos originales", "PT-BR e EN", "Ventanas y menú Inicio"],
+        results: [{ v: "4", l: "Temas visuales" }, { v: "20", l: "Fondos en Full HD" }, { v: "2", l: "Idiomas: PT-BR e EN" }]
       }
     }
   };
