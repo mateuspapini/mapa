@@ -327,12 +327,12 @@
       badge: "Site",
       title: "Maya Shield",
       url: "https://mayashield.mapasolucoesdigitais.com.br/",
-      desc: "Site institucional para uma empresa de engenharia da Península de Yucatán, no México, especializada em impermeabilização de cenotes e estruturas subterrâneas. O conteúdo apresenta a vedação técnica contra infiltrações em porões, cisternas, túneis e piscinas naturais, projetada para suportar a alta pressão do lençol freático e a salinidade do solo calcário da região. Destaca os métodos ecologicamente seguros, com materiais certificados para contato com água, como poliureia e cristalização capilar, que não contaminam os aquíferos nem danificam o ecossistema local. E reforça os diferenciais da empresa: diagnóstico baseado em evidências (termografia e testes de estanqueidade), intervenções sem paralisar o funcionamento de hotéis e condomínios e garantia de até 10 anos. Página única em espanhol, com corte geológico no hero, abas de sistemas, comparador antes e depois, processo em etapas e formulário de avaliação técnica.",
-      tags: ["Site institucional", "Espanhol", "Identidade visual", "Comparador antes/depois", "Tabs animadas", "SEO & Schema.org", "Responsivo", "Página única"],
+      desc: "Site institucional para uma empresa de engenharia da Península de Yucatán, no México, especializada em impermeabilização de cenotes e estruturas subterrâneas. Página única em espanhol, com corte geológico no hero, abas de sistemas, comparador antes e depois, processo em etapas e formulário de avaliação técnica.",
+      tags: ["Site institucional", "Espanhol", "Identidade visual aplicada", "Comparador antes/depois", "Medidor de profundidade", "Tabs animadas", "SEO & Schema.org", "Sem frameworks"],
       results: [
-        { v: "4", l: "Sistemas de impermeabilização" },
-        { v: "6", l: "Etapas de processo" },
-        { v: "10 anos", l: "Garantia apresentada" }
+        { v: "8", l: "Componentes interativos sob medida" },
+        { v: "0", l: "Frameworks: HTML, CSS e JS puros" },
+        { v: "R$ 0", l: "Custo mensal de hospedagem" }
       ],
       videos: []
     }
@@ -737,9 +737,9 @@
       mayashield: {
         badge: "Site",
         title: "Maya Shield",
-        desc: "Corporate website for an engineering company in the Yucatán Peninsula, Mexico, specialised in waterproofing cenotes and underground structures. The content presents technical sealing against seepage in basements, cisterns, tunnels and natural pools, designed to withstand the high water-table pressure and the salinity of the region's limestone soil. It highlights environmentally safe methods, with materials certified for water contact such as polyurea and crystalline waterproofing, that do not contaminate aquifers or harm the local ecosystem. And it reinforces the company's differentiators: evidence-based diagnosis (thermography and watertightness tests), interventions that do not require hotels or condominiums to stop operating, and a warranty of up to 10 years. Single-page site in Spanish, with a geological cross-section hero, system tabs, before/after comparator, step-by-step process and a technical assessment form.",
-        tags: ["Corporate website", "Spanish", "Brand identity", "Before/after comparator", "Animated tabs", "SEO & Schema.org", "Responsive", "Single page"],
-        results: [{ v: "4", l: "Waterproofing systems" }, { v: "6", l: "Process stages" }, { v: "10 years", l: "Warranty presented" }]
+        desc: "Corporate website for an engineering company in the Yucatán Peninsula, Mexico, specialised in waterproofing cenotes and underground structures. Single-page site in Spanish, with a geological cross-section hero, system tabs, before/after comparator, step-by-step process and a technical assessment form.",
+        tags: ["Corporate website", "Spanish", "Brand identity applied", "Before/after comparator", "Depth gauge", "Animated tabs", "SEO & Schema.org", "No frameworks"],
+        results: [{ v: "8", l: "Custom interactive components" }, { v: "0", l: "Frameworks: plain HTML, CSS and JS" }, { v: "R$ 0", l: "Monthly hosting cost" }]
       }
     },
     es: {
@@ -1031,9 +1031,9 @@
       mayashield: {
         badge: "Sitio",
         title: "Maya Shield",
-        desc: "Sitio institucional para una empresa de ingeniería de la Península de Yucatán, México, especializada en impermeabilización de cenotes y estructuras subterráneas. El contenido presenta el sellado técnico contra filtraciones en sótanos, cisternas, túneles y albercas naturales, diseñado para soportar la alta presión del nivel freático y la salinidad del suelo calizo de la región. Destaca los métodos ecológicamente seguros, con materiales certificados para contacto con agua, como poliurea y cristalización capilar, que no contaminan los acuíferos ni dañan el ecosistema local. Y refuerza los diferenciales de la empresa: diagnóstico basado en evidencias (termografía y pruebas de estanqueidad), intervenciones sin detener la operación de hoteles y condominios y garantía de hasta 10 años. Página única en español, con corte geológico en el hero, pestañas de sistemas, comparador antes/después, proceso por etapas y formulario de evaluación técnica.",
-        tags: ["Sitio institucional", "Español", "Identidad visual", "Comparador antes/después", "Pestañas animadas", "SEO & Schema.org", "Responsivo", "Página única"],
-        results: [{ v: "4", l: "Sistemas de impermeabilización" }, { v: "6", l: "Etapas del proceso" }, { v: "10 años", l: "Garantía presentada" }]
+        desc: "Sitio institucional para una empresa de ingeniería de la Península de Yucatán, México, especializada en impermeabilización de cenotes y estructuras subterráneas. Página única en español, con corte geológico en el hero, pestañas de sistemas, comparador antes/después, proceso por etapas y formulario de evaluación técnica.",
+        tags: ["Sitio institucional", "Español", "Identidad visual aplicada", "Comparador antes/después", "Medidor de profundidad", "Pestañas animadas", "SEO & Schema.org", "Sin frameworks"],
+        results: [{ v: "8", l: "Componentes interactivos a medida" }, { v: "0", l: "Frameworks: HTML, CSS y JS puros" }, { v: "R$ 0", l: "Costo mensual de hosting" }]
       }
     }
   };
