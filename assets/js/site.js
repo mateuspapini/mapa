@@ -322,6 +322,19 @@
         { v: "2", l: "Idiomas: PT-BR e EN" }
       ],
       videos: []
+    },
+    mayashield: {
+      badge: "Site",
+      title: "Maya Shield",
+      url: "https://mayashield.mapasolucoesdigitais.com.br/",
+      desc: "Site institucional para uma empresa de engenharia da Península de Yucatán, no México, especializada em impermeabilização de cenotes e estruturas subterrâneas. O conteúdo apresenta a vedação técnica contra infiltrações em porões, cisternas, túneis e piscinas naturais, projetada para suportar a alta pressão do lençol freático e a salinidade do solo calcário da região. Destaca os métodos ecologicamente seguros, com materiais certificados para contato com água, como poliureia e cristalização capilar, que não contaminam os aquíferos nem danificam o ecossistema local. E reforça os diferenciais da empresa: diagnóstico baseado em evidências (termografia e testes de estanqueidade), intervenções sem paralisar o funcionamento de hotéis e condomínios e garantia de até 10 anos. Página única em espanhol, com corte geológico no hero, abas de sistemas, comparador antes e depois, processo em etapas e formulário de avaliação técnica.",
+      tags: ["Site institucional", "Espanhol", "Identidade visual", "Comparador antes/depois", "Tabs animadas", "SEO & Schema.org", "Responsivo", "Página única"],
+      results: [
+        { v: "4", l: "Sistemas de impermeabilização" },
+        { v: "6", l: "Etapas de processo" },
+        { v: "10 anos", l: "Garantia apresentada" }
+      ],
+      videos: []
     }
   };
   const pfBtns = document.querySelectorAll(".pf-btn");
@@ -527,7 +540,8 @@
           { title: "Plataforma de Dimensionamento de Climatização", p: "Calculadora de BTUs que dimensiona o aparelho e estima o consumo mensal.", badge: "SaaS" },
           { title: "Plataforma de Estimativa de Valores de Reformas", p: "Calculadora de custo de obra por m², com reserva para imprevisto e prazo.", badge: "SaaS" },
           { title: "Agregador de Links Customizado", p: "Alternativa ao Linktree com domínio próprio, visual da marca, UTMs e custo mensal zero.", badge: "Site" },
-          { title: "Site Inspirado no Windows XP", p: "Um computador de 2002 no navegador: janelas, menu Iniciar, temas, sons e até Campo Minado.", badge: "Site" }
+          { title: "Site Inspirado no Windows XP", p: "Um computador de 2002 no navegador: janelas, menu Iniciar, temas, sons e até Campo Minado.", badge: "Site" },
+          { title: "Maya Shield", p: "Site institucional para engenharia de impermeabilização de cenotes e estruturas subterrâneas no México.", badge: "Site" }
         ]
       },
       calc: {
@@ -659,7 +673,8 @@
           { title: "HVAC Sizing Platform", p: "BTU calculator that sizes the unit and estimates monthly running cost.", badge: "SaaS" },
           { title: "Renovation Cost Estimation Platform", p: "Construction cost calculator per m², with contingency reserve and timeline.", badge: "SaaS" },
           { title: "Custom Link-in-Bio Page", p: "A Linktree alternative with its own domain, brand visuals, UTMs and zero monthly cost.", badge: "Site" },
-          { title: "Windows XP-Inspired Website", p: "A 2002 computer in the browser: windows, Start menu, themes, sounds and even Minesweeper.", badge: "Site" }
+          { title: "Windows XP-Inspired Website", p: "A 2002 computer in the browser: windows, Start menu, themes, sounds and even Minesweeper.", badge: "Site" },
+          { title: "Maya Shield", p: "Corporate website for a cenote and underground-structure waterproofing engineering firm in Mexico.", badge: "Site" }
         ]
       },
       calc: {
@@ -718,6 +733,13 @@
         contact: { title: "Contact", city: "Belo Horizonte, MG, Brazil", remote: "Remote service for all of Brazil" },
         copyright: "© 2026 MAPA Soluções Digitais. All rights reserved.",
         cnpj: "CNPJ: 38.295.265/0001-37 · Belo Horizonte, MG · Remote service for all of Brazil"
+      },
+      mayashield: {
+        badge: "Site",
+        title: "Maya Shield",
+        desc: "Corporate website for an engineering company in the Yucatán Peninsula, Mexico, specialised in waterproofing cenotes and underground structures. The content presents technical sealing against seepage in basements, cisterns, tunnels and natural pools, designed to withstand the high water-table pressure and the salinity of the region's limestone soil. It highlights environmentally safe methods, with materials certified for water contact such as polyurea and crystalline waterproofing, that do not contaminate aquifers or harm the local ecosystem. And it reinforces the company's differentiators: evidence-based diagnosis (thermography and watertightness tests), interventions that do not require hotels or condominiums to stop operating, and a warranty of up to 10 years. Single-page site in Spanish, with a geological cross-section hero, system tabs, before/after comparator, step-by-step process and a technical assessment form.",
+        tags: ["Corporate website", "Spanish", "Brand identity", "Before/after comparator", "Animated tabs", "SEO & Schema.org", "Responsive", "Single page"],
+        results: [{ v: "4", l: "Waterproofing systems" }, { v: "6", l: "Process stages" }, { v: "10 years", l: "Warranty presented" }]
       }
     },
     es: {
@@ -791,7 +813,8 @@
           { title: "Plataforma de Dimensionamiento de Climatización", p: "Calculadora de BTU que dimensiona el equipo y estima el consumo mensual.", badge: "SaaS" },
           { title: "Plataforma de Estimación de Costos de Reformas", p: "Calculadora de costo de obra por m², con reserva para imprevistos y plazo.", badge: "SaaS" },
           { title: "Agregador de Links Personalizado", p: "Alternativa a Linktree con dominio propio, identidad de la marca, UTMs y costo mensual cero.", badge: "Sitio" },
-          { title: "Sitio Inspirado en Windows XP", p: "Una computadora de 2002 en el navegador: ventanas, menú Inicio, temas, sonidos y hasta Buscaminas.", badge: "Sitio" }
+          { title: "Sitio Inspirado en Windows XP", p: "Una computadora de 2002 en el navegador: ventanas, menú Inicio, temas, sonidos y hasta Buscaminas.", badge: "Sitio" },
+          { title: "Maya Shield", p: "Sitio institucional para ingeniería de impermeabilización de cenotes y estructuras subterráneas en México.", badge: "Sitio" }
         ]
       },
       calc: {
@@ -1004,6 +1027,13 @@
         desc: "Sitio totalmente inspirado en Windows XP para la serie Jornada Cronológica a Través de la Historia de los Videojuegos, del Canal do Rogrão: reseñas de juegos antiguos año a año, a partir de 1985. El visitante abre el sitio y cae dentro de una computadora de 2002, con pantalla de inicio, fondos de pantalla, íconos y sonidos reales del sistema, menú Inicio, ventanas que se abren, mueven y minimizan, pantalla azul y hasta un Buscaminas totalmente jugable. Cada sección se convirtió en algo del sistema: la Jornada es una ventana del Explorador con carpetas por año, el Hall of Fame es una lista de ranking, cada juego se abre en una ventana de Propiedades con pestañas y el recomendador es el panel de Buscar. Cuatro temas (Luna Azul, Verde Oliva, Plata y Clásico) y veinte fondos de pantalla originales escalados por red neuronal (Real-ESRGAN) a Full HD, en portugués e inglés. Mucho más que un sitio convencional: una experiencia con propósito y nostalgia.",
         tags: ["Windows XP", "Buscaminas jugable", "4 temas", "20 fondos Full HD", "Real-ESRGAN", "Sonidos originales", "PT-BR e EN", "Ventanas y menú Inicio"],
         results: [{ v: "4", l: "Temas visuales" }, { v: "20", l: "Fondos en Full HD" }, { v: "2", l: "Idiomas: PT-BR e EN" }]
+      },
+      mayashield: {
+        badge: "Sitio",
+        title: "Maya Shield",
+        desc: "Sitio institucional para una empresa de ingeniería de la Península de Yucatán, México, especializada en impermeabilización de cenotes y estructuras subterráneas. El contenido presenta el sellado técnico contra filtraciones en sótanos, cisternas, túneles y albercas naturales, diseñado para soportar la alta presión del nivel freático y la salinidad del suelo calizo de la región. Destaca los métodos ecológicamente seguros, con materiales certificados para contacto con agua, como poliurea y cristalización capilar, que no contaminan los acuíferos ni dañan el ecosistema local. Y refuerza los diferenciales de la empresa: diagnóstico basado en evidencias (termografía y pruebas de estanqueidad), intervenciones sin detener la operación de hoteles y condominios y garantía de hasta 10 años. Página única en español, con corte geológico en el hero, pestañas de sistemas, comparador antes/después, proceso por etapas y formulario de evaluación técnica.",
+        tags: ["Sitio institucional", "Español", "Identidad visual", "Comparador antes/después", "Pestañas animadas", "SEO & Schema.org", "Responsivo", "Página única"],
+        results: [{ v: "4", l: "Sistemas de impermeabilización" }, { v: "6", l: "Etapas del proceso" }, { v: "10 años", l: "Garantía presentada" }]
       }
     }
   };
